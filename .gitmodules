@@ -1,0 +1,3 @@
+[submodule "shared-code"]
+	path = shared-code
+	url = https://github.com/Stoejmaskiner/shared-code.git

@@ -9,6 +9,7 @@
 #pragma once
 
 #include <JuceHeader.h>
+#include <../shared-code/stoej_juce_utils.h>
 
 //==============================================================================
 /**
@@ -22,6 +23,39 @@ public:
     //==============================================================================
     MEP00TextureAudioProcessor();
     ~MEP00TextureAudioProcessor() override;
+
+    // the apvts is used to store parameters and plugin state
+    juce::AudioProcessorValueTreeState apvts{
+        *this, nullptr, "Parameters", []()
+        {
+
+            juce::AudioProcessorValueTreeState::ParameterLayout layout;
+
+            layout.add(
+                stoej::UniqueParamBool("mode", "simple / gritty", true),
+                stoej::UniqueParamFloat(
+                    "amount", "amount",
+                    juce::NormalisableRange<float>(0.0f, 1.0f),
+                    0.5f),
+                stoej::UniqueParamBool("filter_enable", "toggle filter", true),
+                stoej::UniqueParamFloat(
+                    "filter_LP_cutoff", "LP cutoff",
+                    juce::NormalisableRange<float>(20.0f, 18000.0f, 0.0f, 0.3f),
+                    12000.0f),
+                stoej::UniqueParamFloat(
+                    "filter_HP_cutoff", "HP cutoff",
+                    juce::NormalisableRange<float>(5.0f, 16000.0f, 0.3f),
+                    60.0f),
+                stoej::UniqueParamFloat(
+                    "post_gain", "post gain",
+                    juce::NormalisableRange<float>(0.0f, 2.0f, 0.0f, 0.5f),
+                    1.0f
+                )
+
+            );
+            return layout;
+        }()
+    };
 
     //==============================================================================
     void prepareToPlay (double sampleRate, int samplesPerBlock) override;
