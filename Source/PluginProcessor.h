@@ -9,7 +9,8 @@
 #pragma once
 
 #include <JuceHeader.h>
-#include <../shared-code/stoej_juce_utils.h>
+#include "../shared-code/stoej_juce_utils.h"
+#include "../shared-code/stoej_mfx.h"
 
 //==============================================================================
 /**
@@ -92,5 +93,7 @@ public:
 
 private:
     //==============================================================================
+    stoej::RingModNoise rm_noise_;
+
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MEP00TextureAudioProcessor)
 };

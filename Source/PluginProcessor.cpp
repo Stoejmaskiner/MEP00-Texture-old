@@ -144,6 +144,7 @@ void MEP00TextureAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer,
     for (auto i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
         buffer.clear (i, 0, buffer.getNumSamples());
 
+    /*
     // This is the place where you'd normally do the guts of your plugin's
     // audio processing...
     // Make sure to reset the state if your inner loop is processing
@@ -156,6 +157,9 @@ void MEP00TextureAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer,
 
         // ..do something to the data...
     }
+    */
+
+    this->rm_noise_.process(stoej::buff_to_context(buffer)); 
 }
 
 //==============================================================================
@@ -166,7 +170,8 @@ bool MEP00TextureAudioProcessor::hasEditor() const
 
 juce::AudioProcessorEditor* MEP00TextureAudioProcessor::createEditor()
 {
-    return new MEP00TextureAudioProcessorEditor (*this);
+    return new juce::GenericAudioProcessorEditor(*this);
+    //return new MEP00TextureAudioProcessorEditor (*this);
 }
 
 //==============================================================================

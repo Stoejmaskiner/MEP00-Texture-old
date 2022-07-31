@@ -31,7 +31,7 @@
   <EXPORTFORMATS>
     <VS2022 targetFolder="Builds/VisualStudio2022">
       <CONFIGURATIONS>
-        <CONFIGURATION isDebug="1" name="Debug" targetName="MEP00 - Texture"/>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="MEP00 - Texture" headerPath="../../shared-code/*"/>
         <CONFIGURATION isDebug="0" name="Release" targetName="MEP00 - Texture"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
