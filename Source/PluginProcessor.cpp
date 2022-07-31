@@ -22,6 +22,8 @@ MEP00TextureAudioProcessor::MEP00TextureAudioProcessor()
                        )
 #endif
 {
+    this->sample_rate = 0.0f;
+    this->max_size = 0;
 }
 
 MEP00TextureAudioProcessor::~MEP00TextureAudioProcessor()
@@ -95,6 +97,13 @@ void MEP00TextureAudioProcessor::prepareToPlay (double sampleRate, int samplesPe
 {
     // Use this method as the place to do any pre-playback
     // initialisation that you need..
+    this->sample_rate = sampleRate;
+    this->max_size = samplesPerBlock;
+    auto spec = juce::dsp::ProcessSpec();
+    spec.maximumBlockSize = samplesPerBlock;
+    spec.sampleRate = sampleRate;
+    this->rm_noise_a_.prepare(spec);
+    this->rm_noise_b_.prepare(spec);
 }
 
 void MEP00TextureAudioProcessor::releaseResources()
@@ -159,7 +168,10 @@ void MEP00TextureAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer,
     }
     */
 
-    this->rm_noise_.process(stoej::buff_to_context(buffer)); 
+
+
+    //this->rm_noise_a_.process(stoej::buff_to_context(buffer)); 
+    this->rm_noise_b_.process(stoej::buff_to_context(buffer));
 }
 
 //==============================================================================

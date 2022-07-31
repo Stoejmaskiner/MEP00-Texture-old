@@ -35,10 +35,13 @@ public:
             layout.add(
                 stoej::UniqueParamBool("mode", "simple / gritty", true),
                 stoej::UniqueParamFloat(
-                    "amount", "amount",
+                    "mix", "dry / wet",
                     juce::NormalisableRange<float>(0.0f, 1.0f),
                     0.5f),
-                stoej::UniqueParamBool("filter_enable", "toggle filter", true),
+                stoej::UniqueParamFloat(
+                    "width", "noise width",
+                    juce::NormalisableRange<float>(0.0f, 1.0f),
+                    0.5f),
                 stoej::UniqueParamFloat(
                     "filter_LP_cutoff", "LP cutoff",
                     juce::NormalisableRange<float>(20.0f, 18000.0f, 0.0f, 0.3f),
@@ -93,7 +96,19 @@ public:
 
 private:
     //==============================================================================
-    stoej::RingModNoise rm_noise_;
+    using Gain = juce::dsp::Gain<float>;
+    using DryWet = juce::dsp::DryWetMixer<float>;
+    using Filter = juce::dsp::StateVariableFilter::Filter<float>;
+    
+    size_t max_size;
+    float sample_rate;
+    stoej::RingModNoiseA rm_noise_a_;
+    stoej::RingModNoiseB rm_noise_b_;
+    Filter noise_hp_;
+    Filter noise_lp_;
+    DryWet mixer_;
+    Gain post_gain_;
+    
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MEP00TextureAudioProcessor)
 };

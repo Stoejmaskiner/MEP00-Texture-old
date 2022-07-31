@@ -3,7 +3,7 @@
 <JUCERPROJECT id="m5ObIL" name="MEP00 - Texture" projectType="audioplug" useAppConfig="0"
               addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1"
               version="0.1.0" companyName="Stoejmaskiner" pluginManufacturerCode="Stoj"
-              pluginCode="Me00" pluginChannelConfigs="{1, 1}, {2, 2}" pluginCharacteristicsValue="pluginEditorRequiresKeys"
+              pluginCode="Me00" pluginCharacteristicsValue="pluginEditorRequiresKeys"
               headerPath="shared-code/" cppLanguageStandard="20">
   <MAINGROUP id="PVQy7Z" name="MEP00 - Texture">
     <GROUP id="{C71F062B-04D7-FE1D-EC67-8232AC9E9B6A}" name="shared-code">
@@ -11,6 +11,7 @@
       <FILE id="E8JDGk" name="README.md" compile="0" resource="1" file="shared-code/README.md"/>
       <FILE id="MDZPnb" name="stoej_distortion.h" compile="0" resource="0"
             file="shared-code/stoej_distortion.h"/>
+      <FILE id="vVlfri" name="stoej_filters.h" compile="0" resource="0" file="shared-code/stoej_filters.h"/>
       <FILE id="fT9FiE" name="stoej_juce_utils.h" compile="0" resource="0"
             file="shared-code/stoej_juce_utils.h"/>
       <FILE id="OATmSA" name="stoej_math.h" compile="0" resource="0" file="shared-code/stoej_math.h"/>
