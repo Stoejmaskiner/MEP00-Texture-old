@@ -6,17 +6,138 @@
               pluginCode="Me00" pluginCharacteristicsValue="pluginEditorRequiresKeys"
               headerPath="shared-code/" cppLanguageStandard="20">
   <MAINGROUP id="PVQy7Z" name="MEP00 - Texture">
+    <GROUP id="{8D49F0FE-7900-E0FE-B018-49CDE23C5EDB}" name="include">
+      <GROUP id="{C47150A3-4D10-10A8-F99E-FBB82EEB9026}" name="gcem_incl">
+        <GROUP id="{99E472E2-25ED-FD26-C7C6-D4A216FC1304}" name="quadrature">
+          <FILE id="aVEXA5" name="gauss_legendre_30.hpp" compile="0" resource="0"
+                file="gcem/include/gcem_incl/quadrature/gauss_legendre_30.hpp"/>
+          <FILE id="XxDxvI" name="gauss_legendre_50.hpp" compile="0" resource="0"
+                file="gcem/include/gcem_incl/quadrature/gauss_legendre_50.hpp"/>
+        </GROUP>
+        <FILE id="td1ZMU" name="abs.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/abs.hpp"/>
+        <FILE id="foS6xU" name="acos.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/acos.hpp"/>
+        <FILE id="GZt543" name="acosh.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/acosh.hpp"/>
+        <FILE id="rx3oLS" name="asin.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/asin.hpp"/>
+        <FILE id="pntirb" name="asinh.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/asinh.hpp"/>
+        <FILE id="DyiufI" name="atan.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/atan.hpp"/>
+        <FILE id="uiAWAr" name="atan2.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/atan2.hpp"/>
+        <FILE id="Lz4oVs" name="atanh.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/atanh.hpp"/>
+        <FILE id="uDsScm" name="beta.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/beta.hpp"/>
+        <FILE id="k02c1C" name="binomial_coef.hpp" compile="0" resource="0"
+              file="gcem/include/gcem_incl/binomial_coef.hpp"/>
+        <FILE id="ODut9D" name="ceil.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/ceil.hpp"/>
+        <FILE id="dVp7fg" name="copysign.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/copysign.hpp"/>
+        <FILE id="GO3kck" name="cos.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/cos.hpp"/>
+        <FILE id="GHGHE1" name="cosh.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/cosh.hpp"/>
+        <FILE id="DwgbnY" name="erf.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/erf.hpp"/>
+        <FILE id="I9Kas5" name="erf_inv.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/erf_inv.hpp"/>
+        <FILE id="rCOouT" name="exp.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/exp.hpp"/>
+        <FILE id="npfIJX" name="expm1.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/expm1.hpp"/>
+        <FILE id="oBBtlm" name="factorial.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/factorial.hpp"/>
+        <FILE id="nKAeJ3" name="find_exponent.hpp" compile="0" resource="0"
+              file="gcem/include/gcem_incl/find_exponent.hpp"/>
+        <FILE id="gL70mQ" name="find_fraction.hpp" compile="0" resource="0"
+              file="gcem/include/gcem_incl/find_fraction.hpp"/>
+        <FILE id="jEfKHE" name="find_whole.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/find_whole.hpp"/>
+        <FILE id="tksGfe" name="floor.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/floor.hpp"/>
+        <FILE id="aGIAj1" name="fmod.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/fmod.hpp"/>
+        <FILE id="wQSb9N" name="gcd.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/gcd.hpp"/>
+        <FILE id="IRJFkc" name="gcem_options.hpp" compile="0" resource="0"
+              file="gcem/include/gcem_incl/gcem_options.hpp"/>
+        <FILE id="SV8XKU" name="hypot.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/hypot.hpp"/>
+        <FILE id="hxADgh" name="incomplete_beta.hpp" compile="0" resource="0"
+              file="gcem/include/gcem_incl/incomplete_beta.hpp"/>
+        <FILE id="IIdj6i" name="incomplete_beta_inv.hpp" compile="0" resource="0"
+              file="gcem/include/gcem_incl/incomplete_beta_inv.hpp"/>
+        <FILE id="SyX6eA" name="incomplete_gamma.hpp" compile="0" resource="0"
+              file="gcem/include/gcem_incl/incomplete_gamma.hpp"/>
+        <FILE id="RItJTh" name="incomplete_gamma_inv.hpp" compile="0" resource="0"
+              file="gcem/include/gcem_incl/incomplete_gamma_inv.hpp"/>
+        <FILE id="Iv2rwh" name="inv_sqrt.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/inv_sqrt.hpp"/>
+        <FILE id="zPds53" name="is_even.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/is_even.hpp"/>
+        <FILE id="WYGNpo" name="is_finite.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/is_finite.hpp"/>
+        <FILE id="T8YPMW" name="is_inf.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/is_inf.hpp"/>
+        <FILE id="zaJIho" name="is_nan.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/is_nan.hpp"/>
+        <FILE id="YpywdV" name="is_odd.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/is_odd.hpp"/>
+        <FILE id="LyGfQ5" name="lbeta.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/lbeta.hpp"/>
+        <FILE id="NA9EPY" name="lcm.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/lcm.hpp"/>
+        <FILE id="zJArzZ" name="lgamma.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/lgamma.hpp"/>
+        <FILE id="IHoCiU" name="lmgamma.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/lmgamma.hpp"/>
+        <FILE id="iouoD6" name="log.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/log.hpp"/>
+        <FILE id="izuivs" name="log_binomial_coef.hpp" compile="0" resource="0"
+              file="gcem/include/gcem_incl/log_binomial_coef.hpp"/>
+        <FILE id="ocBkvo" name="log1p.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/log1p.hpp"/>
+        <FILE id="SqsUBE" name="log2.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/log2.hpp"/>
+        <FILE id="R4h3gM" name="log10.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/log10.hpp"/>
+        <FILE id="l8PQ4Q" name="mantissa.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/mantissa.hpp"/>
+        <FILE id="G6M9qk" name="max.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/max.hpp"/>
+        <FILE id="IC5JMp" name="min.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/min.hpp"/>
+        <FILE id="PJZs8n" name="neg_zero.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/neg_zero.hpp"/>
+        <FILE id="jh6yyy" name="pow.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/pow.hpp"/>
+        <FILE id="UKo9WB" name="pow_integral.hpp" compile="0" resource="0"
+              file="gcem/include/gcem_incl/pow_integral.hpp"/>
+        <FILE id="sblT9h" name="round.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/round.hpp"/>
+        <FILE id="p5Z40I" name="sgn.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/sgn.hpp"/>
+        <FILE id="ktXcyq" name="signbit.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/signbit.hpp"/>
+        <FILE id="cUVEzp" name="sin.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/sin.hpp"/>
+        <FILE id="aIHa6i" name="sinh.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/sinh.hpp"/>
+        <FILE id="EGasyZ" name="sqrt.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/sqrt.hpp"/>
+        <FILE id="pf3OMa" name="tan.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/tan.hpp"/>
+        <FILE id="Wj47DA" name="tanh.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/tanh.hpp"/>
+        <FILE id="sc1eyG" name="tgamma.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/tgamma.hpp"/>
+        <FILE id="gEwjzd" name="trunc.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/trunc.hpp"/>
+      </GROUP>
+      <FILE id="eVqWyi" name="gcem.hpp" compile="0" resource="0" file="gcem/include/gcem.hpp"/>
+    </GROUP>
     <GROUP id="{C71F062B-04D7-FE1D-EC67-8232AC9E9B6A}" name="shared-code">
+      <GROUP id="{CE673C0C-A0C8-80A1-1E4F-265DBE1A0333}" name="dsp">
+        <GROUP id="{8A4D684D-E1B5-5DEF-33DB-166757E6BF62}" name="generators">
+          <FILE id="aGGGd3" name="stoej_salt_pepper_noise.cpp" compile="1" resource="0"
+                file="shared-code/dsp/generators/stoej_salt_pepper_noise.cpp"/>
+          <FILE id="NK7OOD" name="stoej_salt_pepper_noise.h" compile="0" resource="0"
+                file="shared-code/dsp/generators/stoej_salt_pepper_noise.h"/>
+          <FILE id="flfNeF" name="stoej_white_noise.cpp" compile="1" resource="0"
+                file="shared-code/dsp/generators/stoej_white_noise.cpp"/>
+          <FILE id="xZK4Wv" name="stoej_white_noise.h" compile="0" resource="0"
+                file="shared-code/dsp/generators/stoej_white_noise.h"/>
+        </GROUP>
+        <GROUP id="{46D8943D-3A21-077A-B1A0-ECFB7510C36A}" name="procesors">
+          <GROUP id="{9B9E2F8C-7F77-206D-760E-559FD740F95F}" name="mfx">
+            <FILE id="rqadms" name="stoej_ring_mod_noise_a.cpp" compile="1" resource="0"
+                  file="shared-code/dsp/procesors/mfx/stoej_ring_mod_noise_a.cpp"/>
+            <FILE id="PVFoZ1" name="stoej_ring_mod_noise_a.h" compile="0" resource="0"
+                  file="shared-code/dsp/procesors/mfx/stoej_ring_mod_noise_a.h"/>
+            <FILE id="q7UtcA" name="stoej_ring_mod_noise_b.cpp" compile="1" resource="0"
+                  file="shared-code/dsp/procesors/mfx/stoej_ring_mod_noise_b.cpp"/>
+            <FILE id="USYzxV" name="stoej_ring_mod_noise_b.h" compile="0" resource="0"
+                  file="shared-code/dsp/procesors/mfx/stoej_ring_mod_noise_b.h"/>
+            <FILE id="WR4NDo" name="stoej_ring_mod_noise_c.cpp" compile="1" resource="0"
+                  file="shared-code/dsp/procesors/mfx/stoej_ring_mod_noise_c.cpp"/>
+            <FILE id="SeA6Lx" name="stoej_ring_mod_noise_c.h" compile="0" resource="0"
+                  file="shared-code/dsp/procesors/mfx/stoej_ring_mod_noise_c.h"/>
+          </GROUP>
+        </GROUP>
+      </GROUP>
+      <GROUP id="{2E7DC20D-2B4D-982D-8DB0-A174B81D42E1}" name="templates">
+        <FILE id="cFrwAW" name="template_processor.cpp" compile="1" resource="0"
+              file="shared-code/Templates/template_processor.cpp"/>
+        <FILE id="jkKbS5" name="template_processor.h" compile="0" resource="0"
+              file="shared-code/Templates/template_processor.h"/>
+      </GROUP>
+      <GROUP id="{C854C6FC-D46A-D856-D6CE-2F328AC02D69}" name="utils">
+        <FILE id="TJa5JW" name="stoej_compile_time_utils.h" compile="0" resource="0"
+              file="shared-code/utils/stoej_compile_time_utils.h"/>
+        <FILE id="TAxtN9" name="stoej_juce_utils.h" compile="0" resource="0"
+              file="shared-code/utils/stoej_juce_utils.h"/>
+        <FILE id="iNGRu6" name="stoej_math.h" compile="0" resource="0" file="shared-code/utils/stoej_math.h"/>
+        <FILE id="c0rKMc" name="stoej_nonlinearities.h" compile="0" resource="0"
+              file="shared-code/utils/stoej_nonlinearities.h"/>
+        <FILE id="nK37Cn" name="stoej_xfade.h" compile="0" resource="0" file="shared-code/utils/stoej_xfade.h"/>
+      </GROUP>
       <FILE id="XoB65E" name="LICENSE" compile="0" resource="1" file="shared-code/LICENSE"/>
       <FILE id="E8JDGk" name="README.md" compile="0" resource="1" file="shared-code/README.md"/>
-      <FILE id="MDZPnb" name="stoej_distortion.h" compile="0" resource="0"
-            file="shared-code/stoej_distortion.h"/>
-      <FILE id="vVlfri" name="stoej_filters.h" compile="0" resource="0" file="shared-code/stoej_filters.h"/>
-      <FILE id="fT9FiE" name="stoej_juce_utils.h" compile="0" resource="0"
-            file="shared-code/stoej_juce_utils.h"/>
-      <FILE id="OATmSA" name="stoej_math.h" compile="0" resource="0" file="shared-code/stoej_math.h"/>
+      <FILE id="ugDaDY" name="stoej_core.h" compile="0" resource="0" file="shared-code/stoej_core.h"/>
       <FILE id="rtkCVj" name="stoej_mfx.h" compile="0" resource="0" file="shared-code/stoej_mfx.h"/>
-      <FILE id="DKF0g5" name="stoej_random.h" compile="0" resource="0" file="shared-code/stoej_random.h"/>
     </GROUP>
     <GROUP id="{A7EB67A8-3E2D-B56D-DB08-5F3950B89085}" name="Source">
       <FILE id="znbe4c" name="PluginProcessor.cpp" compile="1" resource="0"
@@ -27,13 +148,15 @@
             file="Source/PluginEditor.cpp"/>
       <FILE id="p5uLWk" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
     </GROUP>
+    <FILE id="Tbv7Vx" name="help.h" compile="0" resource="0" file="Source/help.h"/>
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
   <EXPORTFORMATS>
     <VS2022 targetFolder="Builds/VisualStudio2022">
       <CONFIGURATIONS>
-        <CONFIGURATION isDebug="1" name="Debug" targetName="MEP00 - Texture" headerPath="../../shared-code/*"/>
-        <CONFIGURATION isDebug="0" name="Release" targetName="MEP00 - Texture"/>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="MEP00 - Texture" enablePluginBinaryCopyStep="1"
+                       headerPath="../../shared-code&#10;../../gcem/include"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="MEP00 - Texture" enablePluginBinaryCopyStep="1"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_audio_basics" path="../../../../../JUCE/modules"/>

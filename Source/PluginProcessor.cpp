@@ -97,13 +97,19 @@ void MEP00TextureAudioProcessor::prepareToPlay (double sampleRate, int samplesPe
 {
     // Use this method as the place to do any pre-playback
     // initialisation that you need..
+
     this->sample_rate = sampleRate;
     this->max_size = samplesPerBlock;
     auto spec = juce::dsp::ProcessSpec();
     spec.maximumBlockSize = samplesPerBlock;
     spec.sampleRate = sampleRate;
+
+    this->white_noise_.prepare(spec);
+    
+    /*
     this->rm_noise_a_.prepare(spec);
     this->rm_noise_b_.prepare(spec);
+    */
 }
 
 void MEP00TextureAudioProcessor::releaseResources()
@@ -168,10 +174,18 @@ void MEP00TextureAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer,
     }
     */
 
+    float width = *this->apvts.getRawParameterValue("WIDTH");
+    auto block = juce::dsp::AudioBlock<float>(buffer);
+    auto context = juce::dsp::ProcessContextReplacing<float>(block);
+    this->white_noise_.setNoiseWidth(width);
+    this->white_noise_.process(context);
+
+    //this->white_noise_.process(stoej::buff_to_context(buffer));
+
 
 
     //this->rm_noise_a_.process(stoej::buff_to_context(buffer)); 
-    this->rm_noise_b_.process(stoej::buff_to_context(buffer));
+    //this->rm_noise_b_.process(stoej::buff_to_context(buffer));
 }
 
 //==============================================================================

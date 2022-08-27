@@ -9,8 +9,8 @@
 #pragma once
 
 #include <JuceHeader.h>
-#include "../shared-code/stoej_juce_utils.h"
-#include "../shared-code/stoej_mfx.h"
+#include "utils/stoej_juce_utils.h"
+#include "dsp/generators/stoej_white_noise.h"
 
 //==============================================================================
 /**
@@ -39,7 +39,7 @@ public:
                     juce::NormalisableRange<float>(0.0f, 1.0f),
                     0.5f),
                 stoej::UniqueParamFloat(
-                    "width", "noise width",
+                    "WIDTH", "noise width",
                     juce::NormalisableRange<float>(0.0f, 1.0f),
                     0.5f),
                 stoej::UniqueParamFloat(
@@ -102,12 +102,18 @@ private:
     
     size_t max_size;
     float sample_rate;
+
+    stoej::WhiteNoise<float> white_noise_;
+    
+    /*
     stoej::RingModNoiseA rm_noise_a_;
     stoej::RingModNoiseB rm_noise_b_;
     Filter noise_hp_;
     Filter noise_lp_;
     DryWet mixer_;
     Gain post_gain_;
+    */
+
     
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MEP00TextureAudioProcessor)
