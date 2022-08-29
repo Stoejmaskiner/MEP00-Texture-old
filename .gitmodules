@@ -1,3 +1,6 @@
 [submodule "shared-code"]
 	path = shared-code
 	url = https://github.com/Stoejmaskiner/shared-code.git
+[submodule "gcem"]
+	path = gcem
+	url = https://github.com/kthohr/gcem.git
