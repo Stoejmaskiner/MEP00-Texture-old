@@ -9,6 +9,7 @@
     <GROUP id="{C71F062B-04D7-FE1D-EC67-8232AC9E9B6A}" name="shared-code">
       <FILE id="XoB65E" name="LICENSE" compile="0" resource="1" file="shared-code/LICENSE"/>
       <FILE id="E8JDGk" name="README.md" compile="0" resource="1" file="shared-code/README.md"/>
+      <FILE id="ue6HWe" name="stoej_base.h" compile="0" resource="0" file="shared-code/stoej_base.h"/>
       <FILE id="MDZPnb" name="stoej_distortion.h" compile="0" resource="0"
             file="shared-code/stoej_distortion.h"/>
       <FILE id="vVlfri" name="stoej_filters.h" compile="0" resource="0" file="shared-code/stoej_filters.h"/>

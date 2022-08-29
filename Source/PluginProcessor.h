@@ -11,6 +11,7 @@
 #include <JuceHeader.h>
 #include "../shared-code/stoej_juce_utils.h"
 #include "../shared-code/stoej_mfx.h"
+#include "../shared-code/stoej_filters.h"
 
 //==============================================================================
 /**
@@ -23,53 +24,13 @@ class MEP00TextureAudioProcessor  : public juce::AudioProcessor
 public:
     //==============================================================================
     MEP00TextureAudioProcessor();
-    ~MEP00TextureAudioProcessor() override;
-
-    // the apvts is used to store parameters and plugin state
-    juce::AudioProcessorValueTreeState apvts{
-        *this, nullptr, "Parameters", []()
-        {
-
-            juce::AudioProcessorValueTreeState::ParameterLayout layout;
-
-            layout.add(
-                stoej::UniqueParamBool("mode", "simple / gritty", true),
-                stoej::UniqueParamFloat(
-                    "mix", "dry / wet",
-                    juce::NormalisableRange<float>(0.0f, 1.0f),
-                    0.5f),
-                stoej::UniqueParamFloat(
-                    "width", "noise width",
-                    juce::NormalisableRange<float>(0.0f, 1.0f),
-                    0.5f),
-                stoej::UniqueParamFloat(
-                    "filter_LP_cutoff", "LP cutoff",
-                    juce::NormalisableRange<float>(20.0f, 18000.0f, 0.0f, 0.3f),
-                    12000.0f),
-                stoej::UniqueParamFloat(
-                    "filter_HP_cutoff", "HP cutoff",
-                    juce::NormalisableRange<float>(5.0f, 16000.0f, 0.3f),
-                    60.0f),
-                stoej::UniqueParamFloat(
-                    "post_gain", "post gain",
-                    juce::NormalisableRange<float>(0.0f, 2.0f, 0.0f, 0.5f),
-                    1.0f
-                )
-
-            );
-            return layout;
-        }()
-    };
+    ~MEP00TextureAudioProcessor() override = default;
 
     //==============================================================================
     void prepareToPlay (double sampleRate, int samplesPerBlock) override;
     void releaseResources() override;
-
-   #ifndef JucePlugin_PreferredChannelConfigurations
-    bool isBusesLayoutSupported (const BusesLayout& layouts) const override;
-   #endif
-
     void processBlock (juce::AudioBuffer<float>&, juce::MidiBuffer&) override;
+    void reset() override;
 
     //==============================================================================
     juce::AudioProcessorEditor* createEditor() override;
@@ -83,6 +44,10 @@ public:
     bool isMidiEffect() const override;
     double getTailLengthSeconds() const override;
 
+#ifndef JucePlugin_PreferredChannelConfigurations
+    bool isBusesLayoutSupported(const BusesLayout& layouts) const override;
+#endif
+
     //==============================================================================
     int getNumPrograms() override;
     int getCurrentProgram() override;
@@ -94,21 +59,38 @@ public:
     void getStateInformation (juce::MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
 
-private:
+    juce::AudioProcessorValueTreeState apvts;
+
+private: 
+    juce::AudioProcessorValueTreeState::ParameterLayout get_parameter_layout_();
+
     //==============================================================================
     using Gain = juce::dsp::Gain<float>;
     using DryWet = juce::dsp::DryWetMixer<float>;
-    using Filter = juce::dsp::StateVariableFilter::Filter<float>;
-    
+    using Filter = juce::dsp::StateVariableTPTFilter<float>;
+
+    // meta
     size_t max_size;
     float sample_rate;
+
+    // processors
     stoej::RingModNoiseA rm_noise_a_;
     stoej::RingModNoiseB rm_noise_b_;
     Filter noise_hp_;
     Filter noise_lp_;
     DryWet mixer_;
     Gain post_gain_;
-    
+
+    // param value references
+    std::atomic<float>* mode_raw_ptr_;
+    std::atomic<float>* width_raw_ptr_;
+    std::atomic<float>* mix_raw_ptr_;
+    std::atomic<float>* filter_lp_cut_raw_ptr_;
+    std::atomic<float>* filter_hp_cut_raw_ptr_;
+    std::atomic<float>* post_gain_raw_ptr_;
+
+    // support buffers
+    juce::AudioBuffer<float> dry_buffer_;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MEP00TextureAudioProcessor)
 };
