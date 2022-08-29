@@ -103,18 +103,10 @@
         </GROUP>
         <GROUP id="{46D8943D-3A21-077A-B1A0-ECFB7510C36A}" name="procesors">
           <GROUP id="{9B9E2F8C-7F77-206D-760E-559FD740F95F}" name="mfx">
-            <FILE id="rqadms" name="stoej_ring_mod_noise_a.cpp" compile="1" resource="0"
-                  file="shared-code/dsp/procesors/mfx/stoej_ring_mod_noise_a.cpp"/>
-            <FILE id="PVFoZ1" name="stoej_ring_mod_noise_a.h" compile="0" resource="0"
-                  file="shared-code/dsp/procesors/mfx/stoej_ring_mod_noise_a.h"/>
-            <FILE id="q7UtcA" name="stoej_ring_mod_noise_b.cpp" compile="1" resource="0"
-                  file="shared-code/dsp/procesors/mfx/stoej_ring_mod_noise_b.cpp"/>
-            <FILE id="USYzxV" name="stoej_ring_mod_noise_b.h" compile="0" resource="0"
-                  file="shared-code/dsp/procesors/mfx/stoej_ring_mod_noise_b.h"/>
-            <FILE id="WR4NDo" name="stoej_ring_mod_noise_c.cpp" compile="1" resource="0"
-                  file="shared-code/dsp/procesors/mfx/stoej_ring_mod_noise_c.cpp"/>
-            <FILE id="SeA6Lx" name="stoej_ring_mod_noise_c.h" compile="0" resource="0"
-                  file="shared-code/dsp/procesors/mfx/stoej_ring_mod_noise_c.h"/>
+            <FILE id="u4XX0X" name="stoej_multiplicative_noise.cpp" compile="1"
+                  resource="0" file="shared-code/dsp/procesors/mfx/stoej_multiplicative_noise.cpp"/>
+            <FILE id="MCorG8" name="stoej_multiplicative_noise.h" compile="0" resource="0"
+                  file="shared-code/dsp/procesors/mfx/stoej_multiplicative_noise.h"/>
           </GROUP>
         </GROUP>
       </GROUP>

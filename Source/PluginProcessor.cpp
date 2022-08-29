@@ -105,6 +105,7 @@ void MEP00TextureAudioProcessor::prepareToPlay (double sampleRate, int samplesPe
     spec.sampleRate = sampleRate;
 
     this->white_noise_.prepare(spec);
+    this->multiplicative_noise_.prepare(spec);
     
     /*
     this->rm_noise_a_.prepare(spec);
@@ -177,8 +178,8 @@ void MEP00TextureAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer,
     float width = *this->apvts.getRawParameterValue("WIDTH");
     auto block = juce::dsp::AudioBlock<float>(buffer);
     auto context = juce::dsp::ProcessContextReplacing<float>(block);
-    this->white_noise_.setNoiseWidth(width);
-    this->white_noise_.process(context);
+    this->multiplicative_noise_.setNoiseWidth(width);
+    this->multiplicative_noise_.process(context);
 
     //this->white_noise_.process(stoej::buff_to_context(buffer));
 

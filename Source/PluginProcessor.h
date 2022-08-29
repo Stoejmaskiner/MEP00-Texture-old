@@ -11,6 +11,7 @@
 #include <JuceHeader.h>
 #include "utils/stoej_juce_utils.h"
 #include "dsp/generators/stoej_white_noise.h"
+#include "dsp/procesors/mfx/stoej_multiplicative_noise.h"
 
 //==============================================================================
 /**
@@ -104,6 +105,7 @@ private:
     float sample_rate;
 
     stoej::WhiteNoise<float> white_noise_;
+    stoej::MultiplicativeNoise<float> multiplicative_noise_;
     
     /*
     stoej::RingModNoiseA rm_noise_a_;
