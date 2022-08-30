@@ -103,7 +103,7 @@ void MEP00TextureAudioProcessor::prepareToPlay (double sampleRate, int samplesPe
     auto spec = juce::dsp::ProcessSpec();
     spec.maximumBlockSize = samplesPerBlock;
     spec.sampleRate = sampleRate;
-
+    spec.numChannels = getTotalNumInputChannels();
     this->white_noise_.prepare(spec);
     this->multiplicative_noise_.prepare(spec);
     
