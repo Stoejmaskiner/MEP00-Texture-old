@@ -148,8 +148,8 @@ bool MEP00TextureAudioProcessor::isBusesLayoutSupported (const BusesLayout& layo
 void MEP00TextureAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages)
 {
     juce::ScopedNoDenormals noDenormals;
-    auto totalNumInputChannels  = getTotalNumInputChannels();
-    auto totalNumOutputChannels = getTotalNumOutputChannels();
+    const auto totalNumInputChannels  = getTotalNumInputChannels();
+    const auto totalNumOutputChannels = getTotalNumOutputChannels();
 
     // In case we have more outputs than inputs, this code clears any output
     // channels that didn't contain input data, (because these aren't
@@ -175,10 +175,14 @@ void MEP00TextureAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer,
     }
     */
 
-    float width = *this->apvts.getRawParameterValue("WIDTH");
+    const float width = *this->apvts.getRawParameterValue(Parameters::noise_width.id);
+    const float density = *this->apvts.getRawParameterValue(Parameters::noise_density.id);
+    const float mix = *this->apvts.getRawParameterValue(Parameters::noise_mix.id);
     auto block = juce::dsp::AudioBlock<float>(buffer);
-    auto context = juce::dsp::ProcessContextReplacing<float>(block);
+    const auto context = juce::dsp::ProcessContextReplacing<float>(block);
     this->multiplicative_noise_.setNoiseWidth(width);
+    this->multiplicative_noise_.setNoiseDensity(density);
+    this->multiplicative_noise_.setNoiseMix(mix);
     this->multiplicative_noise_.process(context);
 
     //this->white_noise_.process(stoej::buff_to_context(buffer));

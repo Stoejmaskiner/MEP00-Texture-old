@@ -132,6 +132,8 @@
       <FILE id="rtkCVj" name="stoej_mfx.h" compile="0" resource="0" file="shared-code/stoej_mfx.h"/>
     </GROUP>
     <GROUP id="{A7EB67A8-3E2D-B56D-DB08-5F3950B89085}" name="Source">
+      <FILE id="PVwxwN" name="PluginParameters.h" compile="0" resource="0"
+            file="Source/PluginParameters.h"/>
       <FILE id="znbe4c" name="PluginProcessor.cpp" compile="1" resource="0"
             file="Source/PluginProcessor.cpp"/>
       <FILE id="ohh6iC" name="PluginProcessor.h" compile="0" resource="0"
@@ -140,7 +142,6 @@
             file="Source/PluginEditor.cpp"/>
       <FILE id="p5uLWk" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
     </GROUP>
-    <FILE id="Tbv7Vx" name="help.h" compile="0" resource="0" file="Source/help.h"/>
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
   <EXPORTFORMATS>

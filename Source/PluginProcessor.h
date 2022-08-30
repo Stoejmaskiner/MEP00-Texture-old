@@ -12,6 +12,8 @@
 #include "utils/stoej_juce_utils.h"
 #include "dsp/generators/stoej_white_noise.h"
 #include "dsp/procesors/mfx/stoej_multiplicative_noise.h"
+#include "PluginParameters.h"
+
 
 //==============================================================================
 /**
@@ -32,31 +34,16 @@ public:
         {
 
             juce::AudioProcessorValueTreeState::ParameterLayout layout;
+            using namespace Parameters;
 
             layout.add(
-                stoej::UniqueParamBool("mode", "simple / gritty", true),
-                stoej::UniqueParamFloat(
-                    "mix", "dry / wet",
-                    juce::NormalisableRange<float>(0.0f, 1.0f),
-                    0.5f),
-                stoej::UniqueParamFloat(
-                    "WIDTH", "noise width",
-                    juce::NormalisableRange<float>(0.0f, 1.0f),
-                    0.5f),
-                stoej::UniqueParamFloat(
-                    "filter_LP_cutoff", "LP cutoff",
-                    juce::NormalisableRange<float>(20.0f, 18000.0f, 0.0f, 0.3f),
-                    12000.0f),
-                stoej::UniqueParamFloat(
-                    "filter_HP_cutoff", "HP cutoff",
-                    juce::NormalisableRange<float>(5.0f, 16000.0f, 0.3f),
-                    60.0f),
-                stoej::UniqueParamFloat(
-                    "post_gain", "post gain",
-                    juce::NormalisableRange<float>(0.0f, 2.0f, 0.0f, 0.5f),
-                    1.0f
-                )
-
+                stoej::UniqueParamBool( enable_grit),
+                stoej::UniqueParamFloat(noise_density),
+                stoej::UniqueParamFloat(noise_mix),
+                stoej::UniqueParamFloat(filter_lp_cutoff),
+                stoej::UniqueParamFloat(filter_hp_cutoff),
+                stoej::UniqueParamFloat(noise_width),
+                stoej::UniqueParamFloat(output_level)
             );
             return layout;
         }()
