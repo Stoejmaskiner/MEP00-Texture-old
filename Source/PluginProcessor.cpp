@@ -178,11 +178,19 @@ void MEP00TextureAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer,
     const float width = *this->apvts.getRawParameterValue(Parameters::noise_width.id);
     const float density = *this->apvts.getRawParameterValue(Parameters::noise_density.id);
     const float mix = *this->apvts.getRawParameterValue(Parameters::noise_mix.id);
+    const float filter_lp_cut = *this->apvts.getRawParameterValue(Parameters::filter_lp_cutoff.id);
+    const float filter_hp_cut = *this->apvts.getRawParameterValue(Parameters::filter_hp_cutoff.id);
+    const float out_level = *this->apvts.getRawParameterValue(Parameters::output_level.id);
+    const bool  grit_enable = *this->apvts.getRawParameterValue(Parameters::output_level.id);
     auto block = juce::dsp::AudioBlock<float>(buffer);
     const auto context = juce::dsp::ProcessContextReplacing<float>(block);
     this->multiplicative_noise_.setNoiseWidth(width);
     this->multiplicative_noise_.setNoiseDensity(density);
     this->multiplicative_noise_.setNoiseMix(mix);
+    this->multiplicative_noise_.setFilterLPCutoff(filter_lp_cut);
+    this->multiplicative_noise_.setFilterHPCutoff(filter_hp_cut);
+    this->multiplicative_noise_.setOutLevel(out_level);
+    this->multiplicative_noise_.setGritEnable(grit_enable);
     this->multiplicative_noise_.process(context);
 
     //this->white_noise_.process(stoej::buff_to_context(buffer));
