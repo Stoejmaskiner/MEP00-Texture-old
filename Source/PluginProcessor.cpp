@@ -107,9 +107,7 @@ void MEP00TextureAudioProcessor::prepareToPlay (double sampleRate, int samplesPe
     this->white_noise_.prepare(spec);
     this->multiplicative_noise_.prepare(spec);
     
-    /*
-    this->rm_noise_a_.prepare(spec);
-    this->rm_noise_b_.prepare(spec);
+    
 }
 
 void MEP00TextureAudioProcessor::releaseResources()
@@ -180,7 +178,7 @@ void MEP00TextureAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer,
     const float filter_lp_cut = *this->apvts.getRawParameterValue(Parameters::filter_lp_cutoff.id);
     const float filter_hp_cut = *this->apvts.getRawParameterValue(Parameters::filter_hp_cutoff.id);
     const float out_level = *this->apvts.getRawParameterValue(Parameters::output_level.id);
-    const bool  grit_enable = *this->apvts.getRawParameterValue(Parameters::output_level.id);
+    const bool  grit_enable = *this->apvts.getRawParameterValue(Parameters::enable_grit.id);
     auto block = juce::dsp::AudioBlock<float>(buffer);
     const auto context = juce::dsp::ProcessContextReplacing<float>(block);
     this->multiplicative_noise_.setNoiseWidth(width);

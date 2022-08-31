@@ -19,7 +19,7 @@
 
 namespace Parameters {
 	inline constexpr stoej::BoolParamInfo  enable_grit {"ENABLE_GRIT", "grit", false};
-	inline constexpr stoej::FloatParamInfo noise_density { .id = "NOISE_DENSITY", .name = "noise density", .init = 1.0f, .skew = .35f};
+	inline constexpr stoej::FloatParamInfo noise_density { .id = "NOISE_DENSITY", .name = "noise density", .init = 1.0f, .range_0 = 0.00002f, .skew = .2f};
 	inline constexpr stoej::FloatParamInfo noise_mix{ "NOISE_MIX", "mix", 0.5f};
 	inline constexpr stoej::FloatParamInfo filter_lp_cutoff { .id = "FILTER_LP_CUTOFF", .name = "LP cutoff", .init = 12000.0f, .range_0 = 20.0f, .range_1 = 20000.0f, .skew = 0.25f};
 	inline constexpr stoej::FloatParamInfo filter_hp_cutoff { .id = "FILTER_HP_CUTOFF", .name = "HP cutoff", .init = 120.0f, .range_0 = 20.0f, .range_1 = 20000.0f, .skew = 0.25f };
