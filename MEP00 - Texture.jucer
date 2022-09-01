@@ -119,6 +119,8 @@
       <GROUP id="{C854C6FC-D46A-D856-D6CE-2F328AC02D69}" name="utils">
         <FILE id="TJa5JW" name="stoej_compile_time_utils.h" compile="0" resource="0"
               file="shared-code/utils/stoej_compile_time_utils.h"/>
+        <FILE id="S630jI" name="stoej_graphics.h" compile="0" resource="0"
+              file="shared-code/utils/stoej_graphics.h"/>
         <FILE id="TAxtN9" name="stoej_juce_utils.h" compile="0" resource="0"
               file="shared-code/utils/stoej_juce_utils.h"/>
         <FILE id="iNGRu6" name="stoej_math.h" compile="0" resource="0" file="shared-code/utils/stoej_math.h"/>
@@ -132,6 +134,32 @@
       <FILE id="rtkCVj" name="stoej_mfx.h" compile="0" resource="0" file="shared-code/stoej_mfx.h"/>
     </GROUP>
     <GROUP id="{A7EB67A8-3E2D-B56D-DB08-5F3950B89085}" name="Source">
+      <FILE id="HLpx6o" name="PluginGlobals.h" compile="0" resource="0" file="Source/PluginGlobals.h"/>
+      <FILE id="EpKFdU" name="PluginAssets.h" compile="0" resource="0" file="Source/PluginAssets.h"/>
+      <GROUP id="{0D0F10C1-53A2-E279-C4E5-A5DA9B02FB71}" name="Assets">
+        <FILE id="YowiR1" name="Archivo-Black.ttf" compile="0" resource="1"
+              file="Source/Assets/Archivo-Black.ttf"/>
+        <FILE id="t9YPLf" name="Archivo-Thin.ttf" compile="0" resource="1"
+              file="Source/Assets/Archivo-Thin.ttf"/>
+        <FILE id="w8OeLE" name="Archivo_Condensed-Bold.ttf" compile="0" resource="1"
+              file="Source/Assets/Archivo_Condensed-Bold.ttf"/>
+        <FILE id="Pne8PI" name="Archivo_Condensed-Regular.ttf" compile="0"
+              resource="1" file="Source/Assets/Archivo_Condensed-Regular.ttf"/>
+        <FILE id="AbofVJ" name="IBMPlexMono-Regular.ttf" compile="0" resource="1"
+              file="Source/Assets/IBMPlexMono-Regular.ttf"/>
+        <FILE id="jTBYua" name="Inter-Regular.ttf" compile="0" resource="1"
+              file="Source/Assets/Inter-Regular.ttf"/>
+      </GROUP>
+      <GROUP id="{DBDD210A-8CA8-FD31-AD69-C37442558B41}" name="Components">
+        <FILE id="h4zsdo" name="MainView.cpp" compile="1" resource="0" file="Source/Components/MainView.cpp"/>
+        <FILE id="VC77pn" name="MainView.h" compile="0" resource="0" file="Source/Components/MainView.h"/>
+        <FILE id="OJ6cMS" name="Ribbon.cpp" compile="1" resource="0" file="Source/Components/Ribbon.cpp"/>
+        <FILE id="k12cxH" name="Ribbon.h" compile="0" resource="0" file="Source/Components/Ribbon.h"/>
+        <FILE id="zHgipB" name="StatusBar.cpp" compile="1" resource="0" file="Source/Components/StatusBar.cpp"/>
+        <FILE id="PMTXIW" name="StatusBar.h" compile="0" resource="0" file="Source/Components/StatusBar.h"/>
+        <FILE id="jwJjUV" name="TitleBar.cpp" compile="1" resource="0" file="Source/Components/TitleBar.cpp"/>
+        <FILE id="ordmZ2" name="TitleBar.h" compile="0" resource="0" file="Source/Components/TitleBar.h"/>
+      </GROUP>
       <FILE id="PVwxwN" name="PluginParameters.h" compile="0" resource="0"
             file="Source/PluginParameters.h"/>
       <FILE id="znbe4c" name="PluginProcessor.cpp" compile="1" resource="0"
