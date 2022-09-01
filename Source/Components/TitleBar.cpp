@@ -11,6 +11,8 @@
 
 #include "TitleBar.h"
 
+#include "utils/stoej_graphics_utils.h"
+
 
 //==============================================================================
 TitleBar::TitleBar()
@@ -34,8 +36,6 @@ void TitleBar::paint (juce::Graphics& g)
     */
 
     auto r = getLocalBounds();
-
-
 
     g.setColour (COL_STROKE_PRIMARY);
     g.setFont(get_font_archivo_thin());

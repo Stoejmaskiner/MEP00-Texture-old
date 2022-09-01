@@ -14,14 +14,10 @@
 //==============================================================================
 Ribbon::Ribbon()
 {
-    // In your constructor, you should add any child components, and
-    // initialise any special settings that your component needs.
-
+    this->addAndMakeVisible(this->bounding_box_);
+    this->addAndMakeVisible(this->dbg_box_);
 }
 
-Ribbon::~Ribbon()
-{
-}
 
 void Ribbon::paint (juce::Graphics& g)
 {
@@ -32,20 +28,41 @@ void Ribbon::paint (juce::Graphics& g)
        drawing code..
     */
 
-    g.fillAll (getLookAndFeel().findColour (juce::ResizableWindow::backgroundColourId));   // clear the background
+   
 
-    g.setColour (juce::Colours::grey);
-    g.drawRect (getLocalBounds(), 1);   // draw an outline around the component
 
-    g.setColour (juce::Colours::white);
-    g.setFont (14.0f);
-    g.drawText ("Ribbon", getLocalBounds(),
-                juce::Justification::centred, true);   // draw some placeholder text
+
+    
+}
+
+void Ribbon::paintOverChildren(juce::Graphics& g) {
+	Component::paintOverChildren(g);
+    g.setColour(juce::Colours::black);
+    g.setFont(14.0f);
+    g.drawText("Ribbon", getLocalBounds(),
+        juce::Justification::centred, true);   // draw some placeholder text
 }
 
 void Ribbon::resized()
 {
     // This method is where you should set the bounds of any child
     // components that your component contains..
+    auto r = this->getLocalBounds();
+    this->bounding_box_.setBounds(r);
+    r.reduce(12*this->dp_,12*this->dp_);
+    this->dbg_box_.setBounds(r);
 
+}
+
+std::variant<int, stoej::DynamicSize> Ribbon::getPreferredHeight() {
+    return 48;
+}
+
+std::variant<int, stoej::DynamicSize> Ribbon::getPreferredWidth() {
+	return stoej::DynamicSize::e_fill_parent;
+}
+
+void Ribbon::setDP(double dp) {
+    this->dp_ = dp;
+    this->bounding_box_.setDP(dp);
 }

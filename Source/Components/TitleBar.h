@@ -12,7 +12,7 @@
 #include <JuceHeader.h>
 #include "../PluginAssets.h"
 #include "../PluginGlobals.h"
-#include "utils/stoej_graphics.h"
+#include "utils/stoej_graphics_utils.h"
 
 //==============================================================================
 /*

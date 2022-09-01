@@ -110,6 +110,18 @@
           </GROUP>
         </GROUP>
       </GROUP>
+      <GROUP id="{286A6F5B-DB10-C8C2-81A7-7D9E37EB7A68}" name="gui">
+        <GROUP id="{3EDCCE8E-F1D9-296C-AA3C-9B2E1212802D}" name="components">
+          <FILE id="bcq9yG" name="stoej_box.h" compile="0" resource="0" file="shared-code/gui/components/stoej_box.h"/>
+          <FILE id="qSasQl" name="stoej_dbg_box.h" compile="0" resource="0" file="shared-code/gui/components/stoej_dbg_box.h"/>
+          <FILE id="d8CtQO" name="stoej_menu_button.h" compile="0" resource="0"
+                file="shared-code/gui/components/stoej_menu_button.h"/>
+        </GROUP>
+        <GROUP id="{D9729B2A-F7A1-CE24-8B60-551AA5F2F158}" name="interfaces">
+          <FILE id="JVHN4w" name="stoej_component.h" compile="0" resource="0"
+                file="shared-code/gui/interfaces/stoej_component.h"/>
+        </GROUP>
+      </GROUP>
       <GROUP id="{2E7DC20D-2B4D-982D-8DB0-A174B81D42E1}" name="templates">
         <FILE id="cFrwAW" name="template_processor.cpp" compile="1" resource="0"
               file="shared-code/Templates/template_processor.cpp"/>
@@ -119,8 +131,8 @@
       <GROUP id="{C854C6FC-D46A-D856-D6CE-2F328AC02D69}" name="utils">
         <FILE id="TJa5JW" name="stoej_compile_time_utils.h" compile="0" resource="0"
               file="shared-code/utils/stoej_compile_time_utils.h"/>
-        <FILE id="S630jI" name="stoej_graphics.h" compile="0" resource="0"
-              file="shared-code/utils/stoej_graphics.h"/>
+        <FILE id="S630jI" name="stoej_graphics_utils.h" compile="0" resource="0"
+              file="shared-code/utils/stoej_graphics_utils.h"/>
         <FILE id="TAxtN9" name="stoej_juce_utils.h" compile="0" resource="0"
               file="shared-code/utils/stoej_juce_utils.h"/>
         <FILE id="iNGRu6" name="stoej_math.h" compile="0" resource="0" file="shared-code/utils/stoej_math.h"/>
@@ -149,6 +161,7 @@
               file="Source/Assets/IBMPlexMono-Regular.ttf"/>
         <FILE id="jTBYua" name="Inter-Regular.ttf" compile="0" resource="1"
               file="Source/Assets/Inter-Regular.ttf"/>
+        <FILE id="Sz99g5" name="list-thin.svg" compile="0" resource="1" file="Source/Assets/list-thin.svg"/>
       </GROUP>
       <GROUP id="{DBDD210A-8CA8-FD31-AD69-C37442558B41}" name="Components">
         <FILE id="h4zsdo" name="MainView.cpp" compile="1" resource="0" file="Source/Components/MainView.cpp"/>
