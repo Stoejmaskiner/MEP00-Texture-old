@@ -13,8 +13,12 @@
             file="Assets/Archivo-Thin.ttf"/>
       <FILE id="pcRhra" name="Archivo_Condensed-Bold.ttf" compile="0" resource="1"
             file="Assets/Archivo_Condensed-Bold.ttf"/>
+      <FILE id="R78LxP" name="Archivo_Condensed-Light.ttf" compile="0" resource="1"
+            file="Assets/Archivo_Condensed-Light.ttf"/>
       <FILE id="PXYInl" name="Archivo_Condensed-Regular.ttf" compile="0"
             resource="1" file="Assets/Archivo_Condensed-Regular.ttf"/>
+      <FILE id="Q3XeH6" name="Archivo_Condensed-Thin.ttf" compile="0" resource="1"
+            file="Assets/Archivo_Condensed-Thin.ttf"/>
       <FILE id="CEibfi" name="book-open-light.svg" compile="0" resource="1"
             file="Assets/book-open-light.svg"/>
       <FILE id="SKLbJB" name="caret-left-light.svg" compile="0" resource="1"
@@ -42,6 +46,7 @@
             file="Assets/sun-dim-light.svg"/>
       <FILE id="blLBha" name="swatches-light.svg" compile="0" resource="1"
             file="Assets/swatches-light.svg"/>
+      <FILE id="yN1xBj" name="user-light.svg" compile="0" resource="1" file="Assets/user-light.svg"/>
     </GROUP>
     <GROUP id="{8D49F0FE-7900-E0FE-B018-49CDE23C5EDB}" name="include">
       <GROUP id="{C47150A3-4D10-10A8-F99E-FBB82EEB9026}" name="gcem_incl">
@@ -129,10 +134,6 @@
     <GROUP id="{C71F062B-04D7-FE1D-EC67-8232AC9E9B6A}" name="shared-code">
       <GROUP id="{CE673C0C-A0C8-80A1-1E4F-265DBE1A0333}" name="dsp">
         <GROUP id="{8A4D684D-E1B5-5DEF-33DB-166757E6BF62}" name="generators">
-          <FILE id="aGGGd3" name="stoej_salt_pepper_noise.cpp" compile="1" resource="0"
-                file="shared-code/dsp/generators/stoej_salt_pepper_noise.cpp"/>
-          <FILE id="NK7OOD" name="stoej_salt_pepper_noise.h" compile="0" resource="0"
-                file="shared-code/dsp/generators/stoej_salt_pepper_noise.h"/>
           <FILE id="flfNeF" name="stoej_white_noise.cpp" compile="1" resource="0"
                 file="shared-code/dsp/generators/stoej_white_noise.cpp"/>
           <FILE id="xZK4Wv" name="stoej_white_noise.h" compile="0" resource="0"
@@ -153,6 +154,8 @@
           <FILE id="qSasQl" name="stoej_dbg_box.h" compile="0" resource="0" file="shared-code/gui/components/stoej_dbg_box.h"/>
           <FILE id="d8CtQO" name="stoej_menu_button.h" compile="0" resource="0"
                 file="shared-code/gui/components/stoej_menu_button.h"/>
+          <FILE id="sPmw3L" name="stoej_preset_text_field.h" compile="0" resource="0"
+                file="shared-code/gui/components/stoej_preset_text_field.h"/>
         </GROUP>
         <GROUP id="{D9729B2A-F7A1-CE24-8B60-551AA5F2F158}" name="interfaces">
           <FILE id="JVHN4w" name="stoej_resizeable_component.h" compile="0" resource="0"

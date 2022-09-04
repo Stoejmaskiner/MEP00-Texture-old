@@ -14,24 +14,25 @@
 
 #include <JuceHeader.h>
 #include "Ribbon.h"
+#include "../PluginAssets.h"
 
 //==============================================================================
 Ribbon::Ribbon() :
-    burger_menu_btn_(this->list_ico_),
-    browse_presets_btn_(this->folder_ico_),
+	preset_text_field_(get_font_archivo_narrow_bold(), get_font_archivo_narrow_light()),
+	burger_menu_btn_(this->list_ico_),
+	browse_presets_btn_(this->folder_ico_),
 	previous_preset_btn_(this->left_ico_),
 	next_preset_btn_(this->right_ico_),
-	save_preset_btn_(this->floppy_ico_)
-{
+	save_preset_btn_(this->floppy_ico_) {
     // setting edge visibility to avoid redrawing adjacent edges
     this->burger_menu_btn_.setTilePosition(stoej::e_array_left);
     this->browse_presets_btn_.setTilePosition(stoej::e_array_horizontal);
     this->previous_preset_btn_.setTilePosition(stoej::e_array_horizontal);
     this->next_preset_btn_.setTilePosition(stoej::e_array_horizontal);
     this->save_preset_btn_.setTilePosition(stoej::e_array_horizontal);
+    this->preset_text_field_.setTilePosition(stoej::e_array_horizontal);
 
-    //this->addAndMakeVisible(this->bounding_box_);
-    this->addAndMakeVisible(this->dbg_box_);
+    this->addAndMakeVisible(this->preset_text_field_);
     this->addAndMakeVisible(this->burger_menu_btn_);
     this->addAndMakeVisible(this->browse_presets_btn_);
     this->addAndMakeVisible(this->previous_preset_btn_);
@@ -49,14 +50,6 @@ void Ribbon::paint (juce::Graphics& g)
        You should replace everything in this method with your own
        drawing code..
     */
-}
-
-void Ribbon::paintOverChildren(juce::Graphics& g) {
-	Component::paintOverChildren(g);
-    g.setColour(juce::Colours::black);
-    g.setFont(14.0f);
-    g.drawText("Ribbon", getLocalBounds(),
-        juce::Justification::centred, true);   // draw some placeholder text
 }
 
 void Ribbon::resized()
@@ -85,7 +78,7 @@ void Ribbon::resized()
         r.removeFromRight(std::get<int>(this->save_preset_btn_.getWidth()) * dp_));
     
     // text box
-    this->dbg_box_.setBounds(r);
+    this->preset_text_field_.setBounds(r);
 }
 
 std::variant<int, stoej::DynamicSize> Ribbon::getHeight() {
@@ -108,5 +101,5 @@ void Ribbon::setDP(double dp) {
     this->previous_preset_btn_.setDP(dp);
     this->next_preset_btn_.setDP(dp);
     this->save_preset_btn_.setDP(dp);
-    //this->bounding_box_.setDP(dp);
+    this->preset_text_field_.setDP(dp);
 }

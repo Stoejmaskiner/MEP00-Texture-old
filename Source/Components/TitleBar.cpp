@@ -39,7 +39,7 @@ void TitleBar::paint (juce::Graphics& g)
 
     g.setColour (COL_STROKE_PRIMARY);
     g.setFont(get_font_archivo_thin());
-    g.setFont (20.0f * dp * stoej::PT_2_PX);
+    g.setFont (20.0 * dp * stoej::PT_2_PX);
     g.drawText ("[" + PRODUCT_CODE + "]", r,juce::Justification::left, true);   // draw some placeholder text
     g.setFont(get_font_archivo_black());
     g.setFont(20.0f * dp * stoej::PT_2_PX);

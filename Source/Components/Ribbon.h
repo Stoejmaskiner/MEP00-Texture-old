@@ -14,6 +14,7 @@
 #include "gui/components/stoej_box.h"
 #include "gui/components/stoej_dbg_box.h"
 #include "gui/components/stoej_menu_button.h"
+#include "gui/components/stoej_preset_text_field.h"
 
 //==============================================================================
 /*
@@ -29,7 +30,6 @@ public:
     ~Ribbon() override = default;
 
     void paint (juce::Graphics&) override;
-    void paintOverChildren(juce::Graphics& g) override;
     void resized() override;
 
     std::variant<int, stoej::DynamicSize> getHeight() override;
@@ -47,10 +47,12 @@ private:
         juce::Drawable::createFromImageData(BinaryData::caretrightlight_svg, BinaryData::caretrightlight_svgSize);
     const std::unique_ptr<juce::Drawable> floppy_ico_ =
         juce::Drawable::createFromImageData(BinaryData::floppydisklight_svg, BinaryData::floppydisklight_svgSize);
+    const std::unique_ptr<juce::Drawable> person_ =
+		juce::Drawable::createFromImageData(BinaryData::userlight_svg, BinaryData::userlight_svgSize);
 
     double dp_ = 1.0;
     //stoej::Box bounding_box_;
-    stoej::DbgBox dbg_box_;
+    stoej::PresetTextField preset_text_field_;
     stoej::MenuButton burger_menu_btn_;
     stoej::MenuButton browse_presets_btn_;
     stoej::MenuButton previous_preset_btn_;
