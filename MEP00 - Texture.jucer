@@ -6,6 +6,43 @@
               pluginCode="Me00" pluginCharacteristicsValue="pluginEditorRequiresKeys"
               headerPath="shared-code/" cppLanguageStandard="20">
   <MAINGROUP id="PVQy7Z" name="MEP00 - Texture">
+    <GROUP id="{93026A17-C8B1-2EEA-55D4-4B7E3546B4A8}" name="Assets">
+      <FILE id="YCJdTc" name="Archivo-Black.ttf" compile="0" resource="1"
+            file="Assets/Archivo-Black.ttf"/>
+      <FILE id="ir2LTD" name="Archivo-Thin.ttf" compile="0" resource="1"
+            file="Assets/Archivo-Thin.ttf"/>
+      <FILE id="pcRhra" name="Archivo_Condensed-Bold.ttf" compile="0" resource="1"
+            file="Assets/Archivo_Condensed-Bold.ttf"/>
+      <FILE id="PXYInl" name="Archivo_Condensed-Regular.ttf" compile="0"
+            resource="1" file="Assets/Archivo_Condensed-Regular.ttf"/>
+      <FILE id="CEibfi" name="book-open-light.svg" compile="0" resource="1"
+            file="Assets/book-open-light.svg"/>
+      <FILE id="SKLbJB" name="caret-left-light.svg" compile="0" resource="1"
+            file="Assets/caret-left-light.svg"/>
+      <FILE id="cItVKy" name="caret-right-light.svg" compile="0" resource="1"
+            file="Assets/caret-right-light.svg"/>
+      <FILE id="YuamPM" name="floppy-disk-light.svg" compile="0" resource="1"
+            file="Assets/floppy-disk-light.svg"/>
+      <FILE id="dqiB4z" name="folder-open-light.svg" compile="0" resource="1"
+            file="Assets/folder-open-light.svg"/>
+      <FILE id="fKTs7k" name="gear-six-light.svg" compile="0" resource="1"
+            file="Assets/gear-six-light.svg"/>
+      <FILE id="LkAYdT" name="IBMPlexMono-Regular.ttf" compile="0" resource="1"
+            file="Assets/IBMPlexMono-Regular.ttf"/>
+      <FILE id="oZvH2l" name="info-light.svg" compile="0" resource="1" file="Assets/info-light.svg"/>
+      <FILE id="BCBLW7" name="Inter-Regular.ttf" compile="0" resource="1"
+            file="Assets/Inter-Regular.ttf"/>
+      <FILE id="j6sn0K" name="link-light.svg" compile="0" resource="1" file="Assets/link-light.svg"/>
+      <FILE id="uEHExR" name="list-light.svg" compile="0" resource="1" file="Assets/list-light.svg"/>
+      <FILE id="XJpRI6" name="list-thin.svg" compile="0" resource="1" file="Assets/list-thin.svg"/>
+      <FILE id="TRt00G" name="moon-light.svg" compile="0" resource="1" file="Assets/moon-light.svg"/>
+      <FILE id="gtOIbq" name="shuffle-angular-light.svg" compile="0" resource="1"
+            file="Assets/shuffle-angular-light.svg"/>
+      <FILE id="p6gYYj" name="sun-dim-light.svg" compile="0" resource="1"
+            file="Assets/sun-dim-light.svg"/>
+      <FILE id="blLBha" name="swatches-light.svg" compile="0" resource="1"
+            file="Assets/swatches-light.svg"/>
+    </GROUP>
     <GROUP id="{8D49F0FE-7900-E0FE-B018-49CDE23C5EDB}" name="include">
       <GROUP id="{C47150A3-4D10-10A8-F99E-FBB82EEB9026}" name="gcem_incl">
         <GROUP id="{99E472E2-25ED-FD26-C7C6-D4A216FC1304}" name="quadrature">
@@ -118,8 +155,10 @@
                 file="shared-code/gui/components/stoej_menu_button.h"/>
         </GROUP>
         <GROUP id="{D9729B2A-F7A1-CE24-8B60-551AA5F2F158}" name="interfaces">
-          <FILE id="JVHN4w" name="stoej_component.h" compile="0" resource="0"
-                file="shared-code/gui/interfaces/stoej_component.h"/>
+          <FILE id="JVHN4w" name="stoej_resizeable_component.h" compile="0" resource="0"
+                file="shared-code/gui/interfaces/stoej_resizeable_component.h"/>
+          <FILE id="hvZcfO" name="stoej_tileable_component.h" compile="0" resource="0"
+                file="shared-code/gui/interfaces/stoej_tileable_component.h"/>
         </GROUP>
       </GROUP>
       <GROUP id="{2E7DC20D-2B4D-982D-8DB0-A174B81D42E1}" name="templates">
@@ -148,21 +187,6 @@
     <GROUP id="{A7EB67A8-3E2D-B56D-DB08-5F3950B89085}" name="Source">
       <FILE id="HLpx6o" name="PluginGlobals.h" compile="0" resource="0" file="Source/PluginGlobals.h"/>
       <FILE id="EpKFdU" name="PluginAssets.h" compile="0" resource="0" file="Source/PluginAssets.h"/>
-      <GROUP id="{0D0F10C1-53A2-E279-C4E5-A5DA9B02FB71}" name="Assets">
-        <FILE id="YowiR1" name="Archivo-Black.ttf" compile="0" resource="1"
-              file="Source/Assets/Archivo-Black.ttf"/>
-        <FILE id="t9YPLf" name="Archivo-Thin.ttf" compile="0" resource="1"
-              file="Source/Assets/Archivo-Thin.ttf"/>
-        <FILE id="w8OeLE" name="Archivo_Condensed-Bold.ttf" compile="0" resource="1"
-              file="Source/Assets/Archivo_Condensed-Bold.ttf"/>
-        <FILE id="Pne8PI" name="Archivo_Condensed-Regular.ttf" compile="0"
-              resource="1" file="Source/Assets/Archivo_Condensed-Regular.ttf"/>
-        <FILE id="AbofVJ" name="IBMPlexMono-Regular.ttf" compile="0" resource="1"
-              file="Source/Assets/IBMPlexMono-Regular.ttf"/>
-        <FILE id="jTBYua" name="Inter-Regular.ttf" compile="0" resource="1"
-              file="Source/Assets/Inter-Regular.ttf"/>
-        <FILE id="Sz99g5" name="list-thin.svg" compile="0" resource="1" file="Source/Assets/list-thin.svg"/>
-      </GROUP>
       <GROUP id="{DBDD210A-8CA8-FD31-AD69-C37442558B41}" name="Components">
         <FILE id="h4zsdo" name="MainView.cpp" compile="1" resource="0" file="Source/Components/MainView.cpp"/>
         <FILE id="VC77pn" name="MainView.h" compile="0" resource="0" file="Source/Components/MainView.h"/>

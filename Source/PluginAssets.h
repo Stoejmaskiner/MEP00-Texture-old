@@ -31,7 +31,3 @@ static const juce::Font& get_font_archivo_black() {
 	return archivo_black;
 }
 
-static const juce::Drawable* icon_list_thin =
-	juce::Drawable::createFromImageData(
-		BinaryData::listthin_svg,
-		BinaryData::listthin_svgSize);

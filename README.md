@@ -52,3 +52,17 @@ The processors used are the following:
 
 - [RingModNoise]()
 - [RingModDust]()
+
+## Roadmap
+
+- Beta pre-release
+  - [x] Fully working DSP
+  - [ ] Fully working GUI
+  - [ ] User manual
+  
+- Release
+  - [ ] VST3 exclusive feature integration (right click contextual menu)
+  - [ ] Keyboard shortcuts
+  - [ ] UX refinement
+  - [ ] Bug proofing
+  - [ ] SIMD optimization

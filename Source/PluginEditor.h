@@ -29,9 +29,23 @@ public:
     void resized() override;
 
 private:
+
+    // width and height are the minimum sizes, which should be driectly based on the
+    // Figma design specification.
+    //
+    // Figma design spec is not based on real pixel sizes, but rather on scalable units
+    // of size (pd), so when setting 1pd = 1px, you get the following sizes, which then
+    // are multiplied by a scaling factor to achieve the desired size of the UI.
+    //
+    // Why are the scaled units set to a smaller size than what is normally wanted? Simply
+    // put, they are kept small for ease of design. The design language is based around
+    // a grid of 12 pd in size, because it is highly composite and easy to work with.
     static constexpr int k_width = 414;
-    static constexpr int k_height = 277;
-    static constexpr double k_init_scale = 1.5;
+    static constexpr int k_height = 250;
+
+    // optimal initial scaling factor as tested on a 1080p display
+    static constexpr double k_init_scale = 1.75;
+
     // This reference is provided as a quick way for your editor to
     // access the processor object that created it.
     MEP00TextureAudioProcessor& audioProcessor;
