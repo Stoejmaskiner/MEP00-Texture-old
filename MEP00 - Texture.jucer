@@ -25,10 +25,13 @@
             file="Assets/caret-left-light.svg"/>
       <FILE id="cItVKy" name="caret-right-light.svg" compile="0" resource="1"
             file="Assets/caret-right-light.svg"/>
+      <FILE id="fuNcgG" name="file-plus-light.svg" compile="0" resource="1"
+            file="Assets/file-plus-light.svg"/>
       <FILE id="YuamPM" name="floppy-disk-light.svg" compile="0" resource="1"
             file="Assets/floppy-disk-light.svg"/>
       <FILE id="dqiB4z" name="folder-open-light.svg" compile="0" resource="1"
             file="Assets/folder-open-light.svg"/>
+      <FILE id="Qy0gaB" name="gauge-light.svg" compile="0" resource="1" file="Assets/gauge-light.svg"/>
       <FILE id="fKTs7k" name="gear-six-light.svg" compile="0" resource="1"
             file="Assets/gear-six-light.svg"/>
       <FILE id="LkAYdT" name="IBMPlexMono-Regular.ttf" compile="0" resource="1"

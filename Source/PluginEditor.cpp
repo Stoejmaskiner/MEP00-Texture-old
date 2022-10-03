@@ -19,15 +19,15 @@ MEP00TextureAudioProcessorEditor::MEP00TextureAudioProcessorEditor (MEP00Texture
     setResizable(true,true);
     // Make sure that before the constructor has finished, you've set the
     // editor's size to whatever you need it to be.
-    getConstrainer()->setFixedAspectRatio(double(k_width) / double(k_height));
-    getConstrainer()->setMinimumSize(k_width, k_height);
+    getConstrainer()->setFixedAspectRatio(double(k_width_) / double(k_height_));
+    getConstrainer()->setMinimumSize(k_width_, k_height_);
 
     addAndMakeVisible(this->title_bar_);
     addAndMakeVisible(this->ribbon_);
     addAndMakeVisible(this->main_view_);
     addAndMakeVisible(this->status_bar_);
 
-    setSize (k_width * k_init_scale, k_height * k_init_scale);
+    setSize (k_width_ * k_init_scale_, k_height_ * k_init_scale_);
 }
 
 MEP00TextureAudioProcessorEditor::~MEP00TextureAudioProcessorEditor()
@@ -53,7 +53,8 @@ void MEP00TextureAudioProcessorEditor::resized()
     // subcomponents in your editor..
 
     auto r = getLocalBounds();
-    auto dp = r.getWidth() / double(k_width);
+    auto dp = r.getWidth() / double(k_width_);
+    auto inner_width = std::get<int>(this->main_view_.getWidth());
 
     // IMPORTANT NOTE:
     // only call .setDP from the parent's .setDP method, the top level component (this)
@@ -62,14 +63,18 @@ void MEP00TextureAudioProcessorEditor::resized()
     this->main_view_.setDP(dp);
     this->status_bar_.setDP(dp);
 
-    r.reduce(3*dp, 3*dp);
+    // form main layout
+    r.removeFromTop(this->k_padding_ * dp);
+    r.removeFromLeft(this->k_padding_ * dp);
+    r = r.removeFromLeft(inner_width * dp);
+    
     this->title_bar_.dp = dp;
 	this->title_bar_.setBounds(r.removeFromTop(this->title_bar_.UNSCALED_HEIGHT*dp));
-    r.removeFromTop(3*dp);
-    this->ribbon_.setBounds(r.removeFromTop(std::get<int>(this->ribbon_.getHeight()) * dp));
-    r.removeFromTop(3*dp);
-    this->main_view_.setBounds(r.removeFromTop(168*dp));
-    r.removeFromTop(3*dp);
-    this->status_bar_.setBounds(r.removeFromTop(24*dp));
-    r.removeFromLeft(3 * dp);
+    r.removeFromTop(this->k_padding_ * dp);
+    //this->ribbon_.setBounds(r.removeFromTop(std::get<int>(this->ribbon_.getHeight()) * dp));
+    //r.removeFromTop(3*dp);
+    this->main_view_.setBounds(r.removeFromTop(std::get<int>(this->main_view_.getHeight()) * dp));
+    r.removeFromTop(this->k_padding_ * dp);
+    this->status_bar_.setBounds(r.removeFromTop(std::get<int>(this->status_bar_.getHeight()) * dp));
+    r.removeFromLeft(this->k_padding_ * dp);
 }

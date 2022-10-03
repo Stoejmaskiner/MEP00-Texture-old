@@ -11,11 +11,14 @@
 #pragma once
 
 #include <JuceHeader.h>
+#include "gui/interfaces/stoej_resizeable_component.h"
+#include "gui/components/stoej_box.h"
+#include "gui/components/stoej_dbg_box.h"
 
 //==============================================================================
 /*
 */
-class MainView  : public juce::Component
+class MainView  : public juce::Component, public stoej::IResizableComponent
 {
 public:
     MainView();
@@ -24,6 +27,20 @@ public:
     void paint (juce::Graphics&) override;
     void resized() override;
 
+    void setDP(double dp) override;
+
+    std::variant<int, stoej::DynamicSize> getHeight() override;
+    std::variant<int, stoej::DynamicSize> getWidth() override;
+
 private:
+    static constexpr int k_padding_ = 6;
+    double dp_;
+    stoej::Box bounding_box_;
+    stoej::DbgBox main_widget_;
+    stoej::DbgBox spacer_;
+    stoej::DbgBox hp_fader_;
+    stoej::DbgBox lp_fader_;
+    stoej::DbgBox width_fader_;
+    stoej::DbgBox level_fader_;
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainView)
 };

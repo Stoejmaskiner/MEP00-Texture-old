@@ -14,6 +14,8 @@
 #include "Components/TitleBar.h"
 #include "utils/stoej_graphics_utils.h"
 #include "gui/components/stoej_box.h"
+#include "Components/StatusBar.h"
+#include "Components/MainView.h"
 
 //==============================================================================
 /**
@@ -40,19 +42,21 @@ private:
     // Why are the scaled units set to a smaller size than what is normally wanted? Simply
     // put, they are kept small for ease of design. The design language is based around
     // a grid of 12 pd in size, because it is highly composite and easy to work with.
-    static constexpr int k_width = 414;
-    static constexpr int k_height = 250;
+    static constexpr int k_width_ = 420;
+    static constexpr int k_height_ = 240;
 
     // optimal initial scaling factor as tested on a 1080p display
-    static constexpr double k_init_scale = 1.75;
+    static constexpr double k_init_scale_ = 2.3;
+
+    static constexpr double k_padding_ = 3;
 
     // This reference is provided as a quick way for your editor to
     // access the processor object that created it.
     MEP00TextureAudioProcessor& audioProcessor;
     TitleBar title_bar_;
     Ribbon ribbon_;
-    stoej::Box main_view_;
-    stoej::Box status_bar_;
+    MainView main_view_;
+    StatusBar status_bar_;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MEP00TextureAudioProcessorEditor)
 };

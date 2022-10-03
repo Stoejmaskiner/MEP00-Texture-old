@@ -12,18 +12,18 @@
 //
 // see issue #1 in shared-code
 
-#include <JuceHeader.h>
+
 #include "Ribbon.h"
-#include "../PluginAssets.h"
+
 
 //==============================================================================
 Ribbon::Ribbon() :
-	preset_text_field_(get_font_archivo_narrow_bold(), get_font_archivo_narrow_light()),
-	burger_menu_btn_(this->list_ico_),
-	browse_presets_btn_(this->folder_ico_),
-	previous_preset_btn_(this->left_ico_),
-	next_preset_btn_(this->right_ico_),
-	save_preset_btn_(this->floppy_ico_) {
+preset_text_field_(get_font_archivo_narrow_bold(), get_font_archivo_narrow_light()),
+burger_menu_btn_(this->list_ico_),
+browse_presets_btn_(this->folder_ico_),
+previous_preset_btn_(this->left_ico_),
+next_preset_btn_(this->right_ico_),
+save_preset_btn_(this->floppy_ico_) {
     // setting edge visibility to avoid redrawing adjacent edges
     this->burger_menu_btn_.setTilePosition(stoej::e_array_left);
     this->browse_presets_btn_.setTilePosition(stoej::e_array_horizontal);

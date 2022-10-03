@@ -15,6 +15,7 @@
 #include "gui/components/stoej_dbg_box.h"
 #include "gui/components/stoej_menu_button.h"
 #include "gui/components/stoej_preset_text_field.h"
+#include "../PluginAssets.h"
 
 //==============================================================================
 /*
