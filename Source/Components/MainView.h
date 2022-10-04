@@ -37,10 +37,15 @@ private:
     double dp_;
     stoej::Box bounding_box_;
     stoej::DbgBox main_widget_;
+    stoej::DbgBox widget_view_;
+    stoej::DbgBox grit_btn_;
+    stoej::DbgBox density_val_;
+    stoej::DbgBox mix_val_;
     stoej::DbgBox spacer_;
     stoej::DbgBox hp_fader_;
     stoej::DbgBox lp_fader_;
     stoej::DbgBox width_fader_;
     stoej::DbgBox level_fader_;
+    juce::ToggleButton toggle_button_;
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainView)
 };
