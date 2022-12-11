@@ -15,6 +15,7 @@
 #include "gui/components/stoej_box.h"
 #include "gui/components/stoej_dbg_box.h"
 #include "gui/components/stoej_button.h"
+#include "gui/components/stoej_component.h"
 
 //==============================================================================
 /*
@@ -47,5 +48,7 @@ private:
     stoej::DbgBox lp_fader_;
     stoej::DbgBox width_fader_;
     stoej::DbgBox level_fader_;
+    stoej::Component test_;
+    stoej::Component test2_;
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainView)
 };

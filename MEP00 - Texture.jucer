@@ -160,6 +160,10 @@
           <FILE id="i4yuit" name="stoej_canvas.cpp" compile="1" resource="0"
                 file="shared-code/gui/components/stoej_canvas.cpp"/>
           <FILE id="VE78Kr" name="stoej_canvas.h" compile="0" resource="0" file="shared-code/gui/components/stoej_canvas.h"/>
+          <FILE id="IowMW5" name="stoej_component.cpp" compile="1" resource="0"
+                file="shared-code/gui/components/stoej_component.cpp"/>
+          <FILE id="tRKh0c" name="stoej_component.h" compile="0" resource="0"
+                file="shared-code/gui/components/stoej_component.h"/>
           <FILE id="qSasQl" name="stoej_dbg_box.h" compile="0" resource="0" file="shared-code/gui/components/stoej_dbg_box.h"/>
           <FILE id="d8CtQO" name="stoej_menu_button.h" compile="0" resource="0"
                 file="shared-code/gui/components/stoej_menu_button.h"/>
@@ -173,6 +177,8 @@
         <GROUP id="{D9729B2A-F7A1-CE24-8B60-551AA5F2F158}" name="interfaces">
           <FILE id="JVHN4w" name="stoej_resizeable_component.h" compile="0" resource="0"
                 file="shared-code/gui/interfaces/stoej_resizeable_component.h"/>
+          <FILE id="xSqLBp" name="stoej_scalable_component.h" compile="0" resource="0"
+                file="shared-code/gui/interfaces/stoej_scalable_component.h"/>
           <FILE id="hvZcfO" name="stoej_tileable_component.h" compile="0" resource="0"
                 file="shared-code/gui/interfaces/stoej_tileable_component.h"/>
         </GROUP>

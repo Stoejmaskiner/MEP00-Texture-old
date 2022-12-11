@@ -32,8 +32,13 @@ MainView::MainView() : grit_btn_("grit_btn", stoej::StoejButton::ButtonVariant::
     addAndMakeVisible(this->grit_btn_);
     addAndMakeVisible(this->density_val_);
     addAndMakeVisible(this->mix_val_);
+    addAndMakeVisible(this->test_);
+    addAndMakeVisible(this->test2_);
     //this->toggle_button_.setColour(juce::ToggleButton::tickColourId, juce::Colours::black);
     //this->toggle_button_.setToggleable(true);
+
+    this->test_.setBorderWidth(1.0f);
+    this->test2_.setBorderWidth(1.0f);
 
 	
 }
@@ -58,6 +63,12 @@ void MainView::resized()
     // This method is where you should set the bounds of any child
     // components that your component contains..
     auto r = getLocalBounds();
+    auto rtest = r;
+    rtest.reduce(100, 100);
+    auto rt1 = rtest.removeFromLeft(50);
+    this->test_.setFloatBounds(juce::Rectangle<float>(rtest.getTopLeft().getX(), rtest.getTopLeft().getY(), rtest.getWidth(), rtest.getHeight()));
+    this->test2_.setFloatBounds(juce::Rectangle<float>(rt1.getTopLeft().getX(), rt1.getTopLeft().getY(), rt1.getWidth(), rt1.getHeight()));
+
     this->bounding_box_.setBounds(r);
     r.reduce(this->k_padding_ * dp_, this->k_padding_ * dp_);
     auto r1 = r.removeFromLeft(180 * dp_);
@@ -88,6 +99,8 @@ void MainView::setDP(double dp)
     this->dp_ = dp;
     this->bounding_box_.setDP(dp);
     this->grit_btn_.setDP(dp);
+    this->test_.setDP(dp);
+    this->test2_.setDP(dp);
 }
 
 std::variant<int, stoej::DynamicSize> MainView::getHeight()
