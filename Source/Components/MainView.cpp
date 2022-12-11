@@ -11,16 +11,18 @@
 
 #include "MainView.h"
 
+#include "gui/components/stoej_button.h"
+#include "gui/components/stoej_button.h"
 
 
 //==============================================================================
-MainView::MainView() : toggle_button_("cock and ball torture")
+MainView::MainView() : grit_btn_("grit_btn", stoej::StoejButton::ButtonVariant::e_text, stoej::StoejButton::ButtonSize::e_small, true)
 {
     // In your constructor, you should add any child components, and
     // initialise any special settings that your component needs.
 
     addAndMakeVisible(this->bounding_box_);
-    addAndMakeVisible(this->main_widget_);
+    //addAndMakeVisible(this->main_widget_);
     addAndMakeVisible(this->spacer_);
     addAndMakeVisible(this->hp_fader_);
     addAndMakeVisible(this->lp_fader_);
@@ -30,10 +32,10 @@ MainView::MainView() : toggle_button_("cock and ball torture")
     addAndMakeVisible(this->grit_btn_);
     addAndMakeVisible(this->density_val_);
     addAndMakeVisible(this->mix_val_);
-    addAndMakeVisible(this->toggle_button_);
-    this->toggle_button_.setColour(juce::ToggleButton::tickColourId, juce::Colours::black);
+    //this->toggle_button_.setColour(juce::ToggleButton::tickColourId, juce::Colours::black);
+    //this->toggle_button_.setToggleable(true);
 
-
+	
 }
 
 MainView::~MainView()
@@ -59,11 +61,13 @@ void MainView::resized()
     this->bounding_box_.setBounds(r);
     r.reduce(this->k_padding_ * dp_, this->k_padding_ * dp_);
     auto r1 = r.removeFromLeft(180 * dp_);
-    this->main_widget_.setBounds(r1);  // TODO: get widget width
+    //this->main_widget_.setBounds(r1);  // TODO: get widget width
     this->widget_view_.setBounds(r1.removeFromTop(96 * dp_));
     this->mix_val_.setBounds(r1.removeFromRight(60 * dp_));
     this->density_val_.setBounds(r1.removeFromRight(60 * dp_));
-    this->toggle_button_.setBounds(r1);
+
+    // TODO: this could be useful as a function
+    // centers the button within a larger rectangle (variable padding)
     auto pad_h = (r1.getHeight() / dp_ - 24) / 2 * dp_;
     auto pad_v = (r1.getWidth() / dp_ - 36) / 2 * dp_;
 	r1.removeFromTop(pad_h);
@@ -83,6 +87,7 @@ void MainView::setDP(double dp)
 {
     this->dp_ = dp;
     this->bounding_box_.setDP(dp);
+    this->grit_btn_.setDP(dp);
 }
 
 std::variant<int, stoej::DynamicSize> MainView::getHeight()

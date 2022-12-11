@@ -14,6 +14,7 @@
 #include "gui/interfaces/stoej_resizeable_component.h"
 #include "gui/components/stoej_box.h"
 #include "gui/components/stoej_dbg_box.h"
+#include "gui/components/stoej_button.h"
 
 //==============================================================================
 /*
@@ -36,9 +37,9 @@ private:
     static constexpr int k_padding_ = 6;
     double dp_;
     stoej::Box bounding_box_;
-    stoej::DbgBox main_widget_;
+    //stoej::DbgBox main_widget_;
     stoej::DbgBox widget_view_;
-    stoej::DbgBox grit_btn_;
+    stoej::StoejButton grit_btn_;
     stoej::DbgBox density_val_;
     stoej::DbgBox mix_val_;
     stoej::DbgBox spacer_;
@@ -46,6 +47,5 @@ private:
     stoej::DbgBox lp_fader_;
     stoej::DbgBox width_fader_;
     stoej::DbgBox level_fader_;
-    juce::ToggleButton toggle_button_;
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainView)
 };
