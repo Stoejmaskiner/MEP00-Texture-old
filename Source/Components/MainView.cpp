@@ -86,7 +86,7 @@ void MainView::resized()
     r1.removeFromLeft(pad_v);
     r1.removeFromRight(pad_v);
 	
-    this->grit_btn_.setFloatBounds(r1);
+    this->grit_btn_.setBounds(r1);
 	this->spacer_.setBounds(r.removeFromLeft(6 * dp_));        // TODO: get width
     this->hp_fader_.setBounds(r.removeFromLeft(48 * dp_));      // TODO: get width
     this->lp_fader_.setBounds(r.removeFromLeft(48 * dp_));      // TODO: get width
@@ -98,7 +98,7 @@ void MainView::setDP(double dp)
 {
     this->dp_ = dp;
     this->bounding_box_.setDP(dp);
-    this->grit_btn_.setDP(dp);
+    //this->grit_btn_.setDP(dp);
     //this->test_.setDP(dp);
     //this->test2_.setDP(dp);
 }
