@@ -29,16 +29,16 @@ MainView::MainView() : grit_btn_("grit_btn", stoej::StoejButton::ButtonVariant::
     addAndMakeVisible(this->width_fader_);
     addAndMakeVisible(this->level_fader_);
     addAndMakeVisible(this->widget_view_);
-    addAndMakeVisible(this->grit_btn_);
+    addAndMakeVisible((juce::Button*) &this->grit_btn_);
     addAndMakeVisible(this->density_val_);
     addAndMakeVisible(this->mix_val_);
-    addAndMakeVisible(this->test_);
-    addAndMakeVisible(this->test2_);
+    //addAndMakeVisible(this->test_);
+    //addAndMakeVisible(this->test2_);
     //this->toggle_button_.setColour(juce::ToggleButton::tickColourId, juce::Colours::black);
     //this->toggle_button_.setToggleable(true);
 
-    this->test_.setBorderWidth(1.0f);
-    this->test2_.setBorderWidth(1.0f);
+    //this->test_.setBorderWidth(1.0f);
+    //this->test2_.setBorderWidth(1.0f);
 
 	
 }
@@ -55,7 +55,7 @@ void MainView::paint (juce::Graphics& g)
        You should replace everything in this method with your own
        drawing code..
     */
-
+    
 }
 
 void MainView::resized()
@@ -66,8 +66,8 @@ void MainView::resized()
     auto rtest = r;
     rtest.reduce(100, 100);
     auto rt1 = rtest.removeFromLeft(50);
-    this->test_.setFloatBounds(juce::Rectangle<float>(rtest.getTopLeft().getX(), rtest.getTopLeft().getY(), rtest.getWidth(), rtest.getHeight()));
-    this->test2_.setFloatBounds(juce::Rectangle<float>(rt1.getTopLeft().getX(), rt1.getTopLeft().getY(), rt1.getWidth(), rt1.getHeight()));
+    //this->test_.setFloatBounds(juce::Rectangle<float>(rtest.getTopLeft().getX(), rtest.getTopLeft().getY(), rtest.getWidth(), rtest.getHeight()));
+    //this->test2_.setFloatBounds(juce::Rectangle<float>(rt1.getTopLeft().getX(), rt1.getTopLeft().getY(), rt1.getWidth(), rt1.getHeight()));
 
     this->bounding_box_.setBounds(r);
     r.reduce(this->k_padding_ * dp_, this->k_padding_ * dp_);
@@ -86,7 +86,7 @@ void MainView::resized()
     r1.removeFromLeft(pad_v);
     r1.removeFromRight(pad_v);
 	
-    this->grit_btn_.setBounds(r1);
+    this->grit_btn_.setFloatBounds(r1);
 	this->spacer_.setBounds(r.removeFromLeft(6 * dp_));        // TODO: get width
     this->hp_fader_.setBounds(r.removeFromLeft(48 * dp_));      // TODO: get width
     this->lp_fader_.setBounds(r.removeFromLeft(48 * dp_));      // TODO: get width
@@ -99,8 +99,8 @@ void MainView::setDP(double dp)
     this->dp_ = dp;
     this->bounding_box_.setDP(dp);
     this->grit_btn_.setDP(dp);
-    this->test_.setDP(dp);
-    this->test2_.setDP(dp);
+    //this->test_.setDP(dp);
+    //this->test2_.setDP(dp);
 }
 
 std::variant<int, stoej::DynamicSize> MainView::getHeight()
