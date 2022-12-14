@@ -13,10 +13,11 @@
 
 #include "gui/components/stoej_button.h"
 #include "gui/components/stoej_button.h"
+#include "../PluginAssets.h"
 
 
 //==============================================================================
-MainView::MainView() : grit_btn_("grit_btn", stoej::StoejButton::ButtonVariant::e_text, stoej::StoejButton::ButtonSize::e_small, true)
+MainView::MainView() : grit_btn_("grit_btn", stoej::StoejButton::ButtonSize::e_small, "GRIT", get_font_archivo_narrow_light(), true)
 {
     // In your constructor, you should add any child components, and
     // initialise any special settings that your component needs.
@@ -29,7 +30,7 @@ MainView::MainView() : grit_btn_("grit_btn", stoej::StoejButton::ButtonVariant::
     addAndMakeVisible(this->width_fader_);
     addAndMakeVisible(this->level_fader_);
     addAndMakeVisible(this->widget_view_);
-    addAndMakeVisible((juce::Button*) &this->grit_btn_);
+    addAndMakeVisible(this->grit_btn_);
     addAndMakeVisible(this->density_val_);
     addAndMakeVisible(this->mix_val_);
     //addAndMakeVisible(this->test_);
