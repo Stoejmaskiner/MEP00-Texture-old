@@ -13,11 +13,12 @@
 
 #include "gui/components/stoej_button.h"
 #include "gui/components/stoej_button.h"
+#include "binary_data/stoej_Fonts.h"
 #include "../PluginAssets.h"
 
 
 //==============================================================================
-MainView::MainView() : grit_btn_("grit_btn", stoej::StoejButton::ButtonSize::e_small, "GRIT", get_font_archivo_narrow_light(), true)
+MainView::MainView() : grit_btn_("grit_btn", stoej::StoejButton::ButtonSize::e_small, "GRIT", stoej::get_font_archivo_narrow(), true)
 {
     // In your constructor, you should add any child components, and
     // initialise any special settings that your component needs.

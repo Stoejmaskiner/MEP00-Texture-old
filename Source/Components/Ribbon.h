@@ -15,6 +15,9 @@
 #include "gui/components/stoej_dbg_box.h"
 #include "gui/components/stoej_menu_button.h"
 #include "gui/components/stoej_preset_text_field.h"
+#include "binary_data/stoej_BinaryData.h"
+#include "binary_data/stoej_Fonts.h"
+#include "stoej_core.h"
 #include "../PluginAssets.h"
 
 //==============================================================================
@@ -38,18 +41,12 @@ public:
     void setDP(double dp) override;
 
 private:
-    const std::unique_ptr<juce::Drawable> list_ico_ = 
-        juce::Drawable::createFromImageData(BinaryData::listlight_svg, BinaryData::listlight_svgSize);
-    const std::unique_ptr<juce::Drawable> folder_ico_ = 
-        juce::Drawable::createFromImageData(BinaryData::folderopenlight_svg, BinaryData::folderopenlight_svgSize);
-    const std::unique_ptr<juce::Drawable> left_ico_ =
-        juce::Drawable::createFromImageData(BinaryData::caretleftlight_svg, BinaryData::caretleftlight_svgSize);
-    const std::unique_ptr<juce::Drawable> right_ico_ =
-        juce::Drawable::createFromImageData(BinaryData::caretrightlight_svg, BinaryData::caretrightlight_svgSize);
-    const std::unique_ptr<juce::Drawable> floppy_ico_ =
-        juce::Drawable::createFromImageData(BinaryData::floppydisklight_svg, BinaryData::floppydisklight_svgSize);
-    const std::unique_ptr<juce::Drawable> person_ =
-		juce::Drawable::createFromImageData(BinaryData::userlight_svg, BinaryData::userlight_svgSize);
+    const std::unique_ptr<juce::Drawable> list_ico_ = STOEJ_DRAWABLE_IMG(stoej_BinaryData::listlight_svg);
+    const std::unique_ptr<juce::Drawable> folder_ico_ = STOEJ_DRAWABLE_IMG(stoej_BinaryData::folderopenlight_svg);
+    const std::unique_ptr<juce::Drawable> left_ico_ = STOEJ_DRAWABLE_IMG(stoej_BinaryData::caretleftlight_svg);
+    const std::unique_ptr<juce::Drawable> right_ico_ = STOEJ_DRAWABLE_IMG(stoej_BinaryData::caretrightlight_svg);
+    const std::unique_ptr<juce::Drawable> floppy_ico_ = STOEJ_DRAWABLE_IMG(stoej_BinaryData::floppydisklight_svg);
+    const std::unique_ptr<juce::Drawable> person_ = STOEJ_DRAWABLE_IMG(stoej_BinaryData::userlight_svg);
 
     double dp_ = 1.0;
     //stoej::Box bounding_box_;
