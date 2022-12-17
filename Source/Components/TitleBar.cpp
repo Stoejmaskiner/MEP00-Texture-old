@@ -10,7 +10,7 @@
 
 
 #include "TitleBar.h"
-
+#include "binary_data/stoej_Fonts.h"
 #include "utils/stoej_graphics_utils.h"
 
 
@@ -38,15 +38,15 @@ void TitleBar::paint (juce::Graphics& g)
     auto r = getLocalBounds();
 
     g.setColour (COL_STROKE_PRIMARY);
-    g.setFont(get_font_archivo_thin());
+    g.setFont(stoej::get_font_archivo_thin());
     g.setFont (20.0 * dp * stoej::PT_2_PX);
     g.drawText ("[" + PRODUCT_CODE + "]", r,juce::Justification::left, true);   // draw some placeholder text
-    g.setFont(get_font_archivo_black());
+    g.setFont(stoej::get_font_archivo_black());
     g.setFont(20.0f * dp * stoej::PT_2_PX);
     g.drawText (PRODUCT_NAME, r, juce::Justification::right, true);
     auto w = g.getCurrentFont().getStringWidth(PRODUCT_NAME);
     r.removeFromRight(w);
-    g.setFont(get_font_archivo_thin());
+    g.setFont(stoej::get_font_archivo_thin());
     g.setFont(20.0f * dp * stoej::PT_2_PX);
     g.drawText(COMPANY_NAME + " // ", r, juce::Justification::right, true);
     

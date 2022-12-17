@@ -16,6 +16,7 @@
 #include "gui/components/stoej_dbg_box.h"
 #include "gui/components/stoej_menu_button.h"
 #include "gui/components/stoej_preset_text_field.h"
+#include "binary_data/stoej_BinaryData.h"
 #include "../PluginAssets.h"
 #include "stoej_core.h"
 
@@ -39,12 +40,12 @@ public:
 
 private:
     
-    const std::unique_ptr<juce::Drawable> sun_ico_ = STOEJ_DRAWABLE_IMG(BinaryData::sundimlight_svg);
-	const std::unique_ptr<juce::Drawable> book_ico_ = STOEJ_DRAWABLE_IMG(BinaryData::bookopenlight_svg);
-	const std::unique_ptr<juce::Drawable> gauge_ico_ = STOEJ_DRAWABLE_IMG(BinaryData::gaugelight_svg);
-	const std::unique_ptr<juce::Drawable> shuffle_ico_ = STOEJ_DRAWABLE_IMG(BinaryData::shuffleangularlight_svg);
-    const std::unique_ptr<juce::Drawable> file_plus_ico_ = STOEJ_DRAWABLE_IMG(BinaryData::filepluslight_svg);
-    const std::unique_ptr<juce::Drawable> info_ico_ = STOEJ_DRAWABLE_IMG(BinaryData::infolight_svg);
+    const std::unique_ptr<juce::Drawable> sun_ico_ = STOEJ_DRAWABLE_IMG(stoej_BinaryData::sundimlight_svg);
+	const std::unique_ptr<juce::Drawable> book_ico_ = STOEJ_DRAWABLE_IMG(stoej_BinaryData::bookopenlight_svg);
+	const std::unique_ptr<juce::Drawable> gauge_ico_ = STOEJ_DRAWABLE_IMG(stoej_BinaryData::gaugelight_svg);
+	const std::unique_ptr<juce::Drawable> shuffle_ico_ = STOEJ_DRAWABLE_IMG(stoej_BinaryData::shuffleangularlight_svg);
+    const std::unique_ptr<juce::Drawable> file_plus_ico_ = STOEJ_DRAWABLE_IMG(stoej_BinaryData::filepluslight_svg);
+    const std::unique_ptr<juce::Drawable> info_ico_ = STOEJ_DRAWABLE_IMG(stoej_BinaryData::infolight_svg);
 	
     double dp_ = 1.0;
     //stoej::PresetTextField preset_text_field_;

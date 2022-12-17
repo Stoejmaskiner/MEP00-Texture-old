@@ -6,51 +6,6 @@
               pluginCode="Me00" pluginCharacteristicsValue="pluginEditorRequiresKeys"
               headerPath="shared-code/" cppLanguageStandard="20">
   <MAINGROUP id="PVQy7Z" name="MEP00 - Texture">
-    <GROUP id="{93026A17-C8B1-2EEA-55D4-4B7E3546B4A8}" name="Assets">
-      <FILE id="YCJdTc" name="Archivo-Black.ttf" compile="0" resource="1"
-            file="Assets/Archivo-Black.ttf"/>
-      <FILE id="ir2LTD" name="Archivo-Thin.ttf" compile="0" resource="1"
-            file="Assets/Archivo-Thin.ttf"/>
-      <FILE id="pcRhra" name="Archivo_Condensed-Bold.ttf" compile="0" resource="1"
-            file="Assets/Archivo_Condensed-Bold.ttf"/>
-      <FILE id="R78LxP" name="Archivo_Condensed-Light.ttf" compile="0" resource="1"
-            file="Assets/Archivo_Condensed-Light.ttf"/>
-      <FILE id="PXYInl" name="Archivo_Condensed-Regular.ttf" compile="0"
-            resource="1" file="Assets/Archivo_Condensed-Regular.ttf"/>
-      <FILE id="Q3XeH6" name="Archivo_Condensed-Thin.ttf" compile="0" resource="1"
-            file="Assets/Archivo_Condensed-Thin.ttf"/>
-      <FILE id="CEibfi" name="book-open-light.svg" compile="0" resource="1"
-            file="Assets/book-open-light.svg"/>
-      <FILE id="SKLbJB" name="caret-left-light.svg" compile="0" resource="1"
-            file="Assets/caret-left-light.svg"/>
-      <FILE id="cItVKy" name="caret-right-light.svg" compile="0" resource="1"
-            file="Assets/caret-right-light.svg"/>
-      <FILE id="fuNcgG" name="file-plus-light.svg" compile="0" resource="1"
-            file="Assets/file-plus-light.svg"/>
-      <FILE id="YuamPM" name="floppy-disk-light.svg" compile="0" resource="1"
-            file="Assets/floppy-disk-light.svg"/>
-      <FILE id="dqiB4z" name="folder-open-light.svg" compile="0" resource="1"
-            file="Assets/folder-open-light.svg"/>
-      <FILE id="Qy0gaB" name="gauge-light.svg" compile="0" resource="1" file="Assets/gauge-light.svg"/>
-      <FILE id="fKTs7k" name="gear-six-light.svg" compile="0" resource="1"
-            file="Assets/gear-six-light.svg"/>
-      <FILE id="LkAYdT" name="IBMPlexMono-Regular.ttf" compile="0" resource="1"
-            file="Assets/IBMPlexMono-Regular.ttf"/>
-      <FILE id="oZvH2l" name="info-light.svg" compile="0" resource="1" file="Assets/info-light.svg"/>
-      <FILE id="BCBLW7" name="Inter-Regular.ttf" compile="0" resource="1"
-            file="Assets/Inter-Regular.ttf"/>
-      <FILE id="j6sn0K" name="link-light.svg" compile="0" resource="1" file="Assets/link-light.svg"/>
-      <FILE id="uEHExR" name="list-light.svg" compile="0" resource="1" file="Assets/list-light.svg"/>
-      <FILE id="XJpRI6" name="list-thin.svg" compile="0" resource="1" file="Assets/list-thin.svg"/>
-      <FILE id="TRt00G" name="moon-light.svg" compile="0" resource="1" file="Assets/moon-light.svg"/>
-      <FILE id="gtOIbq" name="shuffle-angular-light.svg" compile="0" resource="1"
-            file="Assets/shuffle-angular-light.svg"/>
-      <FILE id="p6gYYj" name="sun-dim-light.svg" compile="0" resource="1"
-            file="Assets/sun-dim-light.svg"/>
-      <FILE id="blLBha" name="swatches-light.svg" compile="0" resource="1"
-            file="Assets/swatches-light.svg"/>
-      <FILE id="yN1xBj" name="user-light.svg" compile="0" resource="1" file="Assets/user-light.svg"/>
-    </GROUP>
     <GROUP id="{8D49F0FE-7900-E0FE-B018-49CDE23C5EDB}" name="include">
       <GROUP id="{C47150A3-4D10-10A8-F99E-FBB82EEB9026}" name="gcem_incl">
         <GROUP id="{99E472E2-25ED-FD26-C7C6-D4A216FC1304}" name="quadrature">
@@ -135,6 +90,13 @@
       <FILE id="eVqWyi" name="gcem.hpp" compile="0" resource="0" file="gcem/include/gcem.hpp"/>
     </GROUP>
     <GROUP id="{C71F062B-04D7-FE1D-EC67-8232AC9E9B6A}" name="shared-code">
+      <GROUP id="{79EE3CE9-023D-615F-E240-77F90BA8CCB5}" name="binary_data">
+        <FILE id="RFedt4" name="stoej_BinaryData.cpp" compile="1" resource="0"
+              file="shared-code/binary_data/stoej_BinaryData.cpp"/>
+        <FILE id="NeJO9A" name="stoej_BinaryData.h" compile="0" resource="0"
+              file="shared-code/binary_data/stoej_BinaryData.h"/>
+        <FILE id="PDwB15" name="stoej_Fonts.h" compile="0" resource="0" file="shared-code/binary_data/stoej_Fonts.h"/>
+      </GROUP>
       <GROUP id="{CE673C0C-A0C8-80A1-1E4F-265DBE1A0333}" name="dsp">
         <GROUP id="{8A4D684D-E1B5-5DEF-33DB-166757E6BF62}" name="generators">
           <FILE id="flfNeF" name="stoej_white_noise.cpp" compile="1" resource="0"
@@ -169,6 +131,9 @@
                 file="shared-code/gui/components/stoej_menu_button.h"/>
           <FILE id="sPmw3L" name="stoej_preset_text_field.h" compile="0" resource="0"
                 file="shared-code/gui/components/stoej_preset_text_field.h"/>
+          <FILE id="hqbi9k" name="stoej_Slider.cpp" compile="1" resource="0"
+                file="shared-code/gui/components/stoej_Slider.cpp"/>
+          <FILE id="CZJJYO" name="stoej_Slider.h" compile="0" resource="0" file="shared-code/gui/components/stoej_Slider.h"/>
           <FILE id="MzlRHX" name="stoej_value.cpp" compile="1" resource="0" file="shared-code/gui/components/stoej_value.cpp"/>
           <FILE id="ccW0Ld" name="stoej_value.h" compile="0" resource="0" file="shared-code/gui/components/stoej_value.h"/>
           <FILE id="qrBwCP" name="stoej_xy.cpp" compile="1" resource="0" file="shared-code/gui/components/stoej_xy.cpp"/>

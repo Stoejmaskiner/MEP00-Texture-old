@@ -18,7 +18,7 @@
 
 //==============================================================================
 Ribbon::Ribbon() :
-preset_text_field_(get_font_archivo_narrow_bold(), get_font_archivo_narrow_light()),
+preset_text_field_(stoej::get_font_archivo_narrow(), stoej::get_font_archivo_narrow()),
 burger_menu_btn_(this->list_ico_),
 browse_presets_btn_(this->folder_ico_),
 previous_preset_btn_(this->left_ico_),
