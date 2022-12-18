@@ -18,7 +18,9 @@
 
 
 //==============================================================================
-MainView::MainView() : grit_btn_("grit_btn", stoej::StoejButton::ButtonSize::e_small, "GRIT", stoej::get_font_archivo_narrow(), true)
+MainView::MainView() : 
+    grit_btn_("grit_btn", stoej::StoejButton::ButtonSize::e_small, "GRIT", stoej::get_font_archivo_narrow(), true),
+    lp_fader_("lp_fader", "LP", juce::Slider::SliderStyle::LinearVertical, stoej::ValueUnit::hertz, false)
 {
     // In your constructor, you should add any child components, and
     // initialise any special settings that your component needs.
@@ -80,6 +82,8 @@ void MainView::resized()
     this->density_val_.setBounds(r1.removeFromRight(60 * dp_));
 
     // TODO: this could be useful as a function
+    // TODO: use the preferred width and height of the button
+    // TODO: pretty sure there is already a method in Rectangle for this
     // centers the button within a larger rectangle (variable padding)
     auto pad_h = (r1.getHeight() / dp_ - 24) / 2 * dp_;
     auto pad_v = (r1.getWidth() / dp_ - 36) / 2 * dp_;
@@ -91,7 +95,7 @@ void MainView::resized()
     this->grit_btn_.setFloatBounds(r1);
 	this->spacer_.setBounds(r.removeFromLeft(6 * dp_));        // TODO: get width
     this->hp_fader_.setBounds(r.removeFromLeft(48 * dp_));      // TODO: get width
-    this->lp_fader_.setBounds(r.removeFromLeft(48 * dp_));      // TODO: get width
+    this->lp_fader_.setFloatBounds(r.removeFromLeft(48 * dp_));      // TODO: get width
     this->width_fader_.setBounds(r.removeFromLeft(48 * dp_));      // TODO: get width
     this->level_fader_.setBounds(r.removeFromLeft(48 * dp_));      // TODO: get width
 }
@@ -101,6 +105,7 @@ void MainView::setDP(double dp)
     this->dp_ = dp;
     this->bounding_box_.setDP(dp);
     this->grit_btn_.setDP(dp);
+    this->lp_fader_.setDP(dp);
     //this->test_.setDP(dp);
     //this->test2_.setDP(dp);
 }

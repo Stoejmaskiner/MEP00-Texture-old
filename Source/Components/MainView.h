@@ -16,6 +16,7 @@
 #include "gui/components/stoej_dbg_box.h"
 #include "gui/components/stoej_button.h"
 #include "gui/components/stoej_component.h"
+#include "gui/components/stoej_Slider.h"
 
 //==============================================================================
 /*
@@ -45,7 +46,7 @@ private:
     stoej::DbgBox mix_val_;
     stoej::DbgBox spacer_;
     stoej::DbgBox hp_fader_;
-    stoej::DbgBox lp_fader_;
+    stoej::StoejSlider lp_fader_;
     stoej::DbgBox width_fader_;
     stoej::DbgBox level_fader_;
     //stoej::Component test_;
