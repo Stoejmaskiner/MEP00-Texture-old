@@ -12,8 +12,8 @@
 
 
 //==============================================================================
-MEP00TextureAudioProcessorEditor::MEP00TextureAudioProcessorEditor (MEP00TextureAudioProcessor& p)
-    : AudioProcessorEditor (&p), audioProcessor (p)
+MEP00TextureAudioProcessorEditor::MEP00TextureAudioProcessorEditor (MEP00TextureAudioProcessor& p, juce::AudioProcessorValueTreeState& apvts)
+    : AudioProcessorEditor (&p), audioProcessor (p), main_view_(apvts)
 {
     
     setResizable(true,true);

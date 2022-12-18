@@ -17,6 +17,7 @@
 #include "gui/components/stoej_button.h"
 #include "gui/components/stoej_component.h"
 #include "gui/components/stoej_Slider.h"
+#include "../PluginParameters.h"
 
 //==============================================================================
 /*
@@ -24,7 +25,7 @@
 class MainView  : public juce::Component, public stoej::IResizableComponent
 {
 public:
-    MainView();
+    MainView(juce::AudioProcessorValueTreeState& apvts);
     ~MainView() override;
 
     void paint (juce::Graphics&) override;
@@ -49,6 +50,8 @@ private:
     stoej::StoejSlider lp_fader_;
     stoej::DbgBox width_fader_;
     stoej::DbgBox level_fader_;
+
+    std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> lp_fader_attachment_;
     //stoej::Component test_;
     //stoej::Component test2_;
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainView)

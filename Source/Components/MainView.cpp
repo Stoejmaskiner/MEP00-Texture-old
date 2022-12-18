@@ -18,7 +18,7 @@
 
 
 //==============================================================================
-MainView::MainView() : 
+MainView::MainView(juce::AudioProcessorValueTreeState& apvts) :
     grit_btn_("grit_btn", stoej::StoejButton::ButtonSize::e_small, "GRIT", stoej::get_font_archivo_narrow(), true),
     lp_fader_("lp_fader", "LP", juce::Slider::SliderStyle::LinearVertical, stoej::ValueUnit::hertz, false)
 {
@@ -44,7 +44,9 @@ MainView::MainView() :
     //this->test_.setBorderWidth(1.0f);
     //this->test2_.setBorderWidth(1.0f);
 
-	
+    this->lp_fader_attachment_.reset(
+        new juce::AudioProcessorValueTreeState::SliderAttachment(apvts, Parameters::filter_lp_cutoff.id, this->lp_fader_)
+    );
 }
 
 MainView::~MainView()
