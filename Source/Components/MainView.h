@@ -37,6 +37,7 @@ public:
     std::variant<int, stoej::DynamicSize> getWidth() override;
 
 private:
+    
     static constexpr int k_padding_ = 6;
     double dp_;
     stoej::Box bounding_box_;
@@ -46,12 +47,21 @@ private:
     stoej::DbgBox density_val_;
     stoej::DbgBox mix_val_;
     stoej::DbgBox spacer_;
-    stoej::DbgBox hp_fader_;
+    stoej::StoejSlider hp_fader_;
     stoej::StoejSlider lp_fader_;
-    stoej::DbgBox width_fader_;
-    stoej::DbgBox level_fader_;
+    stoej::StoejSlider width_fader_;
+    stoej::StoejSlider level_fader_;
 
-    std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> lp_fader_attachment_;
+    // TODO: components should manage attachment themselves, passing APVTS and stoej::FloatParameter
+    using SliderAttach = juce::AudioProcessorValueTreeState::SliderAttachment;
+    using UniSliderAttach = std::unique_ptr<SliderAttach>;
+    using ButtonAttach = juce::AudioProcessorValueTreeState::ButtonAttachment;
+    using UniButtonAttach = std::unique_ptr<ButtonAttach>;
+    UniSliderAttach hp_fader_attachment_;
+    UniSliderAttach lp_fader_attachment_;
+    UniSliderAttach width_fader_attachment_;
+    UniSliderAttach level_fader_attachment_;
+    UniButtonAttach grit_btn_attachment_;
     //stoej::Component test_;
     //stoej::Component test2_;
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainView)

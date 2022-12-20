@@ -20,7 +20,10 @@
 //==============================================================================
 MainView::MainView(juce::AudioProcessorValueTreeState& apvts) :
     grit_btn_("grit_btn", stoej::StoejButton::ButtonSize::e_small, "GRIT", stoej::get_font_archivo_narrow(), true),
-    lp_fader_("lp_fader", "LP", juce::Slider::SliderStyle::LinearVertical, stoej::ValueUnit::hertz, false)
+    lp_fader_("lp_fader", "LP", juce::Slider::SliderStyle::LinearVertical, stoej::ValueUnit::hertz, false),
+    hp_fader_("hp_fader", "HP", juce::Slider::SliderStyle::LinearVertical, stoej::ValueUnit::hertz, true),
+    width_fader_(Parameters::noise_width.id, "WIDTH", juce::Slider::SliderStyle::LinearVertical, stoej::ValueUnit::percent, false),
+    level_fader_(Parameters::output_level.id, "LEVEL", juce::Slider::SliderStyle::LinearVertical, stoej::ValueUnit::level2db, false)
 {
     // In your constructor, you should add any child components, and
     // initialise any special settings that your component needs.
@@ -44,8 +47,21 @@ MainView::MainView(juce::AudioProcessorValueTreeState& apvts) :
     //this->test_.setBorderWidth(1.0f);
     //this->test2_.setBorderWidth(1.0f);
 
+    // TODO: macro this, or see other TODO about putting this inside components
+    this->hp_fader_attachment_.reset(
+        new SliderAttach(apvts, Parameters::filter_hp_cutoff.id, this->hp_fader_)
+    );
     this->lp_fader_attachment_.reset(
-        new juce::AudioProcessorValueTreeState::SliderAttachment(apvts, Parameters::filter_lp_cutoff.id, this->lp_fader_)
+        new SliderAttach(apvts, Parameters::filter_lp_cutoff.id, this->lp_fader_)
+    );
+    this->width_fader_attachment_.reset(
+        new SliderAttach(apvts, Parameters::noise_width.id, this->width_fader_)
+    );
+    this->level_fader_attachment_.reset(
+        new SliderAttach(apvts, Parameters::output_level.id, this->level_fader_)
+    );
+    this->grit_btn_attachment_.reset(
+        new ButtonAttach(apvts, Parameters::enable_grit.id, this->grit_btn_)
     );
 }
 
@@ -96,10 +112,10 @@ void MainView::resized()
 	
     this->grit_btn_.setFloatBounds(r1);
 	this->spacer_.setBounds(r.removeFromLeft(6 * dp_));        // TODO: get width
-    this->hp_fader_.setBounds(r.removeFromLeft(48 * dp_));      // TODO: get width
+    this->hp_fader_.setFloatBounds(r.removeFromLeft(48 * dp_));      // TODO: get width
     this->lp_fader_.setFloatBounds(r.removeFromLeft(48 * dp_));      // TODO: get width
-    this->width_fader_.setBounds(r.removeFromLeft(48 * dp_));      // TODO: get width
-    this->level_fader_.setBounds(r.removeFromLeft(48 * dp_));      // TODO: get width
+    this->width_fader_.setFloatBounds(r.removeFromLeft(48 * dp_));      // TODO: get width
+    this->level_fader_.setFloatBounds(r.removeFromLeft(48 * dp_));      // TODO: get width
 }
 
 void MainView::setDP(double dp)
@@ -107,7 +123,10 @@ void MainView::setDP(double dp)
     this->dp_ = dp;
     this->bounding_box_.setDP(dp);
     this->grit_btn_.setDP(dp);
+    this->hp_fader_.setDP(dp);
     this->lp_fader_.setDP(dp);
+    this->width_fader_.setDP(dp);
+    this->level_fader_.setDP(dp);
     //this->test_.setDP(dp);
     //this->test2_.setDP(dp);
 }
