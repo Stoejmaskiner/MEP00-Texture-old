@@ -19,6 +19,7 @@
 #include "gui/components/stoej_Slider.h"
 #include "gui/components/stoej_Value.h"
 #include "../PluginParameters.h"
+#include "MainGraphic.h"
 
 //==============================================================================
 /*
@@ -43,7 +44,7 @@ private:
     double dp_;
     stoej::Box bounding_box_;
     //stoej::DbgBox main_widget_;
-    stoej::DbgBox widget_view_;
+    MainGraphic widget_view_;
     stoej::StoejButton grit_btn_;
     stoej::Value density_val_;
     stoej::Value mix_val_;

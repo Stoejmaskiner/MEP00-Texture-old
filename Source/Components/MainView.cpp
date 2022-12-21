@@ -106,7 +106,7 @@ void MainView::resized()
     r.reduce(this->k_padding_ * dp_, this->k_padding_ * dp_);
     auto r1 = r.removeFromLeft(180 * dp_);
     //this->main_widget_.setBounds(r1);  // TODO: get widget width
-    this->widget_view_.setBounds(r1.removeFromTop(96 * dp_));
+    this->widget_view_.setFloatBounds(r1.removeFromTop(96 * dp_));
     this->mix_val_.setFloatBounds(r1.removeFromRight(60 * dp_));
     this->density_val_.setFloatBounds(r1.removeFromRight(60 * dp_));
 
@@ -132,6 +132,7 @@ void MainView::resized()
 void MainView::setDP(double dp)
 {
     this->dp_ = dp;
+    this->widget_view_.setDP(dp);
     this->bounding_box_.setDP(dp);
     this->mix_val_.setDP(dp);
     this->density_val_.setDP(dp);

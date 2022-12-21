@@ -176,6 +176,8 @@
       <FILE id="HLpx6o" name="PluginGlobals.h" compile="0" resource="0" file="Source/PluginGlobals.h"/>
       <FILE id="EpKFdU" name="PluginAssets.h" compile="0" resource="0" file="Source/PluginAssets.h"/>
       <GROUP id="{DBDD210A-8CA8-FD31-AD69-C37442558B41}" name="Components">
+        <FILE id="ggDbt2" name="MainGraphic.cpp" compile="1" resource="0" file="Source/Components/MainGraphic.cpp"/>
+        <FILE id="l6TltV" name="MainGraphic.h" compile="0" resource="0" file="Source/Components/MainGraphic.h"/>
         <FILE id="h4zsdo" name="MainView.cpp" compile="1" resource="0" file="Source/Components/MainView.cpp"/>
         <FILE id="VC77pn" name="MainView.h" compile="0" resource="0" file="Source/Components/MainView.h"/>
         <FILE id="OJ6cMS" name="Ribbon.cpp" compile="1" resource="0" file="Source/Components/Ribbon.cpp"/>
