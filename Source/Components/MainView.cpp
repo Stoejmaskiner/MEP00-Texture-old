@@ -20,17 +20,19 @@
 //==============================================================================
 MainView::MainView(juce::AudioProcessorValueTreeState& apvts) :
     grit_btn_("grit_btn", stoej::StoejButton::ButtonSize::e_small, "GRIT", stoej::get_font_archivo_narrow(), true),
-    lp_fader_("lp_fader", "LP", juce::Slider::SliderStyle::LinearVertical, stoej::ValueUnit::hertz, false),
-    hp_fader_("hp_fader", "HP", juce::Slider::SliderStyle::LinearVertical, stoej::ValueUnit::hertz, true),
-    width_fader_(Parameters::noise_width.id, "WIDTH", juce::Slider::SliderStyle::LinearVertical, stoej::ValueUnit::percent, false),
-    level_fader_(Parameters::output_level.id, "LEVEL", juce::Slider::SliderStyle::LinearVertical, stoej::ValueUnit::level2db, false)
+    mix_val_(Parameters::noise_mix.id, "MIX", stoej::ValueUnit::percent),
+    density_val_(Parameters::noise_density.id, "DENSITY", stoej::ValueUnit::percent),
+    lp_fader_("lp_fader", "LP", stoej::ValueUnit::hertz, false),
+    hp_fader_("hp_fader", "HP", stoej::ValueUnit::hertz, true),
+    width_fader_(Parameters::noise_width.id, "WIDTH", stoej::ValueUnit::percent, false),
+    level_fader_(Parameters::output_level.id, "LEVEL", stoej::ValueUnit::level2db, false)
 {
     // In your constructor, you should add any child components, and
     // initialise any special settings that your component needs.
 
     addAndMakeVisible(this->bounding_box_);
     //addAndMakeVisible(this->main_widget_);
-    addAndMakeVisible(this->spacer_);
+    //addAndMakeVisible(this->spacer_);
     addAndMakeVisible(this->hp_fader_);
     addAndMakeVisible(this->lp_fader_);
     addAndMakeVisible(this->width_fader_);
@@ -48,6 +50,12 @@ MainView::MainView(juce::AudioProcessorValueTreeState& apvts) :
     //this->test2_.setBorderWidth(1.0f);
 
     // TODO: macro this, or see other TODO about putting this inside components
+    this->mix_val_attachment_.reset(
+        new SliderAttach(apvts, Parameters::noise_mix.id, this->mix_val_)
+    );
+    this->density_val_attachment_.reset(
+        new SliderAttach(apvts, Parameters::noise_density.id, this->density_val_)
+    );
     this->hp_fader_attachment_.reset(
         new SliderAttach(apvts, Parameters::filter_hp_cutoff.id, this->hp_fader_)
     );
@@ -63,6 +71,9 @@ MainView::MainView(juce::AudioProcessorValueTreeState& apvts) :
     this->grit_btn_attachment_.reset(
         new ButtonAttach(apvts, Parameters::enable_grit.id, this->grit_btn_)
     );
+
+    
+    
 }
 
 MainView::~MainView()
@@ -96,22 +107,22 @@ void MainView::resized()
     auto r1 = r.removeFromLeft(180 * dp_);
     //this->main_widget_.setBounds(r1);  // TODO: get widget width
     this->widget_view_.setBounds(r1.removeFromTop(96 * dp_));
-    this->mix_val_.setBounds(r1.removeFromRight(60 * dp_));
-    this->density_val_.setBounds(r1.removeFromRight(60 * dp_));
+    this->mix_val_.setFloatBounds(r1.removeFromRight(60 * dp_));
+    this->density_val_.setFloatBounds(r1.removeFromRight(60 * dp_));
 
     // TODO: this could be useful as a function
     // TODO: use the preferred width and height of the button
     // TODO: pretty sure there is already a method in Rectangle for this
     // centers the button within a larger rectangle (variable padding)
-    auto pad_h = (r1.getHeight() / dp_ - 24) / 2 * dp_;
-    auto pad_v = (r1.getWidth() / dp_ - 36) / 2 * dp_;
+    auto pad_h = (r1.getHeight() / dp_ - 24.f) / 2.f * dp_;
+    auto pad_v = (r1.getWidth() / dp_ - 36.f) / 2.f * dp_;
 	r1.removeFromTop(pad_h);
     r1.removeFromBottom(pad_h);
     r1.removeFromLeft(pad_v);
     r1.removeFromRight(pad_v);
 	
     this->grit_btn_.setFloatBounds(r1);
-	this->spacer_.setBounds(r.removeFromLeft(6 * dp_));        // TODO: get width
+	r.removeFromLeft(6.f * dp_);        // TODO: get width
     this->hp_fader_.setFloatBounds(r.removeFromLeft(48 * dp_));      // TODO: get width
     this->lp_fader_.setFloatBounds(r.removeFromLeft(48 * dp_));      // TODO: get width
     this->width_fader_.setFloatBounds(r.removeFromLeft(48 * dp_));      // TODO: get width
@@ -122,6 +133,8 @@ void MainView::setDP(double dp)
 {
     this->dp_ = dp;
     this->bounding_box_.setDP(dp);
+    this->mix_val_.setDP(dp);
+    this->density_val_.setDP(dp);
     this->grit_btn_.setDP(dp);
     this->hp_fader_.setDP(dp);
     this->lp_fader_.setDP(dp);

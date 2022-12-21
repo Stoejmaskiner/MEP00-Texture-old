@@ -17,6 +17,7 @@
 #include "gui/components/stoej_button.h"
 #include "gui/components/stoej_component.h"
 #include "gui/components/stoej_Slider.h"
+#include "gui/components/stoej_Value.h"
 #include "../PluginParameters.h"
 
 //==============================================================================
@@ -44,9 +45,9 @@ private:
     //stoej::DbgBox main_widget_;
     stoej::DbgBox widget_view_;
     stoej::StoejButton grit_btn_;
-    stoej::DbgBox density_val_;
-    stoej::DbgBox mix_val_;
-    stoej::DbgBox spacer_;
+    stoej::Value density_val_;
+    stoej::Value mix_val_;
+    //stoej::DbgBox spacer_;
     stoej::StoejSlider hp_fader_;
     stoej::StoejSlider lp_fader_;
     stoej::StoejSlider width_fader_;
@@ -57,6 +58,8 @@ private:
     using UniSliderAttach = std::unique_ptr<SliderAttach>;
     using ButtonAttach = juce::AudioProcessorValueTreeState::ButtonAttachment;
     using UniButtonAttach = std::unique_ptr<ButtonAttach>;
+    UniSliderAttach mix_val_attachment_;
+    UniSliderAttach density_val_attachment_;
     UniSliderAttach hp_fader_attachment_;
     UniSliderAttach lp_fader_attachment_;
     UniSliderAttach width_fader_attachment_;
