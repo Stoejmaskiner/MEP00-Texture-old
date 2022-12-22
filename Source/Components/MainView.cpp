@@ -72,6 +72,8 @@ MainView::MainView(juce::AudioProcessorValueTreeState& apvts) :
         new ButtonAttach(apvts, Parameters::enable_grit.id, this->grit_btn_)
     );
 
+    this->widget_view_.getXValueObject().referTo(this->mix_val_.getValueObject());
+
     
     
 }

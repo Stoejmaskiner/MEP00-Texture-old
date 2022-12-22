@@ -10,6 +10,8 @@
 
 #include "MainGraphic.h"
 
+
+
 void MainGraphic::paint(juce::Graphics& g)
 {
     this->setBorderWidth(1.f);
