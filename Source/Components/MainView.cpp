@@ -73,9 +73,10 @@ MainView::MainView(juce::AudioProcessorValueTreeState& apvts) :
     );
 
     this->widget_view_.getXValueObject().referTo(this->mix_val_.getValueObject());
-
-    
-    
+    this->widget_view_.setXRange(apvts.getParameterRange(Parameters::noise_mix.id));
+    this->widget_view_.getYValueObject().referTo(this->density_val_.getValueObject());
+    this->widget_view_.setYRange(apvts.getParameterRange(Parameters::noise_density.id));
+    this->widget_view_.grit.referTo(this->grit_btn_.getToggleStateValue());
 }
 
 MainView::~MainView()

@@ -45,8 +45,8 @@ private:
     double dp_;
     stoej::Box bounding_box_;
     //stoej::DbgBox main_widget_;
-    //MainGraphic widget_view_;
-    stoej::XY widget_view_;
+    MainGraphic widget_view_;
+    //stoej::XY widget_view_;
     stoej::StoejButton grit_btn_;
     stoej::Value density_val_;
     stoej::Value mix_val_;

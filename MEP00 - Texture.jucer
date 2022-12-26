@@ -161,6 +161,8 @@
               file="shared-code/utils/stoej_graphics_utils.h"/>
         <FILE id="TAxtN9" name="stoej_juce_utils.h" compile="0" resource="0"
               file="shared-code/utils/stoej_juce_utils.h"/>
+        <FILE id="FGRLxT" name="stoej_luts.cpp" compile="1" resource="0" file="shared-code/utils/stoej_luts.cpp"/>
+        <FILE id="zZW3cV" name="stoej_luts.h" compile="0" resource="0" file="shared-code/utils/stoej_luts.h"/>
         <FILE id="iNGRu6" name="stoej_math.h" compile="0" resource="0" file="shared-code/utils/stoej_math.h"/>
         <FILE id="c0rKMc" name="stoej_nonlinearities.h" compile="0" resource="0"
               file="shared-code/utils/stoej_nonlinearities.h"/>

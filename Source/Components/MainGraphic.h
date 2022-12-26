@@ -12,10 +12,12 @@
 #include <JuceHeader.h>
 #include "gui/components/stoej_component.h"
 #include "gui/components/stoej_xy.h"
+#include "utils/stoej_math.h"
+#include "utils/stoej_luts.h"
 
-class MainGraphic : public stoej::FloatComponent<juce::Component> {
+class MainGraphic : public stoej::XY {
 public:
+    MainGraphic();
     void paint(juce::Graphics& g) override;
-private:
-    stoej::XY xy_;
+    juce::Value grit;
 };
