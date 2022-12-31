@@ -147,6 +147,18 @@
           <FILE id="hvZcfO" name="stoej_tileable_component.h" compile="0" resource="0"
                 file="shared-code/gui/interfaces/stoej_tileable_component.h"/>
         </GROUP>
+        <FILE id="f0hcJP" name="stoej_MultiValueAttachedControlBase.cpp" compile="1"
+              resource="0" file="shared-code/gui/stoej_MultiValueAttachedControlBase.cpp"/>
+        <FILE id="kR6vtS" name="stoej_MultiValueAttachedControlBase.h" compile="0"
+              resource="0" file="shared-code/gui/stoej_MultiValueAttachedControlBase.h"/>
+        <FILE id="fp0kpb" name="stoej_TwoValueSliderAttachment.cpp" compile="1"
+              resource="0" file="shared-code/gui/stoej_TwoValueSliderAttachment.cpp"/>
+        <FILE id="dacqZJ" name="stoej_TwoValueSliderAttachment.h" compile="0"
+              resource="0" file="shared-code/gui/stoej_TwoValueSliderAttachment.h"/>
+        <FILE id="UDzn3x" name="stoej_XYPadAttachment.cpp" compile="1" resource="0"
+              file="shared-code/gui/stoej_XYPadAttachment.cpp"/>
+        <FILE id="PMQlbi" name="stoej_XYPadAttachment.h" compile="0" resource="0"
+              file="shared-code/gui/stoej_XYPadAttachment.h"/>
       </GROUP>
       <GROUP id="{2E7DC20D-2B4D-982D-8DB0-A174B81D42E1}" name="templates">
         <FILE id="cFrwAW" name="template_processor.cpp" compile="1" resource="0"
