@@ -40,16 +40,20 @@ void MainGraphic::paint(juce::Graphics& g)
     auto norm_2_bounds = [&](float norm_x, float norm_y) {
         return juce::Point(norm_x * r1.getWidth() + r1.getTopLeft().getX(), (norm_y * -0.5f + 0.5f) * r1.getHeight() + r1.getTopLeft().getY());
     };
+
+    // TODO: this sucks
+    // TODO: inefficient
     for (int i = 0; i < resolution; i++) {
         float eval_x = (i + 1) / resolution;
         float eval_y = std::sinf(eval_x * stoej::TAU);
-        sin_p.lineTo(norm_2_bounds(eval_x, eval_y * x));
+        auto coeffs = stoej::xfade_fast_transition(x);
+        sin_p.lineTo(norm_2_bounds(eval_x, eval_y * coeffs.a));
         if (i % every_n == 0) {
             float eval_y_new = stoej::lut_randf_pol[i];
             eval_y_new = eval_y_new < y ? (-y < eval_y_new ? 0.0f : eval_y_new) : eval_y_new;
             eval_y_new = this->grit < 0.5f ? eval_y_new * eval_y : eval_y_new * stoej::clamp_min(eval_y, 0.0f);
-            eval_y_new = stoej::lerp(eval_y_new, eval_y, x);
-            nse_p.startNewSubPath(norm_2_bounds(eval_x, eval_y * x));
+            eval_y_new = stoej::xfade(eval_y, eval_y_new, coeffs);
+            nse_p.startNewSubPath(norm_2_bounds(eval_x, eval_y * coeffs.a));
             nse_p.lineTo(norm_2_bounds(eval_x, eval_y_new));
         }
     }

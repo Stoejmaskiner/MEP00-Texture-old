@@ -14,6 +14,7 @@
 #include "gui/components/stoej_xy.h"
 #include "utils/stoej_math.h"
 #include "utils/stoej_luts.h"
+#include "utils/stoej_xfade.h"
 
 class MainGraphic : public stoej::XY {
 public:
