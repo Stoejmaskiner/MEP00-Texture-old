@@ -23,7 +23,7 @@
 class MEP00TextureAudioProcessorEditor  : public juce::AudioProcessorEditor
 {
 public:
-    MEP00TextureAudioProcessorEditor (MEP00TextureAudioProcessor&);
+    MEP00TextureAudioProcessorEditor (MEP00TextureAudioProcessor& p, juce::AudioProcessorValueTreeState& apvts);
     ~MEP00TextureAudioProcessorEditor() override;
 
     //==============================================================================

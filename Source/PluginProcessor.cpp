@@ -207,7 +207,7 @@ bool MEP00TextureAudioProcessor::hasEditor() const
 juce::AudioProcessorEditor* MEP00TextureAudioProcessor::createEditor()
 {
     //return new juce::GenericAudioProcessorEditor(*this);
-    return new MEP00TextureAudioProcessorEditor (*this);
+    return new MEP00TextureAudioProcessorEditor (*this, this->apvts);
 }
 
 //==============================================================================
