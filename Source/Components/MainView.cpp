@@ -53,9 +53,9 @@ MainView::MainView(juce::AudioProcessorValueTreeState& apvts) :
     this->mix_val_attachment_.reset(
         new SliderAttach(apvts, Parameters::noise_mix.id, this->mix_val_)
     );
-    this->density_val_attachment_.reset(
-        new SliderAttach(apvts, Parameters::noise_density.id, this->density_val_)
-    );
+    //this->density_val_attachment_.reset(
+    //    new SliderAttach(apvts, Parameters::noise_density.id, this->density_val_)
+    //);
     this->hp_fader_attachment_.reset(
         new SliderAttach(apvts, Parameters::filter_hp_cutoff.id, this->hp_fader_)
     );
@@ -74,8 +74,10 @@ MainView::MainView(juce::AudioProcessorValueTreeState& apvts) :
 
     this->widget_view_.getXValueObject().referTo(this->mix_val_.getValueObject());
     this->widget_view_.setXRange(apvts.getParameterRange(Parameters::noise_mix.id));
-    this->widget_view_.getYValueObject().referTo(this->density_val_.getValueObject());
+    //this->widget_view_.getYValueObject().referTo(this->density_val_.getValueObject());
+    apvts.getParameterAsValue(Parameters::noise_density.id).referTo(this->density_val_.getValueObject());
     this->widget_view_.setYRange(apvts.getParameterRange(Parameters::noise_density.id));
+    
     this->widget_view_.grit.referTo(this->grit_btn_.getToggleStateValue());
 }
 
