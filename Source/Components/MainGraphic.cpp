@@ -29,6 +29,7 @@ void MainGraphic::paint(juce::Graphics& g)
     auto y_pos = y * r.getHeight();
 
     // TODO: eats CPU, use LUT
+    // TODO: unfinished
     g.setColour(juce::Colours::magenta);
     auto r1 = r;
     r1.reduce(6.f * dp_, 6.f * dp_);
