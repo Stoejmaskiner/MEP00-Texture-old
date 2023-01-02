@@ -23,10 +23,10 @@ void MainGraphic::paint(juce::Graphics& g)
     this->drawBackground(g);
 
     auto r = this->getLocalFloatBounds();
-    float x = this->x_range_.convertTo0to1(this->getXValueObject().getValue());
-    auto x_pos = x * r.getWidth();
-    float y = 1.0f - this->y_range_.convertTo0to1(this->getYValueObject().getValue());
-    auto y_pos = y * r.getHeight();
+    float mix = this->x_range_.convertTo0to1(this->getXValueObject().getValue());
+    auto x_pos = mix * r.getWidth();
+    float density = 1.0f - this->y_range_.convertTo0to1(this->getYValueObject().getValue());
+    auto y_pos = density * r.getHeight();
 
     // TODO: eats CPU, use LUT
     g.setColour(juce::Colours::magenta);
@@ -35,27 +35,31 @@ void MainGraphic::paint(juce::Graphics& g)
     juce::Path sin_p;
     juce::Path nse_p;
     sin_p.startNewSubPath(r1.getTopLeft().getX(), r1.getTopLeft().getY() * 0.5f + r1.getBottomLeft().getY() * 0.5f);
-    float resolution = 128;
-    int every_n = 1;
+    float resolution = 128; // TODO: eco mode reduces this to 64
     auto norm_2_bounds = [&](float norm_x, float norm_y) {
         return juce::Point(norm_x * r1.getWidth() + r1.getTopLeft().getX(), (norm_y * -0.5f + 0.5f) * r1.getHeight() + r1.getTopLeft().getY());
     };
 
     // TODO: this sucks
-    // TODO: inefficient
+    // NOTE: the bottleneck is not sin, but drawing the path, don't bother optimizing for now
     for (int i = 0; i < resolution; i++) {
-        float eval_x = (i + 1) / resolution;
-        float eval_y = std::sinf(eval_x * stoej::TAU);
-        auto coeffs = stoej::xfade_fast_transition(x);
-        sin_p.lineTo(norm_2_bounds(eval_x, eval_y * coeffs.a));
-        if (i % every_n == 0) {
-            float eval_y_new = stoej::lut_randf_pol[i];
-            eval_y_new = eval_y_new < y ? (-y < eval_y_new ? 0.0f : eval_y_new) : eval_y_new;
-            eval_y_new = this->grit < 0.5f ? eval_y_new * eval_y : eval_y_new * stoej::clamp_min(eval_y, 0.0f);
-            eval_y_new = stoej::xfade(eval_y, eval_y_new, coeffs);
-            nse_p.startNewSubPath(norm_2_bounds(eval_x, eval_y * coeffs.a));
-            nse_p.lineTo(norm_2_bounds(eval_x, eval_y_new));
-        }
+        auto coeffs = stoej::xfade_fast_transition(mix);
+        float x = (i + 1) / resolution;
+        float sin_x = std::sinf(x * stoej::TAU);
+
+        // noise from fixed LUT
+        float nse_x = stoej::lut_randf_pol[i];
+        
+        // apply density transform to noise
+        nse_x = nse_x < density ? (-density < nse_x ? 0.0f : nse_x) : nse_x;
+
+        // apply grit transform to noise
+        nse_x = this->grit < 0.5f ? nse_x * sin_x : nse_x * stoej::clamp_min(sin_x, 0.0f);
+
+        nse_x = stoej::xfade(sin_x, nse_x, coeffs);
+        sin_p.lineTo(norm_2_bounds(x, sin_x * coeffs.a));
+        nse_p.startNewSubPath(norm_2_bounds(x, sin_x * coeffs.a));
+        nse_p.lineTo(norm_2_bounds(x, nse_x));
     }
     g.strokePath(sin_p, juce::PathStrokeType(2.f * dp_));
     g.strokePath(nse_p, juce::PathStrokeType(1.f * dp_));
