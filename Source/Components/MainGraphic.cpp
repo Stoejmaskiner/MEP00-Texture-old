@@ -56,9 +56,11 @@ void MainGraphic::paint(juce::Graphics& g)
     g.strokePath(sin_p, juce::PathStrokeType(2.f * dp_));
     g.strokePath(nse_p, juce::PathStrokeType(1.f * dp_));
 
+    /* TODO: enable this when ready 
     g.setColour(juce::Colours::magenta);
     g.drawVerticalLine(x_pos, 0.f, r.getBottom());
     g.drawHorizontalLine(y_pos, 0.f, r.getRight());
+    */
 
     this->setBorderWidth(1.f);
     this->drawBorder(g);
