@@ -98,38 +98,38 @@ void MainView::resized()
 {
     // This method is where you should set the bounds of any child
     // components that your component contains..
-    auto r = getLocalBounds();
-    auto rtest = r;
+    auto r_main = getLocalBounds();
+    auto rtest = r_main;
     rtest.reduce(100, 100);
     auto rt1 = rtest.removeFromLeft(50);
     //this->test_.setFloatBounds(juce::Rectangle<float>(rtest.getTopLeft().getX(), rtest.getTopLeft().getY(), rtest.getWidth(), rtest.getHeight()));
     //this->test2_.setFloatBounds(juce::Rectangle<float>(rt1.getTopLeft().getX(), rt1.getTopLeft().getY(), rt1.getWidth(), rt1.getHeight()));
 
-    this->bounding_box_.setBounds(r);
-    r.reduce(this->k_padding_ * dp_, this->k_padding_ * dp_);
-    auto r1 = r.removeFromLeft(180 * dp_);
+    this->bounding_box_.setBounds(r_main);
+    r_main.reduce(this->k_padding_ * dp_, this->k_padding_ * dp_);
+    auto r1_main = r_main.removeFromLeft(180 * dp_);
     //this->main_widget_.setBounds(r1);  // TODO: get widget width
-    this->widget_view_.setFloatBounds(r1.removeFromTop(96 * dp_));
-    this->mix_val_.setFloatBounds(r1.removeFromRight(60 * dp_));
-    this->density_val_.setFloatBounds(r1.removeFromRight(60 * dp_));
+    this->widget_view_.setFloatBounds(r1_main.removeFromTop(96 * dp_));
+    this->mix_val_.setFloatBounds(r1_main.removeFromRight(60 * dp_));
+    this->density_val_.setFloatBounds(r1_main.removeFromRight(60 * dp_));
 
     // TODO: this could be useful as a function
     // TODO: use the preferred width and height of the button
     // TODO: pretty sure there is already a method in Rectangle for this
     // centers the button within a larger rectangle (variable padding)
-    auto pad_h = (r1.getHeight() / dp_ - 24.f) / 2.f * dp_;
-    auto pad_v = (r1.getWidth() / dp_ - 36.f) / 2.f * dp_;
-	r1.removeFromTop(pad_h);
-    r1.removeFromBottom(pad_h);
-    r1.removeFromLeft(pad_v);
-    r1.removeFromRight(pad_v);
+    auto pad_h = (r1_main.getHeight() / dp_ - 24.f) / 2.f * dp_;
+    auto pad_v = (r1_main.getWidth() / dp_ - 36.f) / 2.f * dp_;
+	r1_main.removeFromTop(pad_h);
+    r1_main.removeFromBottom(pad_h);
+    r1_main.removeFromLeft(pad_v);
+    r1_main.removeFromRight(pad_v);
 	
-    this->grit_btn_.setFloatBounds(r1);
-	r.removeFromLeft(6.f * dp_);        // TODO: get width
-    this->hp_fader_.setFloatBounds(r.removeFromLeft(48 * dp_));      // TODO: get width
-    this->lp_fader_.setFloatBounds(r.removeFromLeft(48 * dp_));      // TODO: get width
-    this->width_fader_.setFloatBounds(r.removeFromLeft(48 * dp_));      // TODO: get width
-    this->level_fader_.setFloatBounds(r.removeFromLeft(48 * dp_));      // TODO: get width
+    this->grit_btn_.setFloatBounds(r1_main);
+	r_main.removeFromLeft(6.f * dp_);        // TODO: get width
+    this->hp_fader_.setFloatBounds(r_main.removeFromLeft(48 * dp_));      // TODO: get width
+    this->lp_fader_.setFloatBounds(r_main.removeFromLeft(48 * dp_));      // TODO: get width
+    this->width_fader_.setFloatBounds(r_main.removeFromLeft(48 * dp_));      // TODO: get width
+    this->level_fader_.setFloatBounds(r_main.removeFromLeft(48 * dp_));      // TODO: get width
 }
 
 void MainView::setDP(double dp)
