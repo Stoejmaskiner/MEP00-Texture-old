@@ -84,7 +84,7 @@ private:
     stoej::MenuButton init_btn_;
     stoej::Ticker tooltip_box_;
 
-    static constexpr int k_padding_2 = 6;
+    static constexpr double k_padding_2 = 6.0;
 
     stoej::Box bounding_box_;
     //stoej::DbgBox main_widget_;

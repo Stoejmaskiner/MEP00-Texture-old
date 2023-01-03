@@ -28,7 +28,7 @@ void MainGraphic::paint(juce::Graphics& g)
     float density = 1.0f - this->y_range_.convertTo0to1(this->getYValueObject().getValue());
     auto y_pos = density * r.getHeight();
 
-    // TODO: eats CPU, use LUT
+    // TODO: eats CPU
     g.setColour(juce::Colours::magenta);
     auto r1 = r;
     r1.reduce(6.f * dp_, 6.f * dp_);
@@ -57,6 +57,7 @@ void MainGraphic::paint(juce::Graphics& g)
         nse_x = this->grit < 0.5f ? nse_x * sin_x : nse_x * stoej::clamp_min(sin_x, 0.0f);
 
         nse_x = stoej::xfade(sin_x, nse_x, coeffs);
+        nse_x = stoej::clamp_abs(nse_x, 1.05f);
         sin_p.lineTo(norm_2_bounds(x, sin_x * coeffs.a));
         nse_p.startNewSubPath(norm_2_bounds(x, sin_x * coeffs.a));
         nse_p.lineTo(norm_2_bounds(x, nse_x));

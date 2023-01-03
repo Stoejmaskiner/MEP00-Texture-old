@@ -15,6 +15,7 @@
 #include "utils/stoej_math.h"
 #include "utils/stoej_luts.h"
 #include "utils/stoej_xfade.h"
+#include "utils/stoej_nonlinearities.h"
 
 class MainGraphic : public stoej::XY {
 public:

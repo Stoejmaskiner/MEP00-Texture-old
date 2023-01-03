@@ -13,7 +13,10 @@
 
 //==============================================================================
 MEP00TextureAudioProcessorEditor::MEP00TextureAudioProcessorEditor (MEP00TextureAudioProcessor& p, juce::AudioProcessorValueTreeState& apvts)
-    : AudioProcessorEditor (&p), audioProcessor (p), main_view_(apvts),
+    : 
+    AudioProcessorEditor (&p), 
+    audioProcessor (p), 
+    main_view_(apvts),
     light_dark_toggle_(this->sun_ico_),
     help_btn_(this->book_ico_),
     oversample_btn_(this->gauge_ico_),
@@ -98,6 +101,19 @@ MEP00TextureAudioProcessorEditor::MEP00TextureAudioProcessorEditor (MEP00Texture
     this->widget_view_.getYValueObject().referTo(this->density_val_.getValueObject());
     this->widget_view_.setYRange(apvts.getParameterRange(Parameters::noise_density.id));
     this->widget_view_.grit.referTo(this->grit_btn_.getToggleStateValue());
+
+    // set all the tooltips
+    // TODO: use ParameterInfo to store the tooltips
+    #define ADD_TOOLTIP_(c,s,box) \
+    c.setTooltip(s); \
+    c.addMouseListener(&box, false);
+    ADD_TOOLTIP_(this->grit_btn_, "adds asymmetric distortion to the noise", this->tooltip_box_);
+    ADD_TOOLTIP_(this->density_val_, "low density = crackle, high density = hiss", this->tooltip_box_);
+    ADD_TOOLTIP_(this->mix_val_, "blend unprocessed input with texture noise", this->tooltip_box_);
+    ADD_TOOLTIP_(this->hp_fader_, "high-pass filter the noise (12 dB/oct)", this->tooltip_box_);
+    ADD_TOOLTIP_(this->lp_fader_, "low-pass filter the noise (12 dB/oct)", this->tooltip_box_);
+    #undef ADD_TOOLTIP_
+
 
     setSize (k_width_ * k_init_scale_, k_height_ * k_init_scale_);
 }
@@ -185,10 +201,11 @@ void MEP00TextureAudioProcessorEditor::resized()
     // centers the button within a larger rectangle (variable padding)
     auto pad_h = (r1_main.getHeight() / dp - 24.f) / 2.f * dp;
     auto pad_v = (r1_main.getWidth() / dp - 36.f) / 2.f * dp;
-    r1_main.removeFromTop(pad_h);
-    r1_main.removeFromBottom(pad_h);
-    r1_main.removeFromLeft(pad_v);
-    r1_main.removeFromRight(pad_v);
+    //r1_main.removeFromTop(pad_h);
+    //r1_main.removeFromBottom(pad_h);
+    //r1_main.removeFromLeft(pad_v);
+    //r1_main.removeFromRight(pad_v);
+    r1_main.reduce(pad_v, pad_h);
 
     this->grit_btn_.setFloatBounds(r1_main);
     r_main.removeFromLeft(6.f * dp);        // TODO: get width
