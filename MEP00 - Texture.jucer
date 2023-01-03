@@ -134,6 +134,9 @@
           <FILE id="hqbi9k" name="stoej_Slider.cpp" compile="1" resource="0"
                 file="shared-code/gui/components/stoej_Slider.cpp"/>
           <FILE id="CZJJYO" name="stoej_Slider.h" compile="0" resource="0" file="shared-code/gui/components/stoej_Slider.h"/>
+          <FILE id="xZTats" name="stoej_Ticker.cpp" compile="1" resource="0"
+                file="shared-code/gui/components/stoej_Ticker.cpp"/>
+          <FILE id="Kx3Pi7" name="stoej_Ticker.h" compile="0" resource="0" file="shared-code/gui/components/stoej_Ticker.h"/>
           <FILE id="MzlRHX" name="stoej_Value.cpp" compile="1" resource="0" file="shared-code/gui/components/stoej_Value.cpp"/>
           <FILE id="ccW0Ld" name="stoej_Value.h" compile="0" resource="0" file="shared-code/gui/components/stoej_Value.h"/>
           <FILE id="qrBwCP" name="stoej_xy.cpp" compile="1" resource="0" file="shared-code/gui/components/stoej_xy.cpp"/>

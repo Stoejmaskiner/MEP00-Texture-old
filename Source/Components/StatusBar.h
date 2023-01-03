@@ -19,6 +19,7 @@
 #include "binary_data/stoej_BinaryData.h"
 #include "../PluginAssets.h"
 #include "stoej_core.h"
+#include "gui/components/stoej_Ticker.h"
 
 //==============================================================================
 /*
@@ -38,22 +39,24 @@ public:
     std::variant<int, stoej::DynamicSize> getWidth() override;
     void setDP(double dp) override;
 
+    stoej::Ticker* getTooltipBox() { return &this->tooltip_box_; }
+
 private:
-    
-    const std::unique_ptr<juce::Drawable> sun_ico_ = STOEJ_DRAWABLE_IMG(stoej_BinaryData::sundimlight_svg);
-	const std::unique_ptr<juce::Drawable> book_ico_ = STOEJ_DRAWABLE_IMG(stoej_BinaryData::bookopenlight_svg);
-	const std::unique_ptr<juce::Drawable> gauge_ico_ = STOEJ_DRAWABLE_IMG(stoej_BinaryData::gaugelight_svg);
-	const std::unique_ptr<juce::Drawable> shuffle_ico_ = STOEJ_DRAWABLE_IMG(stoej_BinaryData::shuffleangularlight_svg);
-    const std::unique_ptr<juce::Drawable> file_plus_ico_ = STOEJ_DRAWABLE_IMG(stoej_BinaryData::filepluslight_svg);
-    const std::unique_ptr<juce::Drawable> info_ico_ = STOEJ_DRAWABLE_IMG(stoej_BinaryData::infolight_svg);
+    using DrawPtr = std::unique_ptr<juce::Drawable>;
+    const DrawPtr sun_ico_ = STOEJ_DRAWABLE_IMG(stoej_BinaryData::sundimlight_svg);
+	const DrawPtr book_ico_ = STOEJ_DRAWABLE_IMG(stoej_BinaryData::bookopenlight_svg);
+	const DrawPtr gauge_ico_ = STOEJ_DRAWABLE_IMG(stoej_BinaryData::gaugelight_svg);
+	const DrawPtr shuffle_ico_ = STOEJ_DRAWABLE_IMG(stoej_BinaryData::shuffleangularlight_svg);
+    const DrawPtr file_plus_ico_ = STOEJ_DRAWABLE_IMG(stoej_BinaryData::filepluslight_svg);
+    const DrawPtr info_ico_ = STOEJ_DRAWABLE_IMG(stoej_BinaryData::infolight_svg);
 	
     double dp_ = 1.0;
     //stoej::PresetTextField preset_text_field_;
-    stoej::MenuButton light_dark_toggle_;
+    juce::ToggleButton light_dark_toggle_;
     stoej::MenuButton help_btn_;
     stoej::MenuButton oversample_btn_;
     stoej::MenuButton randomize_btn_;
     stoej::MenuButton init_btn_;
-    stoej::DbgBox tooltip_box_;
+    stoej::Ticker tooltip_box_;
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (StatusBar)
 };

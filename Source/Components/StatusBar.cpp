@@ -14,14 +14,15 @@
 //==============================================================================
 StatusBar::StatusBar() :
 //preset_text_field_(get_font_archivo_narrow_bold(), get_font_archivo_narrow_light()),
-light_dark_toggle_(this->sun_ico_),
+//light_dark_toggle_(this->sun_ico_),
 help_btn_(this->book_ico_),
 oversample_btn_(this->gauge_ico_),
 randomize_btn_(this->shuffle_ico_),
-init_btn_(this->file_plus_ico_)
+init_btn_(this->file_plus_ico_),
+tooltip_box_("tooltip_box")
 /*save_preset_btn_(this->floppy_ico_)*/ {
     // setting edge visibility to avoid redrawing adjacent edges
-    this->light_dark_toggle_.setTilePosition(stoej::e_array_left);
+    //this->light_dark_toggle_.setTilePosition(stoej::e_array_left);
     this->help_btn_.setTilePosition(stoej::e_array_horizontal);
     this->oversample_btn_.setTilePosition(stoej::e_array_horizontal);
     this->randomize_btn_.setTilePosition(stoej::e_array_horizontal);
@@ -35,6 +36,9 @@ init_btn_(this->file_plus_ico_)
     this->addAndMakeVisible(this->randomize_btn_);
     this->addAndMakeVisible(this->init_btn_);
     this->addAndMakeVisible(this->tooltip_box_);
+
+    this->light_dark_toggle_.setTooltip("gneurshk");
+    this->light_dark_toggle_.addMouseListener(&this->tooltip_box_, false);
 }
 
 
@@ -53,8 +57,11 @@ void StatusBar::resized()
     //this->dbg_box_.setBounds(r);
 
     // left hand buttons
+    /*
     this->light_dark_toggle_.setBounds(
         r.removeFromLeft(std::get<int>(this->light_dark_toggle_.getWidth()) * dp_));
+    */
+    this->light_dark_toggle_.setBounds(r.removeFromLeft(24 * dp_));
     this->help_btn_.setBounds(
         r.removeFromLeft(std::get<int>(this->help_btn_.getWidth()) * dp_));
     this->oversample_btn_.setBounds(
@@ -64,7 +71,7 @@ void StatusBar::resized()
     this->init_btn_.setBounds(
         r.removeFromLeft(std::get<int>(this->init_btn_.getWidth()) * dp_));
 
-    this->tooltip_box_.setBounds(r);
+    this->tooltip_box_.setFloatBounds(r);
 
     // right hand buttons
     //this->tooltip_box_.setBounds(
@@ -83,7 +90,9 @@ std::variant<int, stoej::DynamicSize> StatusBar::getHeight() {
     //
     // the component array should refuse inconsistent component sizes and return the
     // size of its children when queried.
-	return std::get<int>(this->light_dark_toggle_.getHeight());
+	
+    //return std::get<int>(this->light_dark_toggle_.getHeight());
+    return 24;
 }
 
 std::variant<int, stoej::DynamicSize> StatusBar::getWidth() {
@@ -92,10 +101,11 @@ std::variant<int, stoej::DynamicSize> StatusBar::getWidth() {
 
 void StatusBar::setDP(double dp) {
     this->dp_ = dp;
-    this->light_dark_toggle_.setDP(dp);
+    //this->light_dark_toggle_.setDP(dp);
     this->help_btn_.setDP(dp);
     this->oversample_btn_.setDP(dp);
     this->randomize_btn_.setDP(dp);
     this->init_btn_.setDP(dp);
+    this->tooltip_box_.setDP(dp);
     //this->preset_text_field_.setDP(dp);
 }

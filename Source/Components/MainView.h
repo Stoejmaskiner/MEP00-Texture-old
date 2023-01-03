@@ -21,6 +21,7 @@
 #include "gui/components/stoej_xy.h"
 #include "../PluginParameters.h"
 #include "MainGraphic.h"
+#include "gui/components/stoej_Ticker.h"
 
 //==============================================================================
 /*
