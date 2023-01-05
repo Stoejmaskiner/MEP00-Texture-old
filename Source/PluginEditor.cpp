@@ -110,8 +110,10 @@ MEP00TextureAudioProcessorEditor::MEP00TextureAudioProcessorEditor (MEP00Texture
     ADD_TOOLTIP_(this->grit_btn_, "adds asymmetric distortion to the noise", this->tooltip_box_);
     ADD_TOOLTIP_(this->density_val_, "low density = crackle, high density = hiss", this->tooltip_box_);
     ADD_TOOLTIP_(this->mix_val_, "blend unprocessed input with texture noise", this->tooltip_box_);
-    ADD_TOOLTIP_(this->hp_fader_, "high-pass filter the noise (12 dB/oct)", this->tooltip_box_);
-    ADD_TOOLTIP_(this->lp_fader_, "low-pass filter the noise (12 dB/oct)", this->tooltip_box_);
+    ADD_TOOLTIP_(this->hp_fader_, "high-pass filter the texture noise (12 dB/oct)", this->tooltip_box_);
+    ADD_TOOLTIP_(this->lp_fader_, "low-pass filter the texture noise (12 dB/oct)", this->tooltip_box_);
+    ADD_TOOLTIP_(this->width_fader_, "stereo width of the texture noise", this->tooltip_box_);
+    ADD_TOOLTIP_(this->level_fader_, "main volume of the output", this->tooltip_box_);
     #undef ADD_TOOLTIP_
 
 
