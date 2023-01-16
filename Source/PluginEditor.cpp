@@ -8,6 +8,7 @@
 
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
+#include "utils/stoej_juce_utils.h"
 
 
 
@@ -135,6 +136,9 @@ MEP00TextureAudioProcessorEditor::MEP00TextureAudioProcessorEditor (MEP00Texture
     #undef ADD_TOOLTIP_
 
     this->help_btn_.setClickAction([]() { juce::URL("https://www.youtube.com/watch?v=dQw4w9WgXcQ").launchInDefaultBrowser(); });
+    this->init_btn_.setClickAction([&apvts]() {
+        stoej::apvts_reset_param(apvts, Parameters::noise_mix.id);
+    });
 
     setSize (k_width_ * k_init_scale_, k_height_ * k_init_scale_);
 }
