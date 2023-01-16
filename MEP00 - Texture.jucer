@@ -6,88 +6,85 @@
               pluginCode="Me00" pluginCharacteristicsValue="pluginEditorRequiresKeys"
               headerPath="shared-code/" cppLanguageStandard="20">
   <MAINGROUP id="PVQy7Z" name="MEP00 - Texture">
-    <GROUP id="{8D49F0FE-7900-E0FE-B018-49CDE23C5EDB}" name="include">
-      <GROUP id="{C47150A3-4D10-10A8-F99E-FBB82EEB9026}" name="gcem_incl">
-        <GROUP id="{99E472E2-25ED-FD26-C7C6-D4A216FC1304}" name="quadrature">
-          <FILE id="aVEXA5" name="gauss_legendre_30.hpp" compile="0" resource="0"
-                file="gcem/include/gcem_incl/quadrature/gauss_legendre_30.hpp"/>
-          <FILE id="XxDxvI" name="gauss_legendre_50.hpp" compile="0" resource="0"
-                file="gcem/include/gcem_incl/quadrature/gauss_legendre_50.hpp"/>
-        </GROUP>
-        <FILE id="td1ZMU" name="abs.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/abs.hpp"/>
-        <FILE id="foS6xU" name="acos.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/acos.hpp"/>
-        <FILE id="GZt543" name="acosh.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/acosh.hpp"/>
-        <FILE id="rx3oLS" name="asin.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/asin.hpp"/>
-        <FILE id="pntirb" name="asinh.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/asinh.hpp"/>
-        <FILE id="DyiufI" name="atan.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/atan.hpp"/>
-        <FILE id="uiAWAr" name="atan2.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/atan2.hpp"/>
-        <FILE id="Lz4oVs" name="atanh.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/atanh.hpp"/>
-        <FILE id="uDsScm" name="beta.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/beta.hpp"/>
-        <FILE id="k02c1C" name="binomial_coef.hpp" compile="0" resource="0"
-              file="gcem/include/gcem_incl/binomial_coef.hpp"/>
-        <FILE id="ODut9D" name="ceil.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/ceil.hpp"/>
-        <FILE id="dVp7fg" name="copysign.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/copysign.hpp"/>
-        <FILE id="GO3kck" name="cos.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/cos.hpp"/>
-        <FILE id="GHGHE1" name="cosh.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/cosh.hpp"/>
-        <FILE id="DwgbnY" name="erf.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/erf.hpp"/>
-        <FILE id="I9Kas5" name="erf_inv.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/erf_inv.hpp"/>
-        <FILE id="rCOouT" name="exp.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/exp.hpp"/>
-        <FILE id="npfIJX" name="expm1.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/expm1.hpp"/>
-        <FILE id="oBBtlm" name="factorial.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/factorial.hpp"/>
-        <FILE id="nKAeJ3" name="find_exponent.hpp" compile="0" resource="0"
-              file="gcem/include/gcem_incl/find_exponent.hpp"/>
-        <FILE id="gL70mQ" name="find_fraction.hpp" compile="0" resource="0"
-              file="gcem/include/gcem_incl/find_fraction.hpp"/>
-        <FILE id="jEfKHE" name="find_whole.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/find_whole.hpp"/>
-        <FILE id="tksGfe" name="floor.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/floor.hpp"/>
-        <FILE id="aGIAj1" name="fmod.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/fmod.hpp"/>
-        <FILE id="wQSb9N" name="gcd.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/gcd.hpp"/>
-        <FILE id="IRJFkc" name="gcem_options.hpp" compile="0" resource="0"
-              file="gcem/include/gcem_incl/gcem_options.hpp"/>
-        <FILE id="SV8XKU" name="hypot.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/hypot.hpp"/>
-        <FILE id="hxADgh" name="incomplete_beta.hpp" compile="0" resource="0"
-              file="gcem/include/gcem_incl/incomplete_beta.hpp"/>
-        <FILE id="IIdj6i" name="incomplete_beta_inv.hpp" compile="0" resource="0"
-              file="gcem/include/gcem_incl/incomplete_beta_inv.hpp"/>
-        <FILE id="SyX6eA" name="incomplete_gamma.hpp" compile="0" resource="0"
-              file="gcem/include/gcem_incl/incomplete_gamma.hpp"/>
-        <FILE id="RItJTh" name="incomplete_gamma_inv.hpp" compile="0" resource="0"
-              file="gcem/include/gcem_incl/incomplete_gamma_inv.hpp"/>
-        <FILE id="Iv2rwh" name="inv_sqrt.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/inv_sqrt.hpp"/>
-        <FILE id="zPds53" name="is_even.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/is_even.hpp"/>
-        <FILE id="WYGNpo" name="is_finite.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/is_finite.hpp"/>
-        <FILE id="T8YPMW" name="is_inf.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/is_inf.hpp"/>
-        <FILE id="zaJIho" name="is_nan.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/is_nan.hpp"/>
-        <FILE id="YpywdV" name="is_odd.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/is_odd.hpp"/>
-        <FILE id="LyGfQ5" name="lbeta.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/lbeta.hpp"/>
-        <FILE id="NA9EPY" name="lcm.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/lcm.hpp"/>
-        <FILE id="zJArzZ" name="lgamma.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/lgamma.hpp"/>
-        <FILE id="IHoCiU" name="lmgamma.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/lmgamma.hpp"/>
-        <FILE id="iouoD6" name="log.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/log.hpp"/>
-        <FILE id="izuivs" name="log_binomial_coef.hpp" compile="0" resource="0"
-              file="gcem/include/gcem_incl/log_binomial_coef.hpp"/>
-        <FILE id="ocBkvo" name="log1p.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/log1p.hpp"/>
-        <FILE id="SqsUBE" name="log2.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/log2.hpp"/>
-        <FILE id="R4h3gM" name="log10.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/log10.hpp"/>
-        <FILE id="l8PQ4Q" name="mantissa.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/mantissa.hpp"/>
-        <FILE id="G6M9qk" name="max.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/max.hpp"/>
-        <FILE id="IC5JMp" name="min.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/min.hpp"/>
-        <FILE id="PJZs8n" name="neg_zero.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/neg_zero.hpp"/>
-        <FILE id="jh6yyy" name="pow.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/pow.hpp"/>
-        <FILE id="UKo9WB" name="pow_integral.hpp" compile="0" resource="0"
-              file="gcem/include/gcem_incl/pow_integral.hpp"/>
-        <FILE id="sblT9h" name="round.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/round.hpp"/>
-        <FILE id="p5Z40I" name="sgn.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/sgn.hpp"/>
-        <FILE id="ktXcyq" name="signbit.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/signbit.hpp"/>
-        <FILE id="cUVEzp" name="sin.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/sin.hpp"/>
-        <FILE id="aIHa6i" name="sinh.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/sinh.hpp"/>
-        <FILE id="EGasyZ" name="sqrt.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/sqrt.hpp"/>
-        <FILE id="pf3OMa" name="tan.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/tan.hpp"/>
-        <FILE id="Wj47DA" name="tanh.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/tanh.hpp"/>
-        <FILE id="sc1eyG" name="tgamma.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/tgamma.hpp"/>
-        <FILE id="gEwjzd" name="trunc.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/trunc.hpp"/>
+    <GROUP id="{CD14FBDF-3ED9-577D-E8DB-633CEABF9DF2}" name="gcem_incl">
+      <GROUP id="{66CAFBA7-95A0-C9A7-7383-AB8ADF5E811B}" name="quadrature">
+        <FILE id="Ib6YKp" name="gauss_legendre_30.hpp" compile="0" resource="0"
+              file="gcem/include/gcem_incl/quadrature/gauss_legendre_30.hpp"/>
+        <FILE id="wLqbYy" name="gauss_legendre_50.hpp" compile="0" resource="0"
+              file="gcem/include/gcem_incl/quadrature/gauss_legendre_50.hpp"/>
       </GROUP>
-      <FILE id="eVqWyi" name="gcem.hpp" compile="0" resource="0" file="gcem/include/gcem.hpp"/>
+      <FILE id="mYiyi0" name="abs.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/abs.hpp"/>
+      <FILE id="iyhIwY" name="acos.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/acos.hpp"/>
+      <FILE id="PxFojs" name="acosh.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/acosh.hpp"/>
+      <FILE id="YIZs6C" name="asin.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/asin.hpp"/>
+      <FILE id="Svyw6P" name="asinh.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/asinh.hpp"/>
+      <FILE id="b7N1JQ" name="atan.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/atan.hpp"/>
+      <FILE id="t21FQJ" name="atan2.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/atan2.hpp"/>
+      <FILE id="pwAneV" name="atanh.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/atanh.hpp"/>
+      <FILE id="emm32W" name="beta.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/beta.hpp"/>
+      <FILE id="ZJ3tfN" name="binomial_coef.hpp" compile="0" resource="0"
+            file="gcem/include/gcem_incl/binomial_coef.hpp"/>
+      <FILE id="Cq5OKj" name="ceil.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/ceil.hpp"/>
+      <FILE id="qHw2NZ" name="copysign.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/copysign.hpp"/>
+      <FILE id="j8KnoD" name="cos.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/cos.hpp"/>
+      <FILE id="nse854" name="cosh.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/cosh.hpp"/>
+      <FILE id="waH4cc" name="erf.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/erf.hpp"/>
+      <FILE id="SSyWxW" name="erf_inv.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/erf_inv.hpp"/>
+      <FILE id="dOgNbj" name="exp.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/exp.hpp"/>
+      <FILE id="OOEADo" name="expm1.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/expm1.hpp"/>
+      <FILE id="A28ygh" name="factorial.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/factorial.hpp"/>
+      <FILE id="lHLfZk" name="find_exponent.hpp" compile="0" resource="0"
+            file="gcem/include/gcem_incl/find_exponent.hpp"/>
+      <FILE id="V1DVEF" name="find_fraction.hpp" compile="0" resource="0"
+            file="gcem/include/gcem_incl/find_fraction.hpp"/>
+      <FILE id="XZAcTW" name="find_whole.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/find_whole.hpp"/>
+      <FILE id="xamQ5z" name="floor.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/floor.hpp"/>
+      <FILE id="nn9hko" name="fmod.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/fmod.hpp"/>
+      <FILE id="GKtZcd" name="gcd.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/gcd.hpp"/>
+      <FILE id="Z8kubJ" name="gcem_options.hpp" compile="0" resource="0"
+            file="gcem/include/gcem_incl/gcem_options.hpp"/>
+      <FILE id="CBLv0R" name="hypot.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/hypot.hpp"/>
+      <FILE id="IO3ziS" name="incomplete_beta.hpp" compile="0" resource="0"
+            file="gcem/include/gcem_incl/incomplete_beta.hpp"/>
+      <FILE id="g5h5nR" name="incomplete_beta_inv.hpp" compile="0" resource="0"
+            file="gcem/include/gcem_incl/incomplete_beta_inv.hpp"/>
+      <FILE id="IONcjJ" name="incomplete_gamma.hpp" compile="0" resource="0"
+            file="gcem/include/gcem_incl/incomplete_gamma.hpp"/>
+      <FILE id="fhzprK" name="incomplete_gamma_inv.hpp" compile="0" resource="0"
+            file="gcem/include/gcem_incl/incomplete_gamma_inv.hpp"/>
+      <FILE id="HvUTMc" name="inv_sqrt.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/inv_sqrt.hpp"/>
+      <FILE id="wbMaMr" name="is_even.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/is_even.hpp"/>
+      <FILE id="DKEEz9" name="is_finite.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/is_finite.hpp"/>
+      <FILE id="s6alSl" name="is_inf.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/is_inf.hpp"/>
+      <FILE id="TOPoj1" name="is_nan.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/is_nan.hpp"/>
+      <FILE id="mL2b57" name="is_odd.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/is_odd.hpp"/>
+      <FILE id="qmzVQg" name="lbeta.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/lbeta.hpp"/>
+      <FILE id="XJRoNr" name="lcm.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/lcm.hpp"/>
+      <FILE id="kxjl5W" name="lgamma.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/lgamma.hpp"/>
+      <FILE id="Fi83Qe" name="lmgamma.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/lmgamma.hpp"/>
+      <FILE id="fE0GCn" name="log.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/log.hpp"/>
+      <FILE id="CPhFJc" name="log_binomial_coef.hpp" compile="0" resource="0"
+            file="gcem/include/gcem_incl/log_binomial_coef.hpp"/>
+      <FILE id="ahc85E" name="log1p.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/log1p.hpp"/>
+      <FILE id="Tish2f" name="log2.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/log2.hpp"/>
+      <FILE id="ymMapR" name="log10.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/log10.hpp"/>
+      <FILE id="MYJrA7" name="mantissa.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/mantissa.hpp"/>
+      <FILE id="nGX03c" name="max.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/max.hpp"/>
+      <FILE id="fAb25Y" name="min.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/min.hpp"/>
+      <FILE id="GXkWjU" name="neg_zero.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/neg_zero.hpp"/>
+      <FILE id="eno5oe" name="pow.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/pow.hpp"/>
+      <FILE id="iSNn6o" name="pow_integral.hpp" compile="0" resource="0"
+            file="gcem/include/gcem_incl/pow_integral.hpp"/>
+      <FILE id="kF68tS" name="round.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/round.hpp"/>
+      <FILE id="rCz7Xp" name="sgn.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/sgn.hpp"/>
+      <FILE id="rq02Wu" name="signbit.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/signbit.hpp"/>
+      <FILE id="XkIVXz" name="sin.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/sin.hpp"/>
+      <FILE id="JTSGd7" name="sinh.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/sinh.hpp"/>
+      <FILE id="j2gbYp" name="sqrt.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/sqrt.hpp"/>
+      <FILE id="r2UBGa" name="tan.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/tan.hpp"/>
+      <FILE id="fotygY" name="tanh.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/tanh.hpp"/>
+      <FILE id="yko7De" name="tgamma.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/tgamma.hpp"/>
+      <FILE id="PTwkmc" name="trunc.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/trunc.hpp"/>
     </GROUP>
     <GROUP id="{C71F062B-04D7-FE1D-EC67-8232AC9E9B6A}" name="shared-code">
       <GROUP id="{79EE3CE9-023D-615F-E240-77F90BA8CCB5}" name="binary_data">
@@ -150,6 +147,7 @@
           <FILE id="hvZcfO" name="stoej_tileable_component.h" compile="0" resource="0"
                 file="shared-code/gui/interfaces/stoej_tileable_component.h"/>
         </GROUP>
+        <FILE id="IdhuRv" name="stoej_Colours.h" compile="0" resource="0" file="shared-code/gui/stoej_Colours.h"/>
       </GROUP>
       <GROUP id="{2E7DC20D-2B4D-982D-8DB0-A174B81D42E1}" name="templates">
         <FILE id="cFrwAW" name="template_processor.cpp" compile="1" resource="0"
@@ -202,6 +200,7 @@
             file="Source/PluginEditor.cpp"/>
       <FILE id="p5uLWk" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
     </GROUP>
+    <FILE id="xgaieK" name="gcem.hpp" compile="0" resource="0" file="gcem/include/gcem.hpp"/>
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
   <EXPORTFORMATS>

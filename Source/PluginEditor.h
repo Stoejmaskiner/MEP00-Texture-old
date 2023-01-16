@@ -67,21 +67,13 @@ private:
     MainView main_view_;
     //StatusBar status_bar_;
 
-    using DrawPtr = std::unique_ptr<juce::Drawable>;
-    const DrawPtr sun_ico_ = STOEJ_DRAWABLE_IMG(stoej_BinaryData::sundimlight_svg);
-    const DrawPtr book_ico_ = STOEJ_DRAWABLE_IMG(stoej_BinaryData::bookopenlight_svg);
-    const DrawPtr gauge_ico_ = STOEJ_DRAWABLE_IMG(stoej_BinaryData::gaugelight_svg);
-    const DrawPtr shuffle_ico_ = STOEJ_DRAWABLE_IMG(stoej_BinaryData::shuffleangularlight_svg);
-    const DrawPtr file_plus_ico_ = STOEJ_DRAWABLE_IMG(stoej_BinaryData::filepluslight_svg);
-    const DrawPtr info_ico_ = STOEJ_DRAWABLE_IMG(stoej_BinaryData::infolight_svg);
-
 
     //stoej::PresetTextField preset_text_field_;
-    stoej::MenuButton light_dark_toggle_;
-    stoej::MenuButton help_btn_;
-    stoej::MenuButton oversample_btn_;
-    stoej::MenuButton randomize_btn_;
-    stoej::MenuButton init_btn_;
+    stoej::StoejButton light_dark_toggle_;
+    stoej::StoejButton help_btn_;
+    stoej::StoejButton oversample_btn_;
+    stoej::StoejButton randomize_btn_;
+    stoej::StoejButton init_btn_;
     stoej::Ticker tooltip_box_;
 
     static constexpr double k_padding_2 = 6.0;

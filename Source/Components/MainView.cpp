@@ -19,7 +19,7 @@
 
 //==============================================================================
 MainView::MainView(juce::AudioProcessorValueTreeState& apvts) :
-    grit_btn_("grit_btn", stoej::StoejButton::ButtonSize::e_small, "GRIT", stoej::get_font_archivo_narrow(), true),
+    grit_btn_("grit_btn", stoej::StoejButton::ButtonSize::small, "GRIT", true),
     mix_val_(Parameters::noise_mix.id, "MIX", stoej::ValueUnit::percent),
     density_val_(Parameters::noise_density.id, "DENSITY", stoej::ValueUnit::percent),
     lp_fader_("lp_fader", "LP", stoej::ValueUnit::hertz, false),

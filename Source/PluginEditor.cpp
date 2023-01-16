@@ -17,13 +17,30 @@ MEP00TextureAudioProcessorEditor::MEP00TextureAudioProcessorEditor (MEP00Texture
     AudioProcessorEditor (&p), 
     audioProcessor (p), 
     main_view_(apvts),
-    light_dark_toggle_(this->sun_ico_),
-    help_btn_(this->book_ico_),
-    oversample_btn_(this->gauge_ico_),
-    randomize_btn_(this->shuffle_ico_),
-    init_btn_(this->file_plus_ico_),
+    light_dark_toggle_(
+        "light_dark_toggle", 
+        stoej::StoejButton::tiny, 
+        STOEJ_DRAWABLE_IMG(stoej_BinaryData::moonlight_svg),
+        STOEJ_DRAWABLE_IMG(stoej_BinaryData::sundimlight_svg)), 
+    help_btn_(
+        "help_btn",
+        stoej::StoejButton::tiny,
+        STOEJ_DRAWABLE_IMG(stoej_BinaryData::bookopenlight_svg)),
+    oversample_btn_(
+        "oversample_btn",
+        stoej::StoejButton::tiny,
+        STOEJ_DRAWABLE_IMG(stoej_BinaryData::gaugelight_svg)),
+    randomize_btn_(
+        "randomize_btn",
+        stoej::StoejButton::tiny,
+        STOEJ_DRAWABLE_IMG(stoej_BinaryData::shuffleangularlight_svg)),
+    init_btn_(
+        "init_btn",
+        stoej::StoejButton::ButtonSize::tiny,
+        STOEJ_DRAWABLE_IMG(stoej_BinaryData::filepluslight_svg)),
     tooltip_box_("tooltip_box"),
-    grit_btn_("grit_btn", stoej::StoejButton::ButtonSize::e_small, "GRIT", stoej::get_font_archivo_narrow(), true),
+    //grit_btn_("grit_btn", stoej::StoejButton::ButtonSize::small, "GRIT", true),
+    grit_btn_("grit_btn", stoej::StoejButton::ButtonSize::small, "GRIT", true),
     mix_val_(Parameters::noise_mix.id, "MIX", stoej::ValueUnit::percent),
     density_val_(Parameters::noise_density.id, "DENSITY", stoej::ValueUnit::percent),
     lp_fader_("lp_fader", "LP", stoej::ValueUnit::hertz, false),
@@ -43,10 +60,10 @@ MEP00TextureAudioProcessorEditor::MEP00TextureAudioProcessorEditor (MEP00Texture
     addAndMakeVisible(this->main_view_);
     //addAndMakeVisible(this->status_bar_);
 
-    this->help_btn_.setTilePosition(stoej::e_array_horizontal);
-    this->oversample_btn_.setTilePosition(stoej::e_array_horizontal);
-    this->randomize_btn_.setTilePosition(stoej::e_array_horizontal);
-    this->init_btn_.setTilePosition(stoej::e_array_horizontal);
+    //this->help_btn_.setTilePosition(stoej::e_array_horizontal);
+    //this->oversample_btn_.setTilePosition(stoej::e_array_horizontal);
+    //this->randomize_btn_.setTilePosition(stoej::e_array_horizontal);
+    //this->init_btn_.setTilePosition(stoej::e_array_horizontal);
     //  this->preset_text_field_.setTilePosition(stoej::e_array_horizontal);
 
       //this->addAndMakeVisible(this->preset_text_field_);
@@ -218,15 +235,22 @@ void MEP00TextureAudioProcessorEditor::resized()
     
     r.removeFromTop(this->k_padding_ * dp);
     auto r1 = r.removeFromTop(24 * dp);
-    this->light_dark_toggle_.setBounds(stoej::float_rect_2_int_rect(r1.removeFromLeft(24 * dp)));
-    this->help_btn_.setBounds(stoej::float_rect_2_int_rect(
-        r1.removeFromLeft(std::get<int>(this->help_btn_.getWidth()) * dp)));
-    this->oversample_btn_.setBounds(stoej::float_rect_2_int_rect(
-        r1.removeFromLeft(std::get<int>(this->oversample_btn_.getWidth()) * dp)));
-    this->randomize_btn_.setBounds(stoej::float_rect_2_int_rect(
-        r1.removeFromLeft(std::get<int>(this->randomize_btn_.getWidth()) * dp)));
-    this->init_btn_.setBounds(stoej::float_rect_2_int_rect(
-        r1.removeFromLeft(std::get<int>(this->init_btn_.getWidth()) * dp)));
+    // TODO: this is atrocious, please implement a component array of some kind!
+    this->light_dark_toggle_.setFloatBounds(
+        r1.removeFromLeft(std::get<float>(this->light_dark_toggle_.getPreferredWidth()) * dp));
+
+    this->help_btn_.setFloatBounds(
+        r1.removeFromLeft(std::get<float>(this->help_btn_.getPreferredWidth()) * dp));
+
+    this->oversample_btn_.setFloatBounds(
+        r1.removeFromLeft(std::get<float>(this->oversample_btn_.getPreferredWidth()) * dp));
+
+    this->randomize_btn_.setFloatBounds(
+        r1.removeFromLeft(std::get<float>(this->randomize_btn_.getPreferredWidth()) * dp));
+
+    this->init_btn_.setFloatBounds(
+        r1.removeFromLeft(std::get<float>(this->init_btn_.getPreferredWidth()) * dp));
+
     this->tooltip_box_.setFloatBounds(r1);
     r.removeFromLeft(this->k_padding_ * dp);
 }
