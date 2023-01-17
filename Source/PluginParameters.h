@@ -16,7 +16,6 @@
 // of getting mysterious nullptr exceptions when making a typo
 
 
-
 namespace Parameters {
 	inline constexpr stoej::BoolParamInfo  enable_grit {"ENABLE_GRIT", "grit", false};
 	inline constexpr stoej::FloatParamInfo noise_density { .id = "NOISE_DENSITY", .name = "noise density", .init = 1.0f, .range_0 = 0.00002f, .skew = .2f};
@@ -26,6 +25,7 @@ namespace Parameters {
 	inline constexpr stoej::FloatParamInfo noise_width{ "NOISE_WIDTH", "noise width", 1.0f };
 	inline constexpr stoej::FloatParamInfo output_level{ .id = "OUTPUT_LEVEL", .name = "output level", .init = 1.0f, .range_0 = 0.0f, .range_1 = 2.0f, .skew = 0.5f };
 }
+
 
 // BEGIN STATIC TESTS
 // making sure parameters are actually constexpr

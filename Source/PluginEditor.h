@@ -29,7 +29,7 @@
 //==============================================================================
 /**
 */
-class MEP00TextureAudioProcessorEditor  : public juce::AudioProcessorEditor
+class MEP00TextureAudioProcessorEditor  : public juce::AudioProcessorEditor, juce::Button::Listener
 {
 public:
     MEP00TextureAudioProcessorEditor (MEP00TextureAudioProcessor& p, juce::AudioProcessorValueTreeState& apvts);
@@ -40,6 +40,10 @@ public:
     void resized() override;
 
 private:
+
+    //void buttonClicked(juce::Button* b) override;
+
+
 
     // width and height are the minimum sizes, which should be driectly based on the
     // Figma design specification.

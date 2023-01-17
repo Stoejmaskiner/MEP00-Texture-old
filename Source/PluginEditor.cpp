@@ -135,10 +135,26 @@ MEP00TextureAudioProcessorEditor::MEP00TextureAudioProcessorEditor (MEP00Texture
     ADD_TOOLTIP_(this->help_btn_, "open the manual (in your browser)", this->tooltip_box_);
     #undef ADD_TOOLTIP_
 
-    this->help_btn_.setClickAction([]() { juce::URL("https://www.youtube.com/watch?v=dQw4w9WgXcQ").launchInDefaultBrowser(); });
-    this->init_btn_.setClickAction([&apvts]() {
+    this->help_btn_.onClick = []() { juce::URL("https://www.youtube.com/watch?v=dQw4w9WgXcQ").launchInDefaultBrowser(); };
+    this->init_btn_.onClick = [&apvts]() {
+        stoej::apvts_reset_param(apvts, Parameters::enable_grit.id);
+        stoej::apvts_reset_param(apvts, Parameters::filter_hp_cutoff.id);
+        stoej::apvts_reset_param(apvts, Parameters::filter_lp_cutoff.id);
+        stoej::apvts_reset_param(apvts, Parameters::noise_density.id);
         stoej::apvts_reset_param(apvts, Parameters::noise_mix.id);
-    });
+        stoej::apvts_reset_param(apvts, Parameters::noise_width.id);
+        stoej::apvts_reset_param(apvts, Parameters::output_level.id);
+    };
+    this->randomize_btn_.onClick = [&apvts]() {
+        stoej::apvts_random_param(apvts, Parameters::enable_grit.id);
+        stoej::apvts_random_param(apvts, Parameters::filter_hp_cutoff.id);
+        stoej::apvts_random_param(apvts, Parameters::filter_lp_cutoff.id);
+        stoej::apvts_random_param(apvts, Parameters::noise_density.id);
+        stoej::apvts_random_param(apvts, Parameters::noise_mix.id);
+        stoej::apvts_random_param(apvts, Parameters::noise_width.id);
+        stoej::apvts_random_param(apvts, Parameters::output_level.id);
+    };
+    this->light_dark_toggle_.addListener(this);
 
     setSize (k_width_ * k_init_scale_, k_height_ * k_init_scale_);
 }
@@ -260,3 +276,15 @@ void MEP00TextureAudioProcessorEditor::resized()
     this->tooltip_box_.setFloatBounds(r1);
     r.removeFromLeft(this->k_padding_ * dp);
 }
+
+/*
+void MEP00TextureAudioProcessorEditor::buttonClicked(juce::Button* b) {
+    juce::String state = b->getToggleState() ? "true" : "false";
+    DBG("PluginEditor: button clicked, component_id=<" << b->getName() << ">, to_state=<" << state << ">");
+
+    // TODO: store ids in string arena
+    if (b->getName() == "light_dark_toggle") {
+        
+    }
+}
+*/
