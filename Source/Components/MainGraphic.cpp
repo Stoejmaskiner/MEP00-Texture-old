@@ -12,7 +12,8 @@
 
 
 
-MainGraphic::MainGraphic()
+MainGraphic::MainGraphic(juce::AudioProcessorValueTreeState& apvts)
+    : stoej::XY(apvts)
 {
     this->grit.addListener(this);
 }

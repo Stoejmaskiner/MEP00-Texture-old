@@ -24,6 +24,7 @@ MEP00TextureAudioProcessor::MEP00TextureAudioProcessor()
 {
     this->sample_rate = 0.0f;
     this->max_size = 0;
+    stoej::load_default_theme(this->apvts.state);
 }
 
 MEP00TextureAudioProcessor::~MEP00TextureAudioProcessor()

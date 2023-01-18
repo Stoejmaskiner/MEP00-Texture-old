@@ -29,7 +29,7 @@
 //==============================================================================
 /**
 */
-class MEP00TextureAudioProcessorEditor  : public juce::AudioProcessorEditor, juce::Button::Listener
+class MEP00TextureAudioProcessorEditor : public juce::AudioProcessorEditor, public juce::Button::Listener
 {
 public:
     MEP00TextureAudioProcessorEditor (MEP00TextureAudioProcessor& p, juce::AudioProcessorValueTreeState& apvts);
@@ -41,7 +41,7 @@ public:
 
 private:
 
-    //void buttonClicked(juce::Button* b) override;
+    void buttonClicked(juce::Button* b) override;
 
 
 
@@ -63,14 +63,16 @@ private:
 
     static constexpr double k_padding_ = 3;
 
+    juce::AudioProcessorValueTreeState& apvts_;
+
     // This reference is provided as a quick way for your editor to
     // access the processor object that created it.
     MEP00TextureAudioProcessor& audioProcessor;
     TitleBar title_bar_;
     Ribbon ribbon_;
-    MainView main_view_;
+    //MainView main_view_;
     //StatusBar status_bar_;
-
+    
 
     //stoej::PresetTextField preset_text_field_;
     stoej::StoejButton light_dark_toggle_;

@@ -17,37 +17,43 @@ MEP00TextureAudioProcessorEditor::MEP00TextureAudioProcessorEditor (MEP00Texture
     : 
     AudioProcessorEditor (&p), 
     audioProcessor (p), 
-    main_view_(apvts),
+    widget_view_(apvts),
     light_dark_toggle_(
+        apvts,
         "light_dark_toggle", 
         stoej::StoejButton::tiny, 
         STOEJ_DRAWABLE_IMG(stoej_BinaryData::moonlight_svg),
         STOEJ_DRAWABLE_IMG(stoej_BinaryData::sundimlight_svg)), 
     help_btn_(
+        apvts,
         "help_btn",
         stoej::StoejButton::tiny,
         STOEJ_DRAWABLE_IMG(stoej_BinaryData::bookopenlight_svg)),
     oversample_btn_(
+        apvts,
         "oversample_btn",
         stoej::StoejButton::tiny,
         STOEJ_DRAWABLE_IMG(stoej_BinaryData::gaugelight_svg)),
     randomize_btn_(
+        apvts,
         "randomize_btn",
         stoej::StoejButton::tiny,
         STOEJ_DRAWABLE_IMG(stoej_BinaryData::shuffleangularlight_svg)),
     init_btn_(
+        apvts,
         "init_btn",
         stoej::StoejButton::ButtonSize::tiny,
         STOEJ_DRAWABLE_IMG(stoej_BinaryData::filepluslight_svg)),
-    tooltip_box_("tooltip_box"),
+    tooltip_box_(apvts, "tooltip_box"),
     //grit_btn_("grit_btn", stoej::StoejButton::ButtonSize::small, "GRIT", true),
-    grit_btn_("grit_btn", stoej::StoejButton::ButtonSize::small, "GRIT", true),
-    mix_val_(Parameters::noise_mix.id, "MIX", stoej::ValueUnit::percent),
-    density_val_(Parameters::noise_density.id, "DENSITY", stoej::ValueUnit::percent),
-    lp_fader_("lp_fader", "LP", stoej::ValueUnit::hertz, false),
-    hp_fader_("hp_fader", "HP", stoej::ValueUnit::hertz, true),
-    width_fader_(Parameters::noise_width.id, "WIDTH", stoej::ValueUnit::percent, false),
-    level_fader_(Parameters::output_level.id, "LEVEL", stoej::ValueUnit::level2db, false)
+    grit_btn_(apvts, "grit_btn", stoej::StoejButton::ButtonSize::small, "GRIT", true),
+    mix_val_(apvts, Parameters::noise_mix.id, "MIX", stoej::ValueUnit::percent),
+    density_val_(apvts, Parameters::noise_density.id, "DENSITY", stoej::ValueUnit::percent),
+    lp_fader_(apvts, "lp_fader", "LP", stoej::ValueUnit::hertz, false),
+    hp_fader_(apvts, "hp_fader", "HP", stoej::ValueUnit::hertz, true),
+    width_fader_(apvts, Parameters::noise_width.id, "WIDTH", stoej::ValueUnit::percent, false),
+    level_fader_(apvts, Parameters::output_level.id, "LEVEL", stoej::ValueUnit::level2db, false),
+    apvts_(apvts)
 {
     
     setResizable(true,true);
@@ -58,7 +64,7 @@ MEP00TextureAudioProcessorEditor::MEP00TextureAudioProcessorEditor (MEP00Texture
 
     addAndMakeVisible(this->title_bar_);
     //addAndMakeVisible(this->ribbon_);
-    addAndMakeVisible(this->main_view_);
+    //addAndMakeVisible(this->main_view_);
     //addAndMakeVisible(this->status_bar_);
 
     //this->help_btn_.setTilePosition(stoej::e_array_horizontal);
@@ -155,6 +161,16 @@ MEP00TextureAudioProcessorEditor::MEP00TextureAudioProcessorEditor (MEP00Texture
         stoej::apvts_random_param(apvts, Parameters::output_level.id);
     };
     this->light_dark_toggle_.addListener(this);
+    /*
+    this->light_dark_toggle_.onClick = [&apvts, parent = this]() {
+        bool old_state = apvts.state.getProperty("use_dark_theme", false);
+        bool new_state = 
+        juce::String s_old_state = old_state ? "true" : "false";
+        juce::String s_new_state = new_state ? "true" : "false";
+        DBG("PluginEditor: toggled dark theme, from=<" << s_old_state << ">, to=<" << s_new_state << ">");
+        apvts.state.setProperty("use_dark_theme", new_state, nullptr);
+    };
+    */
 
     setSize (k_width_ * k_init_scale_, k_height_ * k_init_scale_);
 }
@@ -189,7 +205,7 @@ void MEP00TextureAudioProcessorEditor::resized()
     // only call .setDP from the parent's .setDP method, the top level component (this)
     // is the only exception as it doesn't have a .setDP method.
     this->ribbon_.setDP(dp);
-    this->main_view_.setDP(dp);
+    //this->main_view_.setDP(dp);
     this->light_dark_toggle_.setDP(dp);
     this->help_btn_.setDP(dp);
     this->oversample_btn_.setDP(dp);
@@ -277,14 +293,16 @@ void MEP00TextureAudioProcessorEditor::resized()
     r.removeFromLeft(this->k_padding_ * dp);
 }
 
-/*
-void MEP00TextureAudioProcessorEditor::buttonClicked(juce::Button* b) {
-    juce::String state = b->getToggleState() ? "true" : "false";
-    DBG("PluginEditor: button clicked, component_id=<" << b->getName() << ">, to_state=<" << state << ">");
 
+void MEP00TextureAudioProcessorEditor::buttonClicked(juce::Button* b) {
+    
     // TODO: store ids in string arena
     if (b->getName() == "light_dark_toggle") {
-        
+        bool old_state = this->apvts_.state.getProperty("use_dark_theme", false);
+        bool new_state = b->getToggleState();
+        juce::String s_old_state = old_state ? "true" : "false";
+        juce::String s_new_state = new_state ? "true" : "false";
+        DBG("PluginEditor: toggled dark theme, component_id=<" << b->getName() << ">, from_state=<" << s_old_state << ">, to_state=<" << s_new_state << ">");
+        this->apvts_.state.setProperty("use_dark_theme", new_state, nullptr);
     }
 }
-*/

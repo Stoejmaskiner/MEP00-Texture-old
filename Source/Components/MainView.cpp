@@ -19,13 +19,14 @@
 
 //==============================================================================
 MainView::MainView(juce::AudioProcessorValueTreeState& apvts) :
-    grit_btn_("grit_btn", stoej::StoejButton::ButtonSize::small, "GRIT", true),
-    mix_val_(Parameters::noise_mix.id, "MIX", stoej::ValueUnit::percent),
-    density_val_(Parameters::noise_density.id, "DENSITY", stoej::ValueUnit::percent),
-    lp_fader_("lp_fader", "LP", stoej::ValueUnit::hertz, false),
-    hp_fader_("hp_fader", "HP", stoej::ValueUnit::hertz, true),
-    width_fader_(Parameters::noise_width.id, "WIDTH", stoej::ValueUnit::percent, false),
-    level_fader_(Parameters::output_level.id, "LEVEL", stoej::ValueUnit::level2db, false)
+    widget_view_(apvts),
+    grit_btn_(apvts, "grit_btn", stoej::StoejButton::ButtonSize::small, "GRIT", true),
+    mix_val_(apvts, Parameters::noise_mix.id, "MIX", stoej::ValueUnit::percent),
+    density_val_(apvts, Parameters::noise_density.id, "DENSITY", stoej::ValueUnit::percent),
+    lp_fader_(apvts, "lp_fader", "LP", stoej::ValueUnit::hertz, false),
+    hp_fader_(apvts, "hp_fader", "HP", stoej::ValueUnit::hertz, true),
+    width_fader_(apvts, Parameters::noise_width.id, "WIDTH", stoej::ValueUnit::percent, false),
+    level_fader_(apvts, Parameters::output_level.id, "LEVEL", stoej::ValueUnit::level2db, false)
 {
     // In your constructor, you should add any child components, and
     // initialise any special settings that your component needs.

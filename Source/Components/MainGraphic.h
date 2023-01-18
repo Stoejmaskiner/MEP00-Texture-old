@@ -19,7 +19,7 @@
 
 class MainGraphic : public stoej::XY {
 public:
-    MainGraphic();
+    MainGraphic(juce::AudioProcessorValueTreeState& apvts);
     void paint(juce::Graphics& g) override;
 
     // TODO: implement this
