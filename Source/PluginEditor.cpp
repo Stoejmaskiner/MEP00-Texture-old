@@ -294,6 +294,7 @@ void MEP00TextureAudioProcessorEditor::resized()
 }
 
 
+// TODO: maybe make a LightDarkThemeToggleHandler class to clearly denote what this method does?
 void MEP00TextureAudioProcessorEditor::buttonClicked(juce::Button* b) {
     
     // TODO: store ids in string arena
@@ -304,5 +305,6 @@ void MEP00TextureAudioProcessorEditor::buttonClicked(juce::Button* b) {
         juce::String s_new_state = new_state ? "true" : "false";
         DBG("PluginEditor: toggled dark theme, component_id=<" << b->getName() << ">, from_state=<" << s_old_state << ">, to_state=<" << s_new_state << ">");
         this->apvts_.state.setProperty("use_dark_theme", new_state, nullptr);
+        this->repaint();
     }
 }
