@@ -8,13 +8,15 @@
   ==============================================================================
 */
 
-
+#pragma once
 #include "MainView.h"
 
 #include "gui/components/stoej_button.h"
 #include "gui/components/stoej_button.h"
 #include "binary_data/stoej_Fonts.h"
 #include "../PluginAssets.h"
+#include "utils/stoej_juce_utils.h"
+#include "stoej_params.h"
 
 
 //==============================================================================

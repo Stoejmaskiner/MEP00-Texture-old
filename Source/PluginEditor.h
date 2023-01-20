@@ -109,6 +109,8 @@ private:
     UniSliderAttach width_fader_attachment_;
     UniSliderAttach level_fader_attachment_;
     UniButtonAttach grit_btn_attachment_;
+    UniButtonAttach light_dark_toggle_attachment_;
+    UniButtonAttach oversample_btn_attachment_;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MEP00TextureAudioProcessorEditor)
 };

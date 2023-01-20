@@ -13,6 +13,8 @@
 #include "dsp/generators/stoej_white_noise.h"
 #include "dsp/procesors/mfx/stoej_multiplicative_noise.h"
 #include "PluginParameters.h"
+#include "stoej_params.h"
+#include "stoej_APVTS.h"
 
 
 //==============================================================================
@@ -29,15 +31,16 @@ public:
     ~MEP00TextureAudioProcessor() override;
 
     // the apvts is used to store parameters and plugin state
-    juce::AudioProcessorValueTreeState apvts{
+    stoej::APVTS apvts{
         *this, nullptr, "Parameters", []()
         {
 
             juce::AudioProcessorValueTreeState::ParameterLayout layout;
             using namespace Parameters;
 
+            // public parameters
             layout.add(
-                stoej::UniqueParamBool( enable_grit),
+                stoej::UniqueParamBool(enable_grit),
                 stoej::UniqueParamFloat(noise_density),
                 stoej::UniqueParamFloat(noise_mix),
                 stoej::UniqueParamFloat(filter_lp_cutoff),

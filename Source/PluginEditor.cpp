@@ -118,6 +118,9 @@ MEP00TextureAudioProcessorEditor::MEP00TextureAudioProcessorEditor (MEP00Texture
     this->grit_btn_attachment_.reset(
         new ButtonAttach(apvts, Parameters::enable_grit.id, this->grit_btn_)
     );
+    this->light_dark_toggle_attachment_.reset(
+        new ButtonAttach(apvts, stoej::parameters::internal_use_dark_theme.id, this->light_dark_toggle_)
+    );
 
     // TODO: handle this with custom APVTS attachments instead (can you even attach two things to the same parameter?)
     this->widget_view_.getXValueObject().referTo(this->mix_val_.getValueObject());
@@ -160,7 +163,7 @@ MEP00TextureAudioProcessorEditor::MEP00TextureAudioProcessorEditor (MEP00Texture
         stoej::apvts_random_param(apvts, Parameters::noise_width.id);
         stoej::apvts_random_param(apvts, Parameters::output_level.id);
     };
-    this->light_dark_toggle_.addListener(this);
+    //this->light_dark_toggle_.addListener(this);
     /*
     this->light_dark_toggle_.onClick = [&apvts, parent = this]() {
         bool old_state = apvts.state.getProperty("use_dark_theme", false);
@@ -299,12 +302,6 @@ void MEP00TextureAudioProcessorEditor::buttonClicked(juce::Button* b) {
     
     // TODO: store ids in string arena
     if (b->getName() == "light_dark_toggle") {
-        bool old_state = this->apvts_.state.getProperty("use_dark_theme", false);
-        bool new_state = b->getToggleState();
-        juce::String s_old_state = old_state ? "true" : "false";
-        juce::String s_new_state = new_state ? "true" : "false";
-        DBG("PluginEditor: toggled dark theme, component_id=<" << b->getName() << ">, from_state=<" << s_old_state << ">, to_state=<" << s_new_state << ">");
-        this->apvts_.state.setProperty("use_dark_theme", new_state, nullptr);
         this->repaint();
     }
 }

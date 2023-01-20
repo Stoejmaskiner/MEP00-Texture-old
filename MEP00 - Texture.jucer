@@ -148,6 +148,7 @@
                 file="shared-code/gui/interfaces/stoej_tileable_component.h"/>
         </GROUP>
         <FILE id="IdhuRv" name="stoej_Colours.h" compile="0" resource="0" file="shared-code/gui/stoej_Colours.h"/>
+        <FILE id="hbmuTR" name="stoej_Theming.h" compile="0" resource="0" file="shared-code/gui/stoej_Theming.h"/>
       </GROUP>
       <GROUP id="{2E7DC20D-2B4D-982D-8DB0-A174B81D42E1}" name="templates">
         <FILE id="cFrwAW" name="template_processor.cpp" compile="1" resource="0"
@@ -171,8 +172,10 @@
       </GROUP>
       <FILE id="XoB65E" name="LICENSE" compile="0" resource="1" file="shared-code/LICENSE"/>
       <FILE id="E8JDGk" name="README.md" compile="0" resource="1" file="shared-code/README.md"/>
+      <FILE id="reEbO7" name="stoej_APVTS.h" compile="0" resource="0" file="shared-code/stoej_APVTS.h"/>
       <FILE id="ugDaDY" name="stoej_core.h" compile="0" resource="0" file="shared-code/stoej_core.h"/>
       <FILE id="rtkCVj" name="stoej_mfx.h" compile="0" resource="0" file="shared-code/stoej_mfx.h"/>
+      <FILE id="WkzdaS" name="stoej_params.h" compile="0" resource="0" file="shared-code/stoej_params.h"/>
       <FILE id="NPXBw6" name="stoej_Types.h" compile="0" resource="0" file="shared-code/stoej_Types.h"/>
     </GROUP>
     <GROUP id="{A7EB67A8-3E2D-B56D-DB08-5F3950B89085}" name="Source">
