@@ -29,7 +29,7 @@
 class MainView  : public juce::Component, public stoej::IResizableComponent
 {
 public:
-    MainView(juce::AudioProcessorValueTreeState& apvts);
+    MainView(stoej::APVTS& apvts);
     ~MainView() override;
 
     void paint (juce::Graphics&) override;

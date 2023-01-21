@@ -10,6 +10,7 @@
 
 #pragma once
 #include <utils/stoej_juce_utils.h>
+#include "stoej_params.h"
 
 // Huh?
 // This is a way of adding static analysis to parameter IDs because I was tired

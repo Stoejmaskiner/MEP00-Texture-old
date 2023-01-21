@@ -13,7 +13,7 @@
 
 
 //==============================================================================
-MEP00TextureAudioProcessorEditor::MEP00TextureAudioProcessorEditor (MEP00TextureAudioProcessor& p, juce::AudioProcessorValueTreeState& apvts)
+MEP00TextureAudioProcessorEditor::MEP00TextureAudioProcessorEditor (MEP00TextureAudioProcessor& p, stoej::APVTS& apvts)
     : 
     AudioProcessorEditor (&p), 
     audioProcessor (p), 

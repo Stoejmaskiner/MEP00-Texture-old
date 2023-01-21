@@ -20,7 +20,7 @@
 
 
 //==============================================================================
-MainView::MainView(juce::AudioProcessorValueTreeState& apvts) :
+MainView::MainView(stoej::APVTS& apvts) :
     widget_view_(apvts),
     grit_btn_(apvts, "grit_btn", stoej::StoejButton::ButtonSize::small, "GRIT", true),
     mix_val_(apvts, Parameters::noise_mix.id, "MIX", stoej::ValueUnit::percent),

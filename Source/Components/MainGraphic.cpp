@@ -12,7 +12,7 @@
 
 
 
-MainGraphic::MainGraphic(juce::AudioProcessorValueTreeState& apvts)
+MainGraphic::MainGraphic(stoej::APVTS& apvts)
     : stoej::XY(apvts)
 {
     this->grit.addListener(this);
@@ -20,8 +20,9 @@ MainGraphic::MainGraphic(juce::AudioProcessorValueTreeState& apvts)
 
 void MainGraphic::paint(juce::Graphics& g)
 {
-    this->background_c_ = juce::Colours::black;
-    this->drawBackground(g);
+    //this->background_c_ = juce::Colours::black;
+    // TODO:
+    this->drawBackground(g, juce::Colours::black);
 
     auto r = this->getLocalFloatBounds();
     float mix = this->x_range_.convertTo0to1(this->getXValueObject().getValue());
@@ -72,6 +73,6 @@ void MainGraphic::paint(juce::Graphics& g)
     g.drawHorizontalLine(y_pos, 0.f, r.getRight());
     */
 
-    this->setBorderWidth(1.f);
-    this->drawBorder(g);
+    //this->setBorderWidth(1.f);
+    this->drawBorder(g, 1.f, juce::Colours::black);
 }

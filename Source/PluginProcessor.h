@@ -40,13 +40,13 @@ public:
 
             // public parameters
             layout.add(
-                stoej::UniqueParamBool(enable_grit),
-                stoej::UniqueParamFloat(noise_density),
-                stoej::UniqueParamFloat(noise_mix),
-                stoej::UniqueParamFloat(filter_lp_cutoff),
-                stoej::UniqueParamFloat(filter_hp_cutoff),
-                stoej::UniqueParamFloat(noise_width),
-                stoej::UniqueParamFloat(output_level)
+                stoej::create_unique_param_bool(enable_grit),
+                stoej::create_unique_param_float(noise_density),
+                stoej::create_unique_param_float(noise_mix),
+                stoej::create_unique_param_float(filter_lp_cutoff),
+                stoej::create_unique_param_float(filter_hp_cutoff),
+                stoej::create_unique_param_float(noise_width),
+                stoej::create_unique_param_float(output_level)
             );
             return layout;
         }()

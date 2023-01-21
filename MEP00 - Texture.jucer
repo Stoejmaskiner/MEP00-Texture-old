@@ -157,6 +157,8 @@
               file="shared-code/Templates/template_processor.h"/>
       </GROUP>
       <GROUP id="{C854C6FC-D46A-D856-D6CE-2F328AC02D69}" name="utils">
+        <FILE id="rNiRkT" name="stoej_cpp_utils.h" compile="0" resource="0"
+              file="shared-code/utils/stoej_cpp_utils.h"/>
         <FILE id="TJa5JW" name="stoej_compile_time_utils.h" compile="0" resource="0"
               file="shared-code/utils/stoej_compile_time_utils.h"/>
         <FILE id="S630jI" name="stoej_graphics_utils.h" compile="0" resource="0"
