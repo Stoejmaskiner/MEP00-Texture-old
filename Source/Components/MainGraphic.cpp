@@ -22,7 +22,12 @@ void MainGraphic::paint(juce::Graphics& g)
 {
     //this->background_c_ = juce::Colours::black;
     // TODO:
-    this->drawBackground(g, juce::Colours::black);
+    using namespace stoej::theme_colours;
+    bool use_dark_theme = this->apvts_.getParameterBoolOr(stoej::parameters::internal_use_dark_theme.id, false);
+    auto bg_c = use_dark_theme ?
+        this->apvts_.getPropertyThemeColor(dark_theme::scope_background) :
+        this->apvts_.getPropertyThemeColor(light_theme::scope_background);
+    this->drawBackground(g, bg_c);
 
     auto r = this->getLocalFloatBounds();
     float mix = this->x_range_.convertTo0to1(this->getXValueObject().getValue());
@@ -31,7 +36,10 @@ void MainGraphic::paint(juce::Graphics& g)
     auto y_pos = density * r.getHeight();
 
     // TODO: eats CPU
-    g.setColour(juce::Colours::magenta);
+    auto prim_c = use_dark_theme ?
+        this->apvts_.getPropertyThemeColor(dark_theme::fill_primary) :
+        this->apvts_.getPropertyThemeColor(light_theme::fill_primary);
+    g.setColour(prim_c);
     auto r1 = r;
     r1.reduce(6.f * dp_, 6.f * dp_);
     juce::Path sin_p;
@@ -73,6 +81,8 @@ void MainGraphic::paint(juce::Graphics& g)
     g.drawHorizontalLine(y_pos, 0.f, r.getRight());
     */
 
-    //this->setBorderWidth(1.f);
-    this->drawBorder(g, 1.f, juce::Colours::black);
+    auto border_c = use_dark_theme ?
+        this->apvts_.getPropertyThemeColor(dark_theme::foreground_primary) :
+        this->apvts_.getPropertyThemeColor(light_theme::foreground_primary);
+    this->drawBorder(g, 1.f, border_c);
 }

@@ -53,7 +53,8 @@ MEP00TextureAudioProcessorEditor::MEP00TextureAudioProcessorEditor (MEP00Texture
     hp_fader_(apvts, "hp_fader", "HP", stoej::ValueUnit::hertz, true),
     width_fader_(apvts, Parameters::noise_width.id, "WIDTH", stoej::ValueUnit::percent, false),
     level_fader_(apvts, Parameters::output_level.id, "LEVEL", stoej::ValueUnit::level2db, false),
-    apvts_(apvts)
+    apvts_(apvts),
+    title_bar_(apvts)
 {
     
     setResizable(true,true);
@@ -84,7 +85,7 @@ MEP00TextureAudioProcessorEditor::MEP00TextureAudioProcessorEditor (MEP00Texture
     //this->light_dark_toggle_.setTooltip("gneurshk");
     //this->light_dark_toggle_.addMouseListener(&this->tooltip_box_, false);
 
-    addAndMakeVisible(this->bounding_box_);
+    //addAndMakeVisible(this->bounding_box_);
     //addAndMakeVisible(this->main_widget_);
     //addAndMakeVisible(this->spacer_);
     addAndMakeVisible(this->hp_fader_);
@@ -163,7 +164,7 @@ MEP00TextureAudioProcessorEditor::MEP00TextureAudioProcessorEditor (MEP00Texture
         stoej::apvts_random_param(apvts, Parameters::noise_width.id);
         stoej::apvts_random_param(apvts, Parameters::output_level.id);
     };
-    //this->light_dark_toggle_.addListener(this);
+    this->light_dark_toggle_.addListener(this);
     /*
     this->light_dark_toggle_.onClick = [&apvts, parent = this]() {
         bool old_state = apvts.state.getProperty("use_dark_theme", false);
@@ -186,13 +187,25 @@ MEP00TextureAudioProcessorEditor::~MEP00TextureAudioProcessorEditor()
 void MEP00TextureAudioProcessorEditor::paint (juce::Graphics& g)
 {
     // (Our component is opaque, so we must completely fill the background with a solid colour)
-    g.fillAll (COL_BACKGROUND_SECONDARY);
+    using namespace stoej::theme_colours;
+    bool use_dark_theme = this->apvts_.getParameterBoolOr(stoej::parameters::internal_use_dark_theme.id, false);
+    auto bg_c_1 = use_dark_theme ?
+        this->apvts_.getPropertyThemeColor(dark_theme::background_primary) :
+        this->apvts_.getPropertyThemeColor(light_theme::background_primary);
+    auto bg_c_2 = use_dark_theme ?
+        this->apvts_.getPropertyThemeColor(dark_theme::background_secondary) :
+        this->apvts_.getPropertyThemeColor(light_theme::background_secondary);
+    auto border_c = use_dark_theme ?
+        this->apvts_.getPropertyThemeColor(dark_theme::foreground_primary) :
+        this->apvts_.getPropertyThemeColor(light_theme::foreground_primary);
+    auto r = this->getLocalBounds().toFloat();
+    g.fillAll (bg_c_2);
 
-    g.setColour (juce::Colours::white);
-    g.setFont (15.0f);
-    g.drawFittedText ("Hello World!", getLocalBounds(), juce::Justification::centred, 1);
+    g.setColour(bg_c_1);
+    stoej::fill_rect_f(g, this->inner_r);
 
-	
+    g.setColour(border_c);
+    stoej::draw_rect_f(g, this->inner_r, 1.f * dp_);
 }
 
 void MEP00TextureAudioProcessorEditor::resized()
@@ -202,6 +215,7 @@ void MEP00TextureAudioProcessorEditor::resized()
 
     auto r = stoej::int_rect_2_float_rect(getLocalBounds());
     auto dp = r.getWidth() / double(k_width_);
+    this->dp_ = dp;
     double inner_width = 390.0;
 
     // IMPORTANT NOTE:
@@ -216,7 +230,7 @@ void MEP00TextureAudioProcessorEditor::resized()
     this->init_btn_.setDP(dp);
     this->tooltip_box_.setDP(dp);
     this->widget_view_.setDP(dp);
-    this->bounding_box_.setDP(dp);
+    //this->bounding_box_.setDP(dp);
     this->mix_val_.setDP(dp);
     this->density_val_.setDP(dp);
     this->grit_btn_.setDP(dp);
@@ -230,9 +244,9 @@ void MEP00TextureAudioProcessorEditor::resized()
     r.removeFromLeft(this->k_padding_ * dp);
     r = r.removeFromLeft(inner_width * dp);
     
-    this->title_bar_.dp = dp;
+    this->title_bar_.setDP(dp);
     // TODO: title with FloatComponent
-	this->title_bar_.setBounds(stoej::float_rect_2_int_rect(r.removeFromTop(this->title_bar_.UNSCALED_HEIGHT*dp)));
+	this->title_bar_.setFloatBounds(r.removeFromTop(std::get<float>(this->title_bar_.getPreferredHeight()) * dp));
     r.removeFromTop(this->k_padding_ * dp);
     //this->ribbon_.setBounds(r.removeFromTop(std::get<int>(this->ribbon_.getHeight()) * dp));
     //r.removeFromTop(3*dp);
@@ -247,7 +261,7 @@ void MEP00TextureAudioProcessorEditor::resized()
     //this->test2_.setFloatBounds(juce::Rectangle<float>(rt1.getTopLeft().getX(), rt1.getTopLeft().getY(), rt1.getWidth(), rt1.getHeight()));
 
     // TODO: use float rect for bounding box
-    this->bounding_box_.setBounds(stoej::float_rect_2_int_rect(r_main));
+    this->inner_r = r_main;
     r_main.reduce(this->k_padding_2 * dp, this->k_padding_2 * dp);
     auto r1_main = r_main.removeFromLeft(180 * dp);
     //this->main_widget_.setBounds(r1);  // TODO: get widget width
@@ -299,9 +313,10 @@ void MEP00TextureAudioProcessorEditor::resized()
 
 // TODO: maybe make a LightDarkThemeToggleHandler class to clearly denote what this method does?
 void MEP00TextureAudioProcessorEditor::buttonClicked(juce::Button* b) {
-    
+    DBG("theme_handler: button=<" + b->getName() + "> was clicked");
     // TODO: store ids in string arena
     if (b->getName() == "light_dark_toggle") {
+        DBG("theme_handler: repainting");
         this->repaint();
     }
 }

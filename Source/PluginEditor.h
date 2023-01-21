@@ -43,6 +43,8 @@ private:
 
     void buttonClicked(juce::Button* b) override;
 
+    juce::Rectangle<float> inner_r;
+
 
 
     // width and height are the minimum sizes, which should be driectly based on the
@@ -55,15 +57,18 @@ private:
     // Why are the scaled units set to a smaller size than what is normally wanted? Simply
     // put, they are kept small for ease of design. The design language is based around
     // a grid of 12 pd in size, because it is highly composite and easy to work with.
-    static constexpr int k_width_ = 420;
-    static constexpr int k_height_ = 240;
+    static constexpr int k_width_ = 396;
+    static constexpr int k_height_ = 214;
 
     // optimal initial scaling factor as tested on a 1080p display
+    // TODO: save current scaling in apvts
     static constexpr double k_init_scale_ = 2.3;
 
     static constexpr double k_padding_ = 3;
 
-    juce::AudioProcessorValueTreeState& apvts_;
+    double dp_ = 1.f;
+
+    stoej::APVTS& apvts_;
 
     // This reference is provided as a quick way for your editor to
     // access the processor object that created it.
@@ -84,7 +89,7 @@ private:
 
     static constexpr double k_padding_2 = 6.0;
 
-    stoej::Box bounding_box_;
+    //stoej::Box bounding_box_;
     //stoej::DbgBox main_widget_;
     MainGraphic widget_view_;
     //stoej::XY widget_view_;

@@ -12,18 +12,15 @@
 #include "TitleBar.h"
 #include "binary_data/stoej_Fonts.h"
 #include "utils/stoej_graphics_utils.h"
+#include "stoej_APVTS.h"
 
 
 //==============================================================================
-TitleBar::TitleBar()
+TitleBar::TitleBar(stoej::APVTS& apvts) : stoej::FloatComponent<juce::Component>(apvts)
 {
     // In your constructor, you should add any child components, and
     // initialise any special settings that your component needs.
 
-}
-
-TitleBar::~TitleBar()
-{
 }
 
 void TitleBar::paint (juce::Graphics& g)
@@ -34,20 +31,30 @@ void TitleBar::paint (juce::Graphics& g)
        You should replace everything in this method with your own
        drawing code..
     */
+    using namespace stoej::theme_colours;
+    bool use_dark_theme = this->apvts_.getParameterBoolOr(stoej::parameters::internal_use_dark_theme.id, false);
 
-    auto r = getLocalBounds();
+    auto txt_c_1 = use_dark_theme ?
+        this->apvts_.getPropertyThemeColor(dark_theme::text_primary) :
+        this->apvts_.getPropertyThemeColor(light_theme::text_primary);
+    auto txt_c_2 = use_dark_theme ?
+        this->apvts_.getPropertyThemeColor(dark_theme::text_secondary) :
+        this->apvts_.getPropertyThemeColor(light_theme::text_secondary);
+    auto r = getLocalFloatBounds();
 
-    g.setColour (COL_STROKE_PRIMARY);
+    
     g.setFont(stoej::get_font_archivo_thin());
-    g.setFont (20.0 * dp * stoej::PT_2_PX);
+    g.setFont (20.f * dp_ * stoej::PT_2_PX);
+    g.setColour(txt_c_2);
     g.drawText ("[" + PRODUCT_CODE + "]", r,juce::Justification::left, true);   // draw some placeholder text
     g.setFont(stoej::get_font_archivo_black());
-    g.setFont(20.0f * dp * stoej::PT_2_PX);
+    g.setFont(20.f * dp_ * stoej::PT_2_PX);
+    g.setColour(txt_c_1);
     g.drawText (PRODUCT_NAME, r, juce::Justification::right, true);
     auto w = g.getCurrentFont().getStringWidth(PRODUCT_NAME);
     r.removeFromRight(w);
     g.setFont(stoej::get_font_archivo_thin());
-    g.setFont(20.0f * dp * stoej::PT_2_PX);
+    g.setFont(20.0f * dp_ * stoej::PT_2_PX);
     g.drawText(COMPANY_NAME + " // ", r, juce::Justification::right, true);
     
 }

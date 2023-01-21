@@ -11,9 +11,16 @@
 #pragma once
 #include <string>
 
+[[deprecated("use arena")]]
 static const auto COL_BACKGROUND_PRIMARY   = juce::Colour(254,254,254);
+
+[[deprecated("use arena")]]
 static const auto COL_BACKGROUND_SECONDARY = juce::Colour(238,238,238);
+
+[[deprecated("use arena")]]
 static const auto COL_STROKE_PRIMARY       = juce::Colour(  0,  0,  0);
+
+[[deprecated("use arena")]]
 static const auto COL_STROKE_SECONDARY     = juce::Colour(254,254,254);
 
 static const std::string PRODUCT_TYPE_CODE = "MEP";
