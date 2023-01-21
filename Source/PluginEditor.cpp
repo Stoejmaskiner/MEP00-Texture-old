@@ -29,11 +29,11 @@ MEP00TextureAudioProcessorEditor::MEP00TextureAudioProcessorEditor (MEP00Texture
         "help_btn",
         stoej::StoejButton::tiny,
         STOEJ_DRAWABLE_IMG(stoej_BinaryData::bookopenlight_svg)),
-    oversample_btn_(
-        apvts,
-        "oversample_btn",
-        stoej::StoejButton::tiny,
-        STOEJ_DRAWABLE_IMG(stoej_BinaryData::gaugelight_svg)),
+    //oversample_btn_(
+    //    apvts,
+    //    "oversample_btn",
+    //    stoej::StoejButton::tiny,
+    //    STOEJ_DRAWABLE_IMG(stoej_BinaryData::gaugelight_svg)),
     randomize_btn_(
         apvts,
         "randomize_btn",
@@ -77,7 +77,7 @@ MEP00TextureAudioProcessorEditor::MEP00TextureAudioProcessorEditor (MEP00Texture
       //this->addAndMakeVisible(this->preset_text_field_);
     this->addAndMakeVisible(this->light_dark_toggle_);
     this->addAndMakeVisible(this->help_btn_);
-    this->addAndMakeVisible(this->oversample_btn_);
+    //this->addAndMakeVisible(this->oversample_btn_);
     this->addAndMakeVisible(this->randomize_btn_);
     this->addAndMakeVisible(this->init_btn_);
     this->addAndMakeVisible(this->tooltip_box_);
@@ -176,7 +176,8 @@ MEP00TextureAudioProcessorEditor::MEP00TextureAudioProcessorEditor (MEP00Texture
     };
     */
 
-    setSize (k_width_ * k_init_scale_, k_height_ * k_init_scale_);
+    float init_scale = this->apvts_.state.getProperty(stoej::properties::internal_gui_scale.id);
+    setSize (k_width_ * init_scale, k_height_ * init_scale);
 }
         
 MEP00TextureAudioProcessorEditor::~MEP00TextureAudioProcessorEditor()
@@ -187,6 +188,7 @@ MEP00TextureAudioProcessorEditor::~MEP00TextureAudioProcessorEditor()
 void MEP00TextureAudioProcessorEditor::paint (juce::Graphics& g)
 {
     // (Our component is opaque, so we must completely fill the background with a solid colour)
+    float dp = this->apvts_.state.getProperty(stoej::properties::internal_gui_scale.id);
     using namespace stoej::theme_colours;
     bool use_dark_theme = this->apvts_.getParameterBoolOr(stoej::parameters::internal_use_dark_theme.id, false);
     auto bg_c_1 = use_dark_theme ?
@@ -205,7 +207,7 @@ void MEP00TextureAudioProcessorEditor::paint (juce::Graphics& g)
     stoej::fill_rect_f(g, this->inner_r);
 
     g.setColour(border_c);
-    stoej::draw_rect_f(g, this->inner_r, 1.f * dp_);
+    stoej::draw_rect_f(g, this->inner_r, 1.f * dp);
 }
 
 void MEP00TextureAudioProcessorEditor::resized()
@@ -213,9 +215,9 @@ void MEP00TextureAudioProcessorEditor::resized()
     // This is generally where you'll want to lay out the positions of any
     // subcomponents in your editor..
 
-    auto r = stoej::int_rect_2_float_rect(getLocalBounds());
+    auto r = this->getLocalBounds().toFloat();
     auto dp = r.getWidth() / double(k_width_);
-    this->dp_ = dp;
+    this->apvts_.state.setProperty(stoej::properties::internal_gui_scale.id, dp, nullptr);
     double inner_width = 390.0;
 
     // IMPORTANT NOTE:
@@ -225,7 +227,7 @@ void MEP00TextureAudioProcessorEditor::resized()
     //this->main_view_.setDP(dp);
     this->light_dark_toggle_.setDP(dp);
     this->help_btn_.setDP(dp);
-    this->oversample_btn_.setDP(dp);
+    //this->oversample_btn_.setDP(dp);
     this->randomize_btn_.setDP(dp);
     this->init_btn_.setDP(dp);
     this->tooltip_box_.setDP(dp);
@@ -297,8 +299,8 @@ void MEP00TextureAudioProcessorEditor::resized()
     this->help_btn_.setFloatBounds(
         r1.removeFromLeft(std::get<float>(this->help_btn_.getPreferredWidth()) * dp));
 
-    this->oversample_btn_.setFloatBounds(
-        r1.removeFromLeft(std::get<float>(this->oversample_btn_.getPreferredWidth()) * dp));
+    //this->oversample_btn_.setFloatBounds(
+    //    r1.removeFromLeft(std::get<float>(this->oversample_btn_.getPreferredWidth()) * dp));
 
     this->randomize_btn_.setFloatBounds(
         r1.removeFromLeft(std::get<float>(this->randomize_btn_.getPreferredWidth()) * dp));

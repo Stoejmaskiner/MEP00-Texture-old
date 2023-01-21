@@ -54,7 +54,7 @@ private:
     //stoej::PresetTextField preset_text_field_;
     juce::ToggleButton light_dark_toggle_;
     stoej::MenuButton help_btn_;
-    stoej::MenuButton oversample_btn_;
+    //stoej::MenuButton oversample_btn_;
     stoej::MenuButton randomize_btn_;
     stoej::MenuButton init_btn_;
     stoej::Ticker tooltip_box_;

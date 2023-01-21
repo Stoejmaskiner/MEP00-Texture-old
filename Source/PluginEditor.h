@@ -66,8 +66,6 @@ private:
 
     static constexpr double k_padding_ = 3;
 
-    double dp_ = 1.f;
-
     stoej::APVTS& apvts_;
 
     // This reference is provided as a quick way for your editor to
@@ -82,7 +80,7 @@ private:
     //stoej::PresetTextField preset_text_field_;
     stoej::StoejButton light_dark_toggle_;
     stoej::StoejButton help_btn_;
-    stoej::StoejButton oversample_btn_;
+    //stoej::StoejButton oversample_btn_;
     stoej::StoejButton randomize_btn_;
     stoej::StoejButton init_btn_;
     stoej::Ticker tooltip_box_;
