@@ -10,12 +10,10 @@
 
 #include <JuceHeader.h>
 #include "PluginProcessor.h"
-#include "Components/Ribbon.h"
 #include "Components/TitleBar.h"
 #include "utils/stoej_graphics_utils.h"
 #include "gui/components/stoej_box.h"
 #include "Components/StatusBar.h"
-#include "Components/MainView.h"
 #include "gui/interfaces/stoej_resizeable_component.h"
 #include "gui/components/stoej_box.h"
 #include "gui/components/stoej_dbg_box.h"
@@ -25,6 +23,7 @@
 #include "gui/components/stoej_Value.h"
 #include "gui/components/stoej_xy.h"
 #include "gui/components/stoej_Ticker.h"
+#include "Components/MainGraphic.h"
 
 //==============================================================================
 /**
@@ -32,7 +31,7 @@
 class MEP00TextureAudioProcessorEditor : public juce::AudioProcessorEditor, public juce::Button::Listener
 {
 public:
-    MEP00TextureAudioProcessorEditor (MEP00TextureAudioProcessor& p, stoej::APVTS& apvts);
+    MEP00TextureAudioProcessorEditor (MEP00TextureAudioProcessor& p, stoej::ThemedAPVTS& apvts);
     ~MEP00TextureAudioProcessorEditor() override;
 
     //==============================================================================
@@ -66,13 +65,13 @@ private:
 
     static constexpr double k_padding_ = 3;
 
-    stoej::APVTS& apvts_;
+    stoej::ThemedAPVTS& apvts_;
 
     // This reference is provided as a quick way for your editor to
     // access the processor object that created it.
     MEP00TextureAudioProcessor& audioProcessor;
     TitleBar title_bar_;
-    Ribbon ribbon_;
+    //Ribbon ribbon_;
     //MainView main_view_;
     //StatusBar status_bar_;
     

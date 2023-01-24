@@ -12,7 +12,7 @@
 #include "StatusBar.h"
 
 //==============================================================================
-StatusBar::StatusBar(stoej::APVTS& apvts) :
+StatusBar::StatusBar(stoej::ThemedAPVTS& apvts) :
 //preset_text_field_(get_font_archivo_narrow_bold(), get_font_archivo_narrow_light()),
 //light_dark_toggle_(this->sun_ico_),
 help_btn_(this->book_ico_),

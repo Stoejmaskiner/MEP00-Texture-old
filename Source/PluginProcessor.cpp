@@ -222,7 +222,7 @@ void MEP00TextureAudioProcessor::getStateInformation (juce::MemoryBlock& destDat
     //juce::MemoryOutputStream mos(destData, true);
     //this->apvts.state.writeToStream(mos);
     auto state = this->apvts.copyState();
-    this->apvts.state.removeProperty(stoej::properties::internal_gui_scale.id, nullptr);
+    //this->apvts.state.removeProperty(stoej::properties::internal_gui_scale.id, nullptr);
     std::unique_ptr<juce::XmlElement> xml (state.createXml());
     copyXmlToBinary(*xml, destData);
 }

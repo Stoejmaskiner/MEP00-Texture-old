@@ -31,7 +31,7 @@ public:
     ~MEP00TextureAudioProcessor() override;
 
     // the apvts is used to store parameters and plugin state
-    stoej::APVTS apvts{
+    stoej::ThemedAPVTS apvts{
         *this, nullptr, "Parameters", []()
         {
 

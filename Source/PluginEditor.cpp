@@ -13,7 +13,7 @@
 
 
 //==============================================================================
-MEP00TextureAudioProcessorEditor::MEP00TextureAudioProcessorEditor (MEP00TextureAudioProcessor& p, stoej::APVTS& apvts)
+MEP00TextureAudioProcessorEditor::MEP00TextureAudioProcessorEditor (MEP00TextureAudioProcessor& p, stoej::ThemedAPVTS& apvts)
     : 
     AudioProcessorEditor (&p), 
     audioProcessor (p), 
@@ -120,7 +120,7 @@ MEP00TextureAudioProcessorEditor::MEP00TextureAudioProcessorEditor (MEP00Texture
         new ButtonAttach(apvts, Parameters::enable_grit.id, this->grit_btn_)
     );
     this->light_dark_toggle_attachment_.reset(
-        new ButtonAttach(apvts, stoej::parameters::internal_use_dark_theme.id, this->light_dark_toggle_)
+        new ButtonAttach(apvts, stoej::bool_params.at(stoej::strings::internal_params::use_dark_theme).id, this->light_dark_toggle_)
     );
 
     // TODO: handle this with custom APVTS attachments instead (can you even attach two things to the same parameter?)
@@ -176,7 +176,11 @@ MEP00TextureAudioProcessorEditor::MEP00TextureAudioProcessorEditor (MEP00Texture
     };
     */
 
-    float init_scale = this->apvts_.state.getProperty(stoej::properties::internal_gui_scale.id);
+    auto internal_properties = this->apvts_.state.getChildWithName(stoej::strings::apvts_children::internal_properties_state);
+    jassert(internal_properties.isValid());
+    float init_scale = internal_properties.getProperty(stoej::properties.at(stoej::strings::internal_properties::gui_scale).id);
+    DBG("PluginEditor: init_scale=<" + std::to_string(init_scale) + ">");
+    jassert(init_scale > 0);
     setSize (k_width_ * init_scale, k_height_ * init_scale);
 }
         
@@ -188,24 +192,20 @@ MEP00TextureAudioProcessorEditor::~MEP00TextureAudioProcessorEditor()
 void MEP00TextureAudioProcessorEditor::paint (juce::Graphics& g)
 {
     // (Our component is opaque, so we must completely fill the background with a solid colour)
-    float dp = this->apvts_.state.getProperty(stoej::properties::internal_gui_scale.id);
-    using namespace stoej::theme_colours;
-    bool use_dark_theme = this->apvts_.getParameterBoolOr(stoej::parameters::internal_use_dark_theme.id, false);
-    auto bg_c_1 = use_dark_theme ?
-        this->apvts_.getPropertyThemeColor(dark_theme::background_primary) :
-        this->apvts_.getPropertyThemeColor(light_theme::background_primary);
-    auto bg_c_2 = use_dark_theme ?
-        this->apvts_.getPropertyThemeColor(dark_theme::background_secondary) :
-        this->apvts_.getPropertyThemeColor(light_theme::background_secondary);
-    auto border_c = use_dark_theme ?
-        this->apvts_.getPropertyThemeColor(dark_theme::foreground_primary) :
-        this->apvts_.getPropertyThemeColor(light_theme::foreground_primary);
+    auto internal_properties_state = this->apvts_.state.getChildWithName(stoej::strings::apvts_children::internal_properties_state);
+    float dp = internal_properties_state.getProperty(stoej::properties.at(stoej::strings::internal_properties::gui_scale).id);
+
+
+    auto bg_c_1 = this->apvts_.getGenericThemeColorWithModeApplied(stoej::strings::generic_theme::background_primary);
+    auto bg_c_2 = this->apvts_.getGenericThemeColorWithModeApplied(stoej::strings::generic_theme::background_secondary);
+    auto border_c = this->apvts_.getGenericThemeColorWithModeApplied(stoej::strings::generic_theme::foreground_primary);
     auto r = this->getLocalBounds().toFloat();
     g.fillAll (bg_c_2);
 
     g.setColour(bg_c_1);
     stoej::fill_rect_f(g, this->inner_r);
 
+    //DBG("PluginEditor: painting border with color border_c=<" + border_c.toString() + ">, thickness dp=<" + std::to_string(dp) + ">");
     g.setColour(border_c);
     stoej::draw_rect_f(g, this->inner_r, 1.f * dp);
 }
@@ -217,13 +217,15 @@ void MEP00TextureAudioProcessorEditor::resized()
 
     auto r = this->getLocalBounds().toFloat();
     auto dp = r.getWidth() / double(k_width_);
-    this->apvts_.state.setProperty(stoej::properties::internal_gui_scale.id, dp, nullptr);
+    auto internal_properties = this->apvts_.state.getChildWithName(stoej::strings::apvts_children::internal_properties_state);
+    jassert(internal_properties.isValid());
+    internal_properties.setProperty(stoej::properties.at(stoej::strings::internal_properties::gui_scale).id, dp, nullptr);
     double inner_width = 390.0;
 
     // IMPORTANT NOTE:
     // only call .setDP from the parent's .setDP method, the top level component (this)
     // is the only exception as it doesn't have a .setDP method.
-    this->ribbon_.setDP(dp);
+    //this->ribbon_.setDP(dp);
     //this->main_view_.setDP(dp);
     this->light_dark_toggle_.setDP(dp);
     this->help_btn_.setDP(dp);
