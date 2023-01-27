@@ -52,6 +52,8 @@ public:
         }()
     };
 
+    stoej::ThemeManager theme_manager_;
+
     //==============================================================================
     void prepareToPlay (double sampleRate, int samplesPerBlock) override;
     void releaseResources() override;

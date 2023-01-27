@@ -13,19 +13,21 @@
 
 
 //==============================================================================
-MEP00TextureAudioProcessorEditor::MEP00TextureAudioProcessorEditor (MEP00TextureAudioProcessor& p, stoej::APVTS& apvts)
+MEP00TextureAudioProcessorEditor::MEP00TextureAudioProcessorEditor (MEP00TextureAudioProcessor& p, stoej::APVTS& apvts, stoej::ThemeManager& theme_manager)
     : 
     AudioProcessorEditor (&p), 
     audioProcessor (p), 
-    widget_view_(apvts),
+    widget_view_(apvts, theme_manager),
     light_dark_toggle_(
         apvts,
+        theme_manager,
         "light_dark_toggle", 
         stoej::StoejButton::tiny, 
         STOEJ_DRAWABLE_IMG(stoej_BinaryData::moonlight_svg),
         STOEJ_DRAWABLE_IMG(stoej_BinaryData::sundimlight_svg)), 
     help_btn_(
         apvts,
+        theme_manager,
         "help_btn",
         stoej::StoejButton::tiny,
         STOEJ_DRAWABLE_IMG(stoej_BinaryData::bookopenlight_svg)),
@@ -36,27 +38,31 @@ MEP00TextureAudioProcessorEditor::MEP00TextureAudioProcessorEditor (MEP00Texture
     //    STOEJ_DRAWABLE_IMG(stoej_BinaryData::gaugelight_svg)),
     randomize_btn_(
         apvts,
+        theme_manager,
         "randomize_btn",
         stoej::StoejButton::tiny,
         STOEJ_DRAWABLE_IMG(stoej_BinaryData::shuffleangularlight_svg)),
     init_btn_(
         apvts,
+        theme_manager,
         "init_btn",
         stoej::StoejButton::ButtonSize::tiny,
         STOEJ_DRAWABLE_IMG(stoej_BinaryData::filepluslight_svg)),
-    tooltip_box_(apvts, "tooltip_box"),
+    tooltip_box_(apvts, theme_manager, "tooltip_box"),
     //grit_btn_("grit_btn", stoej::StoejButton::ButtonSize::small, "GRIT", true),
-    grit_btn_(apvts, "grit_btn", stoej::StoejButton::ButtonSize::small, "GRIT", true),
-    mix_val_(apvts, Parameters::noise_mix.id, "MIX", stoej::ValueUnit::percent),
-    density_val_(apvts, Parameters::noise_density.id, "DENSITY", stoej::ValueUnit::percent),
-    lp_fader_(apvts, "lp_fader", "LP", stoej::ValueUnit::hertz, false),
-    hp_fader_(apvts, "hp_fader", "HP", stoej::ValueUnit::hertz, true),
-    width_fader_(apvts, Parameters::noise_width.id, "WIDTH", stoej::ValueUnit::percent, false),
-    level_fader_(apvts, Parameters::output_level.id, "LEVEL", stoej::ValueUnit::level2db, false),
+    grit_btn_(apvts, theme_manager, "grit_btn", stoej::StoejButton::ButtonSize::small, "GRIT", true),
+    mix_val_(apvts, theme_manager, Parameters::noise_mix.id, "MIX", stoej::ValueUnit::percent),
+    density_val_(apvts, theme_manager, Parameters::noise_density.id, "DENSITY", stoej::ValueUnit::percent),
+    lp_fader_(apvts, theme_manager, "lp_fader", "LP", stoej::ValueUnit::hertz, false),
+    hp_fader_(apvts, theme_manager, "hp_fader", "HP", stoej::ValueUnit::hertz, true),
+    width_fader_(apvts, theme_manager, Parameters::noise_width.id, "WIDTH", stoej::ValueUnit::percent, false),
+    level_fader_(apvts, theme_manager, Parameters::output_level.id, "LEVEL", stoej::ValueUnit::level2db, false),
     apvts_(apvts),
-    title_bar_(apvts)
+    theme_manager_(theme_manager),
+    title_bar_(apvts, theme_manager)
 {
-    
+    this->theme_manager_.setEditor(this);
+    this->light_dark_toggle_.addListener(&this->theme_manager_);
     setResizable(true,true);
     // Make sure that before the constructor has finished, you've set the
     // editor's size to whatever you need it to be.
@@ -119,9 +125,9 @@ MEP00TextureAudioProcessorEditor::MEP00TextureAudioProcessorEditor (MEP00Texture
     this->grit_btn_attachment_.reset(
         new ButtonAttach(apvts, Parameters::enable_grit.id, this->grit_btn_)
     );
-    this->light_dark_toggle_attachment_.reset(
-        new ButtonAttach(apvts, stoej::parameters::internal_use_dark_theme.id, this->light_dark_toggle_)
-    );
+    //this->light_dark_toggle_attachment_.reset(
+    //    new ButtonAttach(apvts, stoej::parameters::internal_use_dark_theme.id, this->light_dark_toggle_)
+    //);
 
     // TODO: handle this with custom APVTS attachments instead (can you even attach two things to the same parameter?)
     this->widget_view_.getXValueObject().referTo(this->mix_val_.getValueObject());

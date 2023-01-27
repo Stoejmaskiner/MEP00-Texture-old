@@ -13,16 +13,18 @@
 
 //==============================================================================
 MEP00TextureAudioProcessor::MEP00TextureAudioProcessor()
+    :
 #ifndef JucePlugin_PreferredChannelConfigurations
-     : AudioProcessor (BusesProperties()
+    AudioProcessor (BusesProperties()
                      #if ! JucePlugin_IsMidiEffect
                       #if ! JucePlugin_IsSynth
                        .withInput  ("Input",  juce::AudioChannelSet::stereo(), true)
                       #endif
                        .withOutput ("Output", juce::AudioChannelSet::stereo(), true)
                      #endif
-                       )
+                       ),
 #endif
+    theme_manager_()
 {
     this->sample_rate = 0.0f;
     this->max_size = 0;
@@ -209,7 +211,7 @@ bool MEP00TextureAudioProcessor::hasEditor() const
 juce::AudioProcessorEditor* MEP00TextureAudioProcessor::createEditor()
 {
     //return new juce::GenericAudioProcessorEditor(*this);
-    return new MEP00TextureAudioProcessorEditor (*this, this->apvts);
+    return new MEP00TextureAudioProcessorEditor (*this, this->apvts, this->theme_manager_);
 }
 
 //==============================================================================

@@ -16,7 +16,7 @@
 
 
 //==============================================================================
-TitleBar::TitleBar(stoej::APVTS& apvts) : stoej::FloatComponent<juce::Component>(apvts)
+TitleBar::TitleBar(stoej::APVTS& apvts, stoej::ThemeManager& theme_manager) : stoej::FloatComponent<juce::Component>(apvts, theme_manager)
 {
     // In your constructor, you should add any child components, and
     // initialise any special settings that your component needs.
@@ -31,15 +31,11 @@ void TitleBar::paint (juce::Graphics& g)
        You should replace everything in this method with your own
        drawing code..
     */
-    using namespace stoej::theme_colours;
-    bool use_dark_theme = this->apvts_.getParameterBoolOr(stoej::parameters::internal_use_dark_theme.id, false);
+    //using namespace stoej::theme_colours;
+    //bool use_dark_theme = this->apvts_.getParameterBoolOr(stoej::parameters::internal_use_dark_theme.id, false);
 
-    auto txt_c_1 = use_dark_theme ?
-        this->apvts_.getPropertyThemeColor(dark_theme::text_primary) :
-        this->apvts_.getPropertyThemeColor(light_theme::text_primary);
-    auto txt_c_2 = use_dark_theme ?
-        this->apvts_.getPropertyThemeColor(dark_theme::text_secondary) :
-        this->apvts_.getPropertyThemeColor(light_theme::text_secondary);
+    auto txt_c_1 = this->theme_manager_.getThemeColor(stoej::ThemeManager::text_primary);
+    auto txt_c_2 = this->theme_manager_.getThemeColor(stoej::ThemeManager::text_secondary);
     auto r = getLocalFloatBounds();
 
     

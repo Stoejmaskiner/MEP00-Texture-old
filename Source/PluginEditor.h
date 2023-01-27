@@ -32,7 +32,7 @@
 class MEP00TextureAudioProcessorEditor : public juce::AudioProcessorEditor, public juce::Button::Listener
 {
 public:
-    MEP00TextureAudioProcessorEditor (MEP00TextureAudioProcessor& p, stoej::APVTS& apvts);
+    MEP00TextureAudioProcessorEditor (MEP00TextureAudioProcessor& p, stoej::APVTS& apvts, stoej::ThemeManager& theme_manager_);
     ~MEP00TextureAudioProcessorEditor() override;
 
     //==============================================================================
@@ -67,6 +67,7 @@ private:
     static constexpr double k_padding_ = 3;
 
     stoej::APVTS& apvts_;
+    stoej::ThemeManager& theme_manager_;
 
     // This reference is provided as a quick way for your editor to
     // access the processor object that created it.
@@ -112,8 +113,6 @@ private:
     UniSliderAttach width_fader_attachment_;
     UniSliderAttach level_fader_attachment_;
     UniButtonAttach grit_btn_attachment_;
-    UniButtonAttach light_dark_toggle_attachment_;
-    UniButtonAttach oversample_btn_attachment_;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MEP00TextureAudioProcessorEditor)
 };

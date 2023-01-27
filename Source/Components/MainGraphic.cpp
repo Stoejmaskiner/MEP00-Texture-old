@@ -12,8 +12,8 @@
 
 
 
-MainGraphic::MainGraphic(stoej::APVTS& apvts)
-    : stoej::XY(apvts)
+MainGraphic::MainGraphic(stoej::APVTS& apvts, stoej::ThemeManager& theme_manager)
+    : stoej::XY(apvts, theme_manager)
 {
     this->grit.addListener(this);
 }
@@ -22,11 +22,9 @@ void MainGraphic::paint(juce::Graphics& g)
 {
     //this->background_c_ = juce::Colours::black;
     // TODO:
-    using namespace stoej::theme_colours;
-    bool use_dark_theme = this->apvts_.getParameterBoolOr(stoej::parameters::internal_use_dark_theme.id, false);
-    auto bg_c = use_dark_theme ?
-        this->apvts_.getPropertyThemeColor(dark_theme::scope_background) :
-        this->apvts_.getPropertyThemeColor(light_theme::scope_background);
+    //using namespace stoej::theme_colours;
+    //bool use_dark_theme = this->apvts_.getParameterBoolOr(stoej::parameters::internal_use_dark_theme.id, false);
+    auto bg_c = this->theme_manager_.getThemeColor(stoej::ThemeManager::scope_background);
     this->drawBackground(g, bg_c);
 
     auto r = this->getLocalFloatBounds();
@@ -36,9 +34,7 @@ void MainGraphic::paint(juce::Graphics& g)
     auto y_pos = density * r.getHeight();
 
     // TODO: eats CPU
-    auto prim_c = use_dark_theme ?
-        this->apvts_.getPropertyThemeColor(dark_theme::fill_primary) :
-        this->apvts_.getPropertyThemeColor(light_theme::fill_primary);
+    auto prim_c = this->theme_manager_.getThemeColor(stoej::ThemeManager::fill_primary);
     g.setColour(prim_c);
     auto r1 = r;
     r1.reduce(6.f * dp_, 6.f * dp_);
@@ -81,8 +77,6 @@ void MainGraphic::paint(juce::Graphics& g)
     g.drawHorizontalLine(y_pos, 0.f, r.getRight());
     */
 
-    auto border_c = use_dark_theme ?
-        this->apvts_.getPropertyThemeColor(dark_theme::foreground_primary) :
-        this->apvts_.getPropertyThemeColor(light_theme::foreground_primary);
+    auto border_c = this->theme_manager_.getThemeColor(stoej::ThemeManager::foreground_primary);
     this->drawBorder(g, 1.f, border_c);
 }

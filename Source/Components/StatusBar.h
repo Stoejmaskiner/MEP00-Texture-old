@@ -30,7 +30,7 @@ public:
     juce::Colour stroke_color = juce::Colour(0, 0, 0);
     juce::Colour fill_color = juce::Colour(255, 255, 255);
 
-    StatusBar(stoej::APVTS& apvts);
+    StatusBar(stoej::APVTS& apvts, stoej::ThemeManager& theme_manager);
 
     void paint (juce::Graphics&) override;
     void resized() override;
