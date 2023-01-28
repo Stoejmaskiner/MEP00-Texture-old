@@ -19,7 +19,7 @@
 
 class MainGraphic : public stoej::XY {
 public:
-    MainGraphic(stoej::APVTS& apvts, stoej::ThemeManager& theme_manager);
+    MainGraphic(stoej::APVTS* apvts, stoej::ThemeManager& theme_manager);
     void paint(juce::Graphics& g) override;
 
     // TODO: implement this

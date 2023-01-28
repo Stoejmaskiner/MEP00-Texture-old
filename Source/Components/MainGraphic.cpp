@@ -12,7 +12,7 @@
 
 
 
-MainGraphic::MainGraphic(stoej::APVTS& apvts, stoej::ThemeManager& theme_manager)
+MainGraphic::MainGraphic(stoej::APVTS* apvts, stoej::ThemeManager& theme_manager)
     : stoej::XY(apvts, theme_manager)
 {
     this->grit.addListener(this);

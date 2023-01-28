@@ -17,16 +17,16 @@ MEP00TextureAudioProcessorEditor::MEP00TextureAudioProcessorEditor (MEP00Texture
     : 
     AudioProcessorEditor (&p), 
     audioProcessor (p), 
-    widget_view_(apvts, theme_manager),
+    widget_view_(&apvts, theme_manager),
     light_dark_toggle_(
-        apvts,
+        nullptr,
         theme_manager,
         "light_dark_toggle", 
         stoej::StoejButton::tiny, 
         STOEJ_DRAWABLE_IMG(stoej_BinaryData::moonlight_svg),
         STOEJ_DRAWABLE_IMG(stoej_BinaryData::sundimlight_svg)), 
     help_btn_(
-        apvts,
+        nullptr,
         theme_manager,
         "help_btn",
         stoej::StoejButton::tiny,
@@ -37,29 +37,29 @@ MEP00TextureAudioProcessorEditor::MEP00TextureAudioProcessorEditor (MEP00Texture
     //    stoej::StoejButton::tiny,
     //    STOEJ_DRAWABLE_IMG(stoej_BinaryData::gaugelight_svg)),
     randomize_btn_(
-        apvts,
+        nullptr,
         theme_manager,
         "randomize_btn",
         stoej::StoejButton::tiny,
         STOEJ_DRAWABLE_IMG(stoej_BinaryData::shuffleangularlight_svg)),
     init_btn_(
-        apvts,
+        nullptr,
         theme_manager,
         "init_btn",
         stoej::StoejButton::ButtonSize::tiny,
         STOEJ_DRAWABLE_IMG(stoej_BinaryData::filepluslight_svg)),
-    tooltip_box_(apvts, theme_manager, "tooltip_box"),
+    tooltip_box_(&apvts, theme_manager, "tooltip_box"),
     //grit_btn_("grit_btn", stoej::StoejButton::ButtonSize::small, "GRIT", true),
-    grit_btn_(apvts, theme_manager, "grit_btn", stoej::StoejButton::ButtonSize::small, "GRIT", true),
-    mix_val_(apvts, theme_manager, Parameters::noise_mix.id, "MIX", stoej::ValueUnit::percent),
-    density_val_(apvts, theme_manager, Parameters::noise_density.id, "DENSITY", stoej::ValueUnit::percent),
-    lp_fader_(apvts, theme_manager, "lp_fader", "LP", stoej::ValueUnit::hertz, false),
-    hp_fader_(apvts, theme_manager, "hp_fader", "HP", stoej::ValueUnit::hertz, true),
-    width_fader_(apvts, theme_manager, Parameters::noise_width.id, "WIDTH", stoej::ValueUnit::percent, false),
-    level_fader_(apvts, theme_manager, Parameters::output_level.id, "LEVEL", stoej::ValueUnit::level2db, false),
+    grit_btn_(&apvts, theme_manager, Parameters::enable_grit.id, stoej::StoejButton::ButtonSize::small, "GRIT", true),
+    mix_val_(&apvts, theme_manager, Parameters::noise_mix.id, "MIX", stoej::ValueUnit::percent),
+    density_val_(&apvts, theme_manager, Parameters::noise_density.id, "DENSITY", stoej::ValueUnit::percent),
+    lp_fader_(&apvts, theme_manager, Parameters::filter_lp_cutoff.id, "LP", stoej::ValueUnit::hertz, false),
+    hp_fader_(&apvts, theme_manager, Parameters::filter_hp_cutoff.id, "HP", stoej::ValueUnit::hertz, true),
+    width_fader_(&apvts, theme_manager, Parameters::noise_width.id, "WIDTH", stoej::ValueUnit::percent, false),
+    level_fader_(&apvts, theme_manager, Parameters::output_level.id, "LEVEL", stoej::ValueUnit::level2db, false),
     apvts_(apvts),
     theme_manager_(theme_manager),
-    title_bar_(apvts, theme_manager)
+    title_bar_(&apvts, theme_manager)
 {
     this->theme_manager_.setEditor(this);
     this->light_dark_toggle_.addListener(&this->theme_manager_);
@@ -104,27 +104,27 @@ MEP00TextureAudioProcessorEditor::MEP00TextureAudioProcessorEditor (MEP00Texture
     addAndMakeVisible(this->mix_val_);
 
     // TODO: macro this, or see other TODO about putting this inside components
-    this->mix_val_attachment_.reset(
-        new SliderAttach(apvts, Parameters::noise_mix.id, this->mix_val_)
-    );
-    this->density_val_attachment_.reset(
-        new SliderAttach(apvts, Parameters::noise_density.id, this->density_val_)
-    );
-    this->hp_fader_attachment_.reset(
-        new SliderAttach(apvts, Parameters::filter_hp_cutoff.id, this->hp_fader_)
-    );
-    this->lp_fader_attachment_.reset(
-        new SliderAttach(apvts, Parameters::filter_lp_cutoff.id, this->lp_fader_)
-    );
-    this->width_fader_attachment_.reset(
-        new SliderAttach(apvts, Parameters::noise_width.id, this->width_fader_)
-    );
-    this->level_fader_attachment_.reset(
-        new SliderAttach(apvts, Parameters::output_level.id, this->level_fader_)
-    );
-    this->grit_btn_attachment_.reset(
-        new ButtonAttach(apvts, Parameters::enable_grit.id, this->grit_btn_)
-    );
+    //this->mix_val_attachment_.reset(
+    //    new SliderAttach(apvts, Parameters::noise_mix.id, this->mix_val_)
+    //);
+    //this->density_val_attachment_.reset(
+    //    new SliderAttach(apvts, Parameters::noise_density.id, this->density_val_)
+    //);
+    //this->hp_fader_attachment_.reset(
+    //    new SliderAttach(apvts, Parameters::filter_hp_cutoff.id, this->hp_fader_)
+    //);
+    //this->lp_fader_attachment_.reset(
+    //    new SliderAttach(apvts, Parameters::filter_lp_cutoff.id, this->lp_fader_)
+    //);
+    //this->width_fader_attachment_.reset(
+    //    new SliderAttach(apvts, Parameters::noise_width.id, this->width_fader_)
+    //);
+    //this->level_fader_attachment_.reset(
+    //    new SliderAttach(apvts, Parameters::output_level.id, this->level_fader_)
+    //);
+    //this->grit_btn_attachment_.reset(
+    //    new ButtonAttach(apvts, Parameters::enable_grit.id, this->grit_btn_)
+    //);
     //this->light_dark_toggle_attachment_.reset(
     //    new ButtonAttach(apvts, stoej::parameters::internal_use_dark_theme.id, this->light_dark_toggle_)
     //);

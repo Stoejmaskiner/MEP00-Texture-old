@@ -16,7 +16,7 @@
 
 
 //==============================================================================
-TitleBar::TitleBar(stoej::APVTS& apvts, stoej::ThemeManager& theme_manager) : stoej::FloatComponent<juce::Component>(apvts, theme_manager)
+TitleBar::TitleBar(stoej::APVTS* apvts, stoej::ThemeManager& theme_manager) : stoej::FloatComponent<juce::Component>(apvts, theme_manager)
 {
     // In your constructor, you should add any child components, and
     // initialise any special settings that your component needs.

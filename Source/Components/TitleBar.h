@@ -23,7 +23,7 @@ class TitleBar  : public stoej::FloatComponent<juce::Component>
 public:
     //static constexpr int UNSCALED_HEIGHT = 22;
 
-    TitleBar(stoej::APVTS& apvts, stoej::ThemeManager& theme_manager);
+    TitleBar(stoej::APVTS* apvts, stoej::ThemeManager& theme_manager);
     std::variant<float, stoej::DynamicSize2> getPreferredHeight() override { return { 22.0f }; }
     std::variant<float, stoej::DynamicSize2> getPreferredWidth() override { return { stoej::fill_parent }; }
     void paint (juce::Graphics&) override;

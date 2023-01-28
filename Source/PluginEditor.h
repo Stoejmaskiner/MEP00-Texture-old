@@ -15,7 +15,6 @@
 #include "Components/MainGraphic.h"
 #include "utils/stoej_graphics_utils.h"
 #include "gui/components/stoej_box.h"
-#include "Components/StatusBar.h"
 //#include "Components/MainView.h"
 #include "gui/interfaces/stoej_resizeable_component.h"
 #include "gui/components/stoej_box.h"
@@ -26,7 +25,6 @@
 #include "gui/components/stoej_Value.h"
 #include "gui/components/stoej_xy.h"
 #include "gui/components/stoej_Ticker.h"
-#include "Components/MainGraphic.h"
 
 //==============================================================================
 /**
@@ -103,18 +101,17 @@ private:
     stoej::StoejSlider width_fader_;
     stoej::StoejSlider level_fader_;
 
-    // TODO: components should manage attachment themselves, passing APVTS and stoej::FloatParameter
-    using SliderAttach = juce::AudioProcessorValueTreeState::SliderAttachment;
-    using UniSliderAttach = std::unique_ptr<SliderAttach>;
-    using ButtonAttach = juce::AudioProcessorValueTreeState::ButtonAttachment;
-    using UniButtonAttach = std::unique_ptr<ButtonAttach>;
-    UniSliderAttach mix_val_attachment_;
-    UniSliderAttach density_val_attachment_;
-    UniSliderAttach hp_fader_attachment_;
-    UniSliderAttach lp_fader_attachment_;
-    UniSliderAttach width_fader_attachment_;
-    UniSliderAttach level_fader_attachment_;
-    UniButtonAttach grit_btn_attachment_;
+    //using SliderAttach = juce::AudioProcessorValueTreeState::SliderAttachment;
+    //using UniSliderAttach = std::unique_ptr<SliderAttach>;
+    //using ButtonAttach = juce::AudioProcessorValueTreeState::ButtonAttachment;
+    //using UniButtonAttach = std::unique_ptr<ButtonAttach>;
+    //UniSliderAttach mix_val_attachment_;
+    //UniSliderAttach density_val_attachment_;
+    //UniSliderAttach hp_fader_attachment_;
+    //UniSliderAttach lp_fader_attachment_;
+    //UniSliderAttach width_fader_attachment_;
+    //UniSliderAttach level_fader_attachment_;
+    //UniButtonAttach grit_btn_attachment_;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MEP00TextureAudioProcessorEditor)
 };
