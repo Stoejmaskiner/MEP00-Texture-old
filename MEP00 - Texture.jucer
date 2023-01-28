@@ -183,6 +183,7 @@
       <FILE id="NPXBw6" name="stoej_Types.h" compile="0" resource="0" file="shared-code/stoej_Types.h"/>
     </GROUP>
     <GROUP id="{A7EB67A8-3E2D-B56D-DB08-5F3950B89085}" name="Source">
+      <FILE id="iD5B5Q" name="version.h" compile="0" resource="0" file="Source/version.h"/>
       <FILE id="HLpx6o" name="PluginGlobals.h" compile="0" resource="0" file="Source/PluginGlobals.h"/>
       <FILE id="EpKFdU" name="PluginAssets.h" compile="0" resource="0" file="Source/PluginAssets.h"/>
       <GROUP id="{DBDD210A-8CA8-FD31-AD69-C37442558B41}" name="Components">

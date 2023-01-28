@@ -12,14 +12,14 @@
 #include "StatusBar.h"
 
 //==============================================================================
-StatusBar::StatusBar(stoej::APVTS& apvts) :
+StatusBar::StatusBar(stoej::APVTS& apvts, stoej::ThemeManager& theme_manager) :
 //preset_text_field_(get_font_archivo_narrow_bold(), get_font_archivo_narrow_light()),
 //light_dark_toggle_(this->sun_ico_),
 help_btn_(this->book_ico_),
 //oversample_btn_(this->gauge_ico_),
 randomize_btn_(this->shuffle_ico_),
 init_btn_(this->file_plus_ico_),
-tooltip_box_(apvts, "tooltip_box")
+tooltip_box_(apvts, theme_manager, "tooltip_box")
 /*save_preset_btn_(this->floppy_ico_)*/ {
     // setting edge visibility to avoid redrawing adjacent edges
     //this->light_dark_toggle_.setTilePosition(stoej::e_array_left);

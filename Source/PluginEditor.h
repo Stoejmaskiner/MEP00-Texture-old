@@ -10,12 +10,13 @@
 
 #include <JuceHeader.h>
 #include "PluginProcessor.h"
-#include "Components/Ribbon.h"
+//#include "Components/Ribbon.h"
 #include "Components/TitleBar.h"
+#include "Components/MainGraphic.h"
 #include "utils/stoej_graphics_utils.h"
 #include "gui/components/stoej_box.h"
 #include "Components/StatusBar.h"
-#include "Components/MainView.h"
+//#include "Components/MainView.h"
 #include "gui/interfaces/stoej_resizeable_component.h"
 #include "gui/components/stoej_box.h"
 #include "gui/components/stoej_dbg_box.h"
@@ -25,6 +26,7 @@
 #include "gui/components/stoej_Value.h"
 #include "gui/components/stoej_xy.h"
 #include "gui/components/stoej_Ticker.h"
+#include "Components/MainGraphic.h"
 
 //==============================================================================
 /**
@@ -73,7 +75,7 @@ private:
     // access the processor object that created it.
     MEP00TextureAudioProcessor& audioProcessor;
     TitleBar title_bar_;
-    Ribbon ribbon_;
+    //Ribbon ribbon_;
     //MainView main_view_;
     //StatusBar status_bar_;
     
