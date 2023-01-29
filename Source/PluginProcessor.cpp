@@ -7,9 +7,12 @@
 */
 
 #pragma once
+#include "PluginGlobals.h"
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 #include "gui/stoej_Theming.h"
+#include "json11.hpp"
+
 
 //==============================================================================
 MEP00TextureAudioProcessor::MEP00TextureAudioProcessor()
@@ -219,14 +222,35 @@ void MEP00TextureAudioProcessor::getStateInformation (juce::MemoryBlock& destDat
 {
     // You should use this method to store your parameters in the memory block.
     // You could do that either as raw data, or use the XML or ValueTree classes
-    // as intermediaries to make it easy to save and load complex data.
-
-    //juce::MemoryOutputStream mos(destData, true);
-    //this->apvts.state.writeToStream(mos);
-    auto state = this->apvts.copyState();
-    //this->apvts.state.removeProperty(stoej::properties::internal_gui_scale.id, nullptr);
+    // as intermediaries to make it easy to save and load complex data
+    //STOEJ_APVTS_SET_AUTONAMED_PROPERTY(this->apvts, VERSION);
+    //STOEJ_APVTS_SET_AUTONAMED_PROPERTY(this->apvts, BUILD_NUMBER);
+    //STOEJ_APVTS_SET_AUTONAMED_PROPERTY(this->apvts, PRODUCT_NAME);
+    
+    // TODO: some helper class / function to automate this better would be neat
+    STOEJ_DBG(1,"preparing preset from state");
+    juce::ValueTree state(PRODUCT_CODE);
+    state.setProperty("STOEJ_PRESET_SCHEMA_VERSION", "v0.0.0", nullptr);     // TODO: stringly typed
+    STOEJ_VT_SET_AUTONAMED_PROPERTY(state,PRODUCT_CODE);
+    STOEJ_VT_SET_AUTONAMED_PROPERTY(state,VERSION);
+    STOEJ_VT_SET_AUTONAMED_PROPERTY(state,BUILD_NUMBER);
+    for (auto& [_, info] : bool_params) {
+        juce::ValueTree param("PARAM");     // TODO: stringly typed
+        param.setProperty("id",info.id,nullptr);
+        param.setProperty("value", this->apvts.getRawParameterValue(info.id)->load(),nullptr);
+        state.appendChild(param,nullptr);
+    }
+    for (auto& [_, info] : float_params) {
+        juce::ValueTree param("PARAM");     // TODO: stringly typed
+        param.setProperty("id", info.id, nullptr);
+        param.setProperty("value", this->apvts.getRawParameterValue(info.id)->load(), nullptr);
+        state.appendChild(param, nullptr);
+    }
+    STOEJ_DBG(0,"finished preparing preset. preset:\n" + state.toXmlString().toStdString());
+    STOEJ_DBG(1,"saving preset");
     std::unique_ptr<juce::XmlElement> xml (state.createXml());
     copyXmlToBinary(*xml, destData);
+    STOEJ_DBG(0,"saved preset");
 }
 
 void MEP00TextureAudioProcessor::setStateInformation (const void* data, int sizeInBytes)
@@ -236,9 +260,28 @@ void MEP00TextureAudioProcessor::setStateInformation (const void* data, int size
 
     std::unique_ptr<juce::XmlElement> xmlState(getXmlFromBinary(data, sizeInBytes));
 
-    if (xmlState.get() != nullptr)
-        if (xmlState->hasTagName(this->apvts.state.getType()))
-            this->apvts.replaceState(juce::ValueTree::fromXml(*xmlState));
+    // TODO: graceful error reporting
+    if (xmlState.get() == nullptr) {
+        STOEJ_DBG(3,"import aborted, could not load XML (was nullptr)");
+        jassertfalse;
+    }
+
+    auto state = juce::ValueTree::fromXml(*xmlState);
+    if (state.getType() != this->apvts.state.getType()) {
+        STOEJ_DBG(2, "root type mismatch. expected=<" + this->apvts.state.getType().toString().toStdString() + ">, got=<" + state.getType().toString().toStdString() + ">");
+    }
+    
+    juce::String got_product_code = STOEJ_VT_GET_AUTONAMED_PROPERTY_CHECKED(state,PRODUCT_CODE);
+    if (got_product_code != PRODUCT_CODE) {
+        STOEJ_DBG(3, "import aborted, attempting to import preset from a different product. expected=<" + PRODUCT_CODE.toStdString() + ">, got=<" + got_product_code.toStdString() + ">");
+        jassertfalse;
+    }
+
+    juce::String got_version = STOEJ_VT_GET_AUTONAMED_PROPERTY_CHECKED(state,VERSION);
+
+    
+
+            //this->apvts.replaceState();
 }
 
 //==============================================================================

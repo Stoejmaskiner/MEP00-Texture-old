@@ -15,6 +15,7 @@
 #include "PluginParameters.h"
 #include "stoej_params.h"
 #include "stoej_APVTS.h"
+#include "PluginGlobals.h"
 
 
 //==============================================================================
@@ -32,22 +33,19 @@ public:
 
     // the apvts is used to store parameters and plugin state
     stoej::APVTS apvts{
-        *this, nullptr, "Parameters", []()
+        *this, nullptr, PRODUCT_CODE, []()
         {
+            // TODO: this should be a method, defined in cpp file
 
             juce::AudioProcessorValueTreeState::ParameterLayout layout;
             using namespace Parameters;
 
             // public parameters
-            layout.add(
-                stoej::create_unique_param_bool(enable_grit),
-                stoej::create_unique_param_float(noise_density),
-                stoej::create_unique_param_float(noise_mix),
-                stoej::create_unique_param_float(filter_lp_cutoff),
-                stoej::create_unique_param_float(filter_hp_cutoff),
-                stoej::create_unique_param_float(noise_width),
-                stoej::create_unique_param_float(output_level)
-            );
+            for (auto& [_, info] : bool_params)
+                layout.add(stoej::create_unique_param_bool(info));
+            for (auto& [_, info] : float_params)
+                layout.add(stoej::create_unique_param_float(info));
+
             return layout;
         }()
     };

@@ -10,6 +10,10 @@
 
 #pragma once
 #include <string>
+#include "version.h"
+#include "stoej_core.h"
+#include "stoej_properties.h"
+#include "JuceHeader.h"
 
 [[deprecated("use arena")]]
 static const auto COL_BACKGROUND_PRIMARY   = juce::Colour(254,254,254);
@@ -23,9 +27,18 @@ static const auto COL_STROKE_PRIMARY       = juce::Colour(  0,  0,  0);
 [[deprecated("use arena")]]
 static const auto COL_STROKE_SECONDARY     = juce::Colour(254,254,254);
 
-static const std::string PRODUCT_TYPE_CODE = "MEP";
-static const std::string PRODUCT_NUMBER = "00";
-static const std::string PRODUCT_CODE = PRODUCT_TYPE_CODE + PRODUCT_NUMBER;
-static const std::string PRODUCT_NAME = "TEXTURE";
+
+const juce::String PRODUCT_CODE = "FP000";
+const juce::String PRODUCT_NAME = "TEXTURE";
 // ReSharper disable once StringLiteralTypo
-static const std::string COMPANY_NAME = "ST\xc3\x98JMASKINER";
+const juce::String COMPANY_NAME = juce::CharPointer_UTF8("ST\xc3\x98JMASKINER");
+
+constexpr char APVTS_ID[] = "ohG55G9BQgprztnuX6CHC";
+
+
+constexpr char VERSION[] = BUILD_VERSION_;
+constexpr char BUILD_NUMBER[] = BUILD_BUILD_NUMBER_;
+
+
+
+

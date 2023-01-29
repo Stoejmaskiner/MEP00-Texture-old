@@ -86,6 +86,16 @@
       <FILE id="yko7De" name="tgamma.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/tgamma.hpp"/>
       <FILE id="PTwkmc" name="trunc.hpp" compile="0" resource="0" file="gcem/include/gcem_incl/trunc.hpp"/>
     </GROUP>
+    <GROUP id="{8CF02A51-A4DE-34BC-3716-6B4E1A762B8E}" name="json11">
+      <FILE id="p5WWSH" name="CMakeLists.txt" compile="0" resource="1" file="json11/CMakeLists.txt"/>
+      <FILE id="ORVZiB" name="json11.cpp" compile="1" resource="0" file="json11/json11.cpp"/>
+      <FILE id="lHsB0g" name="json11.hpp" compile="0" resource="0" file="json11/json11.hpp"/>
+      <FILE id="jLKo9N" name="json11.pc.in" compile="0" resource="1" file="json11/json11.pc.in"/>
+      <FILE id="fB60N2" name="LICENSE.txt" compile="0" resource="1" file="json11/LICENSE.txt"/>
+      <FILE id="SJGZqA" name="Makefile" compile="0" resource="1" file="json11/Makefile"/>
+      <FILE id="quw6XE" name="README.md" compile="0" resource="1" file="json11/README.md"/>
+      <FILE id="Appps4" name="test.cpp" compile="1" resource="0" file="json11/test.cpp"/>
+    </GROUP>
     <GROUP id="{C71F062B-04D7-FE1D-EC67-8232AC9E9B6A}" name="shared-code">
       <GROUP id="{79EE3CE9-023D-615F-E240-77F90BA8CCB5}" name="binary_data">
         <FILE id="RFedt4" name="stoej_BinaryData.cpp" compile="1" resource="0"
@@ -172,8 +182,8 @@
               file="shared-code/utils/stoej_nonlinearities.h"/>
         <FILE id="nK37Cn" name="stoej_xfade.h" compile="0" resource="0" file="shared-code/utils/stoej_xfade.h"/>
       </GROUP>
-      <FILE id="XoB65E" name="LICENSE" compile="0" resource="1" file="shared-code/LICENSE"/>
-      <FILE id="E8JDGk" name="README.md" compile="0" resource="1" file="shared-code/README.md"/>
+      <FILE id="XoB65E" name="LICENSE" compile="0" resource="0" file="shared-code/LICENSE"/>
+      <FILE id="E8JDGk" name="README.md" compile="0" resource="0" file="shared-code/README.md"/>
       <FILE id="reEbO7" name="stoej_APVTS.h" compile="0" resource="0" file="shared-code/stoej_APVTS.h"/>
       <FILE id="ugDaDY" name="stoej_core.h" compile="0" resource="0" file="shared-code/stoej_core.h"/>
       <FILE id="rtkCVj" name="stoej_mfx.h" compile="0" resource="0" file="shared-code/stoej_mfx.h"/>
@@ -183,6 +193,8 @@
       <FILE id="NPXBw6" name="stoej_Types.h" compile="0" resource="0" file="shared-code/stoej_Types.h"/>
     </GROUP>
     <GROUP id="{A7EB67A8-3E2D-B56D-DB08-5F3950B89085}" name="Source">
+      <FILE id="vv4ZKJ" name="PluginGlobals.cpp" compile="1" resource="0"
+            file="Source/PluginGlobals.cpp"/>
       <FILE id="iD5B5Q" name="version.h" compile="0" resource="0" file="Source/version.h"/>
       <FILE id="HLpx6o" name="PluginGlobals.h" compile="0" resource="0" file="Source/PluginGlobals.h"/>
       <FILE id="EpKFdU" name="PluginAssets.h" compile="0" resource="0" file="Source/PluginAssets.h"/>
@@ -209,8 +221,9 @@
     <VS2022 targetFolder="Builds/VisualStudio2022">
       <CONFIGURATIONS>
         <CONFIGURATION isDebug="1" name="Debug" targetName="MEP00 - Texture" enablePluginBinaryCopyStep="1"
-                       headerPath="../../shared-code&#10;../../gcem/include"/>
-        <CONFIGURATION isDebug="0" name="Release" targetName="MEP00 - Texture" enablePluginBinaryCopyStep="1"/>
+                       headerPath="../../shared-code&#10;../../gcem/include&#10;../../json11"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="MEP00 - Texture" enablePluginBinaryCopyStep="1"
+                       headerPath="../../shared-code&#10;../../gcem/include&#10;../../json11"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_audio_basics" path="../../../../../JUCE/modules"/>

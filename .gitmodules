@@ -4,3 +4,6 @@
 [submodule "gcem"]
 	path = gcem
 	url = https://github.com/kthohr/gcem.git
+[submodule "json11"]
+	path = json11
+	url = https://github.com/dropbox/json11.git
