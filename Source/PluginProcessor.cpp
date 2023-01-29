@@ -230,20 +230,21 @@ void MEP00TextureAudioProcessor::getStateInformation (juce::MemoryBlock& destDat
     // TODO: some helper class / function to automate this better would be neat
     STOEJ_DBG(1,"preparing preset from state");
     juce::ValueTree state(PRODUCT_CODE);
-    state.setProperty("STOEJ_PRESET_SCHEMA_VERSION", "v0.0.0", nullptr);     // TODO: stringly typed
+    state.setProperty("STOEJ_PRESET_SCHEMA_VERSION", 0, nullptr);     // TODO: stringly typed
     STOEJ_VT_SET_AUTONAMED_PROPERTY(state,PRODUCT_CODE);
     STOEJ_VT_SET_AUTONAMED_PROPERTY(state,VERSION);
     STOEJ_VT_SET_AUTONAMED_PROPERTY(state,BUILD_NUMBER);
     for (auto& [_, info] : bool_params) {
         juce::ValueTree param("PARAM");     // TODO: stringly typed
         param.setProperty("id",info.id,nullptr);
-        param.setProperty("value", this->apvts.getRawParameterValue(info.id)->load(),nullptr);
+        param.setProperty("value", this->apvts.getRawParameterValue(info.id)->load(), nullptr);
         state.appendChild(param,nullptr);
     }
     for (auto& [_, info] : float_params) {
         juce::ValueTree param("PARAM");     // TODO: stringly typed
         param.setProperty("id", info.id, nullptr);
-        param.setProperty("value", this->apvts.getRawParameterValue(info.id)->load(), nullptr);
+        float val = this->apvts.getParameter(info.id)->getNormalisableRange().convertTo0to1(this->apvts.getRawParameterValue(info.id)->load());
+        param.setProperty("value", val, nullptr);
         state.appendChild(param, nullptr);
     }
     STOEJ_DBG(0,"finished preparing preset. preset:\n" + state.toXmlString().toStdString());
@@ -277,11 +278,40 @@ void MEP00TextureAudioProcessor::setStateInformation (const void* data, int size
         jassertfalse;
     }
 
-    juce::String got_version = STOEJ_VT_GET_AUTONAMED_PROPERTY_CHECKED(state,VERSION);
+    // TODO: check schema version
 
+    juce::String got_version = STOEJ_VT_GET_AUTONAMED_PROPERTY_CHECKED(state,VERSION);
+    switch (stoej::semVerCompare(got_version, VERSION)) {
+    case lt:
+    case eq:
+        break;
+    case lt_breaking:
+        STOEJ_DBG(1,"importing from an older major version, special handling may be performed. expected=<" + std::string(VERSION) + ">, got=<" + got_version.toStdString() + ">");
+        break;
+    case gt_breaking:
+        STOEJ_DBG(3,"import aborted, trying to import from a newer major version. expected=<" + std::string(VERSION) + ">, got=<" + got_version.toStdString() + ">");
+        jassertfalse;
+        break;
+    case gt:
+        STOEJ_DBG(2,"importing from a future minor version");
+        jassertfalse;
+        break;
+    default:
+        jassertfalse;
+    }
+
+    // load params
+    for (auto& [_, info] : bool_params) {
+        auto param = state.getChildWithProperty("id",info.id);
+        this->apvts.getParameter(info.id)->setValueNotifyingHost(param.getProperty("value"));        
+    }
+    for (auto& [_, info] : float_params) {
+        auto param = state.getChildWithProperty("id", info.id);
+        this->apvts.getParameter(info.id)->setValueNotifyingHost(param.getProperty("value"));        
+    }
     
 
-            //this->apvts.replaceState();
+
 }
 
 //==============================================================================
