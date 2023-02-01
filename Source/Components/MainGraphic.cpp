@@ -79,4 +79,7 @@ void MainGraphic::paint(juce::Graphics& g)
 
     auto border_c = this->theme_manager_.getThemeColor(stoej::ThemeManager::foreground_primary);
     this->drawBorder(g, 1.f, border_c);
+
+    this->dbgDrawIntBounds(g);
+    this->dbgDrawFloatBounds(g);
 }
