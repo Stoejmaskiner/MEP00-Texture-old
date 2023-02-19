@@ -1,0 +1,6 @@
+[submodule "libs/stoej-juce-lib"]
+	path = libs/stoej-juce-lib
+	url = https://github.com/Stoejmaskiner/stoej-juce-lib.git
+[submodule "libs/stoej-assets"]
+	path = libs/stoej-assets
+	url = https://github.com/Stoejmaskiner/stoej-assets.git
