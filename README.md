@@ -1,6 +1,6 @@
 # FP000 - Texture
 
-***product type:** Effect plugin (FP)
+***product type:** Effect plugin (FP)*
 
 ***category:** creative effect, sound design*
 
