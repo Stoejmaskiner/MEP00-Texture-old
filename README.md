@@ -1,6 +1,6 @@
-# MEP00 - Texture
+# FP000 - Texture
 
-***product type:** [Meta Effect Plugin (MEP)]()*
+***product type:** Effect plugin (FP)
 
 ***category:** creative effect, sound design*
 
