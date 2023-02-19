@@ -1,7 +1,5 @@
 # MEP00 - Texture
 
-> **Disclaimer:** this is an abandoned older prototype of the plugin, it was re-written from scratch [here](https://github.com/Stoejmaskiner/mep00-texture)
-
 ***product type:** [Meta Effect Plugin (MEP)]()*
 
 ***category:** creative effect, sound design*
