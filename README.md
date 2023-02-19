@@ -15,37 +15,11 @@ Optionally, the noise can be shaped with gentle 6dB low cut and high cut filters
 <!--
 **Block diagram of simple mode**
 
-```mermaid
-flowchart LR
-in[/input/]
-white[/white noise/]
-mul((X))
-in --> mul
-white --> mul --> gain
-add((+))
-in --> add
-gain --> add
-out[/output/]
-add --> out
 
-```
 
 **Block diagram of gritty mode**
 
-```mermaid
-flowchart LR
-in[/input/]
-out[/output/]
-white[/white noise/]
-rect_h[half wave rectify]
-pow[x^2]
-rect_f[full wave rectify]
-add((+))
-mul((X))
-in --> rect_f --> mul
-in --> add
-white --> rect_h --> pow --> mul --> gain --> add --> out
-```
+
 
 ## Shared Processors Used
 
