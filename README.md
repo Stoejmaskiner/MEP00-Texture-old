@@ -12,6 +12,7 @@ It has two modes: simple and gritty. Simple mode simply ring modulates white noi
 
 Optionally, the noise can be shaped with gentle 6dB low cut and high cut filters before summing with the input.
 
+<!--
 **Block diagram of simple mode**
 
 ```mermaid
@@ -54,17 +55,20 @@ The processors used are the following:
 
 - [RingModNoise]()
 - [RingModDust]()
+-->
 
 ## Roadmap
 
 - Beta pre-release
   - [x] Fully working DSP
-  - [ ] Fully working GUI
-  - [ ] User manual
+  - [x] Fully working GUI
   
 - Release
+  - [ ] User manual
   - [ ] VST3 exclusive feature integration (right click contextual menu)
   - [ ] Keyboard shortcuts
   - [ ] UX refinement
   - [ ] Bug proofing
   - [ ] SIMD optimization
+  - [ ] Custom theme files for advanced users
+  - [ ] Save presets as JSON rather than XML
