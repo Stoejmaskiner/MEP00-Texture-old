@@ -121,23 +121,14 @@
         </GROUP>
       </GROUP>
       <GROUP id="{286A6F5B-DB10-C8C2-81A7-7D9E37EB7A68}" name="gui">
+        <FILE id="IowMW5" name="stoej_component.cpp" compile="1" resource="0"
+              file="shared-code/gui/components/stoej_component.cpp"/>
+        <FILE id="tRKh0c" name="stoej_component.h" compile="0" resource="0"
+              file="shared-code/gui/components/stoej_component.h"/>
         <GROUP id="{3EDCCE8E-F1D9-296C-AA3C-9B2E1212802D}" name="components">
-          <FILE id="bcq9yG" name="stoej_box.h" compile="0" resource="0" file="shared-code/gui/components/stoej_box.h"/>
           <FILE id="FRl4QB" name="stoej_button.cpp" compile="1" resource="0"
                 file="shared-code/gui/components/stoej_button.cpp"/>
           <FILE id="HWlcFP" name="stoej_button.h" compile="0" resource="0" file="shared-code/gui/components/stoej_button.h"/>
-          <FILE id="i4yuit" name="stoej_canvas.cpp" compile="1" resource="0"
-                file="shared-code/gui/components/stoej_canvas.cpp"/>
-          <FILE id="VE78Kr" name="stoej_canvas.h" compile="0" resource="0" file="shared-code/gui/components/stoej_canvas.h"/>
-          <FILE id="IowMW5" name="stoej_component.cpp" compile="1" resource="0"
-                file="shared-code/gui/components/stoej_component.cpp"/>
-          <FILE id="tRKh0c" name="stoej_component.h" compile="0" resource="0"
-                file="shared-code/gui/components/stoej_component.h"/>
-          <FILE id="qSasQl" name="stoej_dbg_box.h" compile="0" resource="0" file="shared-code/gui/components/stoej_dbg_box.h"/>
-          <FILE id="d8CtQO" name="stoej_menu_button.h" compile="0" resource="0"
-                file="shared-code/gui/components/stoej_menu_button.h"/>
-          <FILE id="sPmw3L" name="stoej_preset_text_field.h" compile="0" resource="0"
-                file="shared-code/gui/components/stoej_preset_text_field.h"/>
           <FILE id="hqbi9k" name="stoej_Slider.cpp" compile="1" resource="0"
                 file="shared-code/gui/components/stoej_Slider.cpp"/>
           <FILE id="CZJJYO" name="stoej_Slider.h" compile="0" resource="0" file="shared-code/gui/components/stoej_Slider.h"/>
