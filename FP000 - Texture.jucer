@@ -3,8 +3,8 @@
 <JUCERPROJECT id="m5ObIL" name="FP000 - Texture" projectType="audioplug" useAppConfig="0"
               addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1"
               version="0.1.0" companyName="Stoejmaskiner" pluginManufacturerCode="Stoj"
-              pluginCode="Me00" pluginCharacteristicsValue="pluginEditorRequiresKeys"
-              headerPath="shared-code/" cppLanguageStandard="20">
+              pluginCode="F000" pluginCharacteristicsValue="pluginEditorRequiresKeys"
+              headerPath="shared-code/" cppLanguageStandard="20" pluginFormats="buildAU,buildVST,buildVST3">
   <MAINGROUP id="PVQy7Z" name="FP000 - Texture">
     <GROUP id="{CD14FBDF-3ED9-577D-E8DB-633CEABF9DF2}" name="gcem_incl">
       <GROUP id="{66CAFBA7-95A0-C9A7-7383-AB8ADF5E811B}" name="quadrature">
@@ -221,9 +221,9 @@
     <VS2022 targetFolder="Builds/VisualStudio2022">
       <CONFIGURATIONS>
         <CONFIGURATION isDebug="1" name="Debug" targetName="FP000 - Texture" enablePluginBinaryCopyStep="1"
-                       headerPath="../../shared-code&#10;../../gcem/include&#10;../../json11"/>
-        <CONFIGURATION isDebug="0" name="Release" targetName="MEP00 - Texture" enablePluginBinaryCopyStep="1"
-                       headerPath="../../shared-code&#10;../../gcem/include&#10;../../json11"/>
+                       headerPath="../../shared-code&#10;../../gcem/include&#10;../../json11&#10;C:\VST_SDK\vst2sdk\vstsdk2.4"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="FP000 - Texture" enablePluginBinaryCopyStep="1"
+                       headerPath="../../shared-code&#10;../../gcem/include&#10;../../json11&#10;C:\VST_SDK\vst2sdk\vstsdk2.4"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_audio_basics" path="../../../../../JUCE/modules"/>
