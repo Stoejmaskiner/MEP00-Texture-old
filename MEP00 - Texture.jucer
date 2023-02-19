@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="m5ObIL" name="MEP00 - Texture" projectType="audioplug" useAppConfig="0"
+<JUCERPROJECT id="m5ObIL" name="FP000 - Texture" projectType="audioplug" useAppConfig="0"
               addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1"
               version="0.1.0" companyName="Stoejmaskiner" pluginManufacturerCode="Stoj"
               pluginCode="Me00" pluginCharacteristicsValue="pluginEditorRequiresKeys"
               headerPath="shared-code/" cppLanguageStandard="20">
-  <MAINGROUP id="PVQy7Z" name="MEP00 - Texture">
+  <MAINGROUP id="PVQy7Z" name="FP000 - Texture">
     <GROUP id="{CD14FBDF-3ED9-577D-E8DB-633CEABF9DF2}" name="gcem_incl">
       <GROUP id="{66CAFBA7-95A0-C9A7-7383-AB8ADF5E811B}" name="quadrature">
         <FILE id="Ib6YKp" name="gauss_legendre_30.hpp" compile="0" resource="0"
@@ -220,7 +220,7 @@
   <EXPORTFORMATS>
     <VS2022 targetFolder="Builds/VisualStudio2022">
       <CONFIGURATIONS>
-        <CONFIGURATION isDebug="1" name="Debug" targetName="MEP00 - Texture" enablePluginBinaryCopyStep="1"
+        <CONFIGURATION isDebug="1" name="Debug" targetName="FP000 - Texture" enablePluginBinaryCopyStep="1"
                        headerPath="../../shared-code&#10;../../gcem/include&#10;../../json11"/>
         <CONFIGURATION isDebug="0" name="Release" targetName="MEP00 - Texture" enablePluginBinaryCopyStep="1"
                        headerPath="../../shared-code&#10;../../gcem/include&#10;../../json11"/>

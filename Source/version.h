@@ -17,7 +17,7 @@
 */
 
 #define BUILD_LOG_LEVEL_ 0
-#define BUILD_VERSION_ "v0.0.2"
+#define BUILD_VERSION_ "v0.1.0"
 // #define BUILD_PRE_RELEASE_
 #define BUILD_LOCAL_BUILD_
 #define BUILD_BUILD_NUMBER_ "0"

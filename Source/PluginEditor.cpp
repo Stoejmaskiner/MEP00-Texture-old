@@ -141,6 +141,9 @@ MEP00TextureAudioProcessorEditor::MEP00TextureAudioProcessorEditor (MEP00Texture
     #define ADD_TOOLTIP_(c,s,box) \
     c.setTooltip(s); \
     c.addMouseListener(&box, false);
+    ADD_TOOLTIP_(this->light_dark_toggle_, "toggle between light and dark theme", this->tooltip_box_);
+    ADD_TOOLTIP_(this->randomize_btn_, "randomize parameters", this->tooltip_box_);
+    ADD_TOOLTIP_(this->init_btn_, "reset all parameters", this->tooltip_box_);
     ADD_TOOLTIP_(this->grit_btn_, "adds asymmetric distortion to the noise", this->tooltip_box_);
     ADD_TOOLTIP_(this->density_val_, "low density = crackle, high density = hiss", this->tooltip_box_);
     ADD_TOOLTIP_(this->mix_val_, "blend unprocessed input with texture noise", this->tooltip_box_);
@@ -168,7 +171,7 @@ MEP00TextureAudioProcessorEditor::MEP00TextureAudioProcessorEditor (MEP00Texture
         stoej::apvts_random_param(apvts, Parameters::noise_density.id);
         stoej::apvts_random_param(apvts, Parameters::noise_mix.id);
         stoej::apvts_random_param(apvts, Parameters::noise_width.id);
-        stoej::apvts_random_param(apvts, Parameters::output_level.id);
+        //stoej::apvts_random_param(apvts, Parameters::output_level.id);
     };
     this->light_dark_toggle_.addListener(this);
     /*

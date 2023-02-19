@@ -23,7 +23,7 @@ TitleBar::TitleBar(stoej::APVTS* apvts, stoej::ThemeManager& theme_manager) : st
 
 }
 
-void TitleBar::paint (juce::Graphics& g)
+void TitleBar::paint(juce::Graphics& g)
 {
     /* This demo code just fills the component's background and
        draws some placeholder text to get you started.
@@ -38,11 +38,11 @@ void TitleBar::paint (juce::Graphics& g)
     auto txt_c_2 = this->theme_manager_.getThemeColor(stoej::ThemeManager::text_secondary);
     auto r = getLocalFloatBounds();
 
-    
+
     g.setFont(stoej::get_font_archivo_thin());
-    g.setFont (20.f * dp_ * stoej::PT_2_PX);
+    g.setFont(20.f * dp_ * stoej::PT_2_PX);
     g.setColour(txt_c_2);
-    g.drawText ("[" + PRODUCT_CODE + "]", r,juce::Justification::left, true);   // draw some placeholder text
+    g.drawText("[" + PRODUCT_CODE + "][" + VERSION + "]", r, juce::Justification::left, true);   // draw some placeholder text
     g.setFont(stoej::get_font_archivo_black());
     g.setFont(20.f * dp_ * stoej::PT_2_PX);
     g.setColour(txt_c_1);
