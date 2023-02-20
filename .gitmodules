@@ -4,3 +4,9 @@
 [submodule "libs/stoej-assets"]
 	path = libs/stoej-assets
 	url = https://github.com/Stoejmaskiner/stoej-assets.git
+[submodule "libs/libs/JUCE"]
+	path = libs/libs/JUCE
+	url = https://github.com/juce-framework/JUCE.git
+[submodule "libs/JUCE"]
+	path = libs/JUCE
+	url = https://github.com/juce-framework/JUCE.git
