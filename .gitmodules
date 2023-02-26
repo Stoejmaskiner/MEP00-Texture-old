@@ -7,3 +7,12 @@
 [submodule "libs/JUCE"]
 	path = libs/JUCE
 	url = https://github.com/juce-framework/JUCE.git
+[submodule "libs/stoej_core"]
+	path = libs/stoej_core
+	url = git@github.com:Stoejmaskiner/stoej_core.git
+[submodule "libs/stoej_dsp"]
+	path = libs/stoej_dsp
+	url = git@github.com:Stoejmaskiner/stoej_dsp.git
+[submodule "libs/stoej_gui"]
+	path = libs/stoej_gui
+	url = git@github.com:Stoejmaskiner/stoej_gui.git

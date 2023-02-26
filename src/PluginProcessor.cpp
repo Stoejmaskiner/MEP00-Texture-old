@@ -1,5 +1,6 @@
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
+#include <stoej_core/stoej_core.h>
 
 //==============================================================================
 PluginProcessor::PluginProcessor()
@@ -159,7 +160,7 @@ bool PluginProcessor::hasEditor() const
 
 juce::AudioProcessorEditor* PluginProcessor::createEditor()
 {
-    return new PluginProcessorEditor (*this);
+    return new PluginEditor (*this);
 }
 
 //==============================================================================
