@@ -65,6 +65,12 @@ target_sources(
     src/PluginEditor.cpp
     src/PluginProcessor.cpp)
 
+target_compile_definitions(
+    ${PROJECT_NAME}
+    PRIVATE
+    FP000_PRODUCT_CODE="FP000"
+)
+
 # No, we don't want our source buried in extra nested folders
 set_target_properties("${PROJECT_NAME}" PROPERTIES FOLDER "")
 
@@ -104,9 +110,12 @@ endforeach()
 #set_target_properties(Assets PROPERTIES FOLDER "Targets")
 
 set(JUCE_DEPENDENCIES
+    juce::juce_core
     juce::juce_audio_utils
     juce::juce_audio_processors)
-juce_add_modules(libs/stoej_core)
+juce_add_modules(
+    libs/stoej_core
+    libs/stoej_gui)
 
 target_compile_definitions(
     "${PROJECT_NAME}"
