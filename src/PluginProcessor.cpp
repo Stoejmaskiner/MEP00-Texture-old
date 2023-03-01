@@ -33,15 +33,15 @@ const juce::String fp000::PluginProcessor::getName() const {
 }
 
 bool fp000::PluginProcessor::acceptsMidi() const {
-    return std::static_cast<bool>(JucePlugin_WantsMidiInput);
+    return static_cast<bool>(JucePlugin_WantsMidiInput);
 }
 
 bool fp000::PluginProcessor::producesMidi() const {
-    return std::static_cast<bool>(JucePlugin_ProducesMidiOutput);
+    return static_cast<bool>(JucePlugin_ProducesMidiOutput);
 }
 
 bool fp000::PluginProcessor::isMidiEffect() const {
-    return std::static_cast<bool>(JucePlugin_IsMidiEffect);
+    return static_cast<bool>(JucePlugin_IsMidiEffect);
 }
 
 double fp000::PluginProcessor::getTailLengthSeconds() const {
@@ -212,5 +212,67 @@ void fp000::PluginProcessor::getStateInformation (juce::MemoryBlock& dest_data) 
     STOEJ_DBG(0, "saved preset");
 }
 
+void fp000::PluginProcessor::setStateInformation (
+    const void* data, 
+    int size_in_bytes) 
+{
+    // TODO: probably needs to be rewritten and simplified, also use JSON for
+    // gods sake
 
-// TODO: got here
+    std::unique_ptr<juce::XmlElement> xml_state(getXmlFromBinary(data, size_in_bytes));
+
+    // TODO: graceful error reporting
+    if (xml_state.get() == nullptr) {
+        STOEJ_DBG(3, "import aborted, could not load XML (was nullptr)");
+        jassertfalse;
+    }
+
+    auto state = juce::ValueTree::fromXml(*xml_state);
+    if (state.getType() != this->apvts.state.getType()) {
+        STOEJ_DBG(2, "root type mismatch. expected=<" + this->apvts.state.getType().toString().toStdString() + ">, got=<" + state.getType().toString().toStdString() + ">");
+    }
+
+    const juce::String got_product_code = STOEJ_VT_GET_AUTONAMED_PROPERTY_CHECKED(state, PRODUCT_CODE);
+    if (got_product_code != FP000_PRODUCT_CODE) {
+        STOEJ_DBG(3, "import aborted, attempting to import preset from a different product. expected=<" + std::string(FP000_PRODUCT_CODE) + ">, got=<" + got_product_code.toStdString() + ">");
+        jassertfalse;
+    }
+
+    // TODO: check schema version
+    auto version = JUCE_STRINGIFY(JucePlugin_Version);
+    const juce::String got_version = STOEJ_VT_GET_AUTONAMED_PROPERTY_CHECKED(state, version);
+    switch (stoej::semVerCompare(got_version), version) {
+        case lt:
+        case eq:
+            break;
+        case lt_breaking:
+            STOEJ_DBG(1,"importing from an older major version, special handling may be performed. expected=<" + std::string(version) + ">, got=<" + got_version.toStdString() + ">");
+            break;
+        case gt_breaking:
+            STOEJ_DBG(3,"import aborted, trying to import from a newer major version. expected=<" + std::string(version) + ">, got=<" + got_version.toStdString() + ">");
+            jassertfalse;
+            break;
+        case gt:
+            STOEJ_DBG(2,"importing from a future minor version");
+            jassertfalse;
+            break;
+        default:
+            jassertfalse;
+    } 
+
+    // load params
+    for (auto& [_, info] : bool_params) {
+        auto param = state.getChildWithProperty("id",info.id);
+        this->apvts.getParameter(info.id)->setValueNotifyingHost(param.getProperty("value"));        
+    }
+    for (auto& [_, info] : float_params) {
+        auto param = state.getChildWithProperty("id", info.id);
+        this->apvts.getParameter(info.id)->setValueNotifyingHost(param.getProperty("value"));        
+    }
+}
+
+
+// ===== entrypoint ===========================================================
+juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter() {
+    return new fp000::PluginProcessor();
+}
