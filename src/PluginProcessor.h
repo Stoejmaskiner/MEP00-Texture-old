@@ -2,6 +2,7 @@
 
 #include <juce_audio_processors/juce_audio_processors.h>
 #include <juce_dsp/juce_dsp.h>
+#include <stoej_dsp/stoej_dsp.h>
 #include <stoej_gui/stoej_gui.h>
 
 #include "PluginParameters.h"
@@ -10,7 +11,7 @@ namespace fp000 {
     class PluginProcessor : public juce::AudioProcessor {
     public:
         PluginProcessor();
-        ~PluginProcessor() override;
+        ~PluginProcessor() override {}
 
     // the apvts is used to store parameters and plugin state
         stoej::APVTS apvts{
@@ -77,17 +78,6 @@ namespace fp000 {
         //stoej::WhiteNoise<float> white_noise_;
         stoej::MultiplicativeNoise<float> multiplicative_noise_;
         
-        /*
-        stoej::RingModNoiseA rm_noise_a_;
-        stoej::RingModNoiseB rm_noise_b_;
-        Filter noise_hp_;
-        Filter noise_lp_;
-        DryWet mixer_;
-        Gain post_gain_;
-        */
-
-        
-
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (PluginProcessor)
     };
 }

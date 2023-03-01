@@ -69,6 +69,7 @@ target_compile_definitions(
     ${PROJECT_NAME}
     PRIVATE
     FP000_PRODUCT_CODE="FP000"
+    FP000_BUILD_NUMBER="0"
 )
 
 # No, we don't want our source buried in extra nested folders
